@@ -15,6 +15,7 @@ body {
     align-items: center;
     height: 100vh;
     font-family: "Plus Jakarta Sans", sans-serif;
+    background: linear-gradient(135deg, rgba(155, 89, 182, 0.06) 0%, transparent 50%, rgba(78, 205, 196, 0.08) 100%);
     
 }
 logo{
