@@ -197,8 +197,9 @@ a {
     justify-content: center;
     width: 4rem;
     height: 4rem;
-    background: #fee2e2;
     color: #e53e3e;
+    background: #fff1f2;
+    border-color: #fecdd3;
     border-radius: 14px;
     font-size: 1.75rem;
     margin: 0 auto 1rem;
