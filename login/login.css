@@ -54,7 +54,7 @@ p {
    font-size: 12px;
 }
 
-form {
+.form {
     width: 100%;
     max-width: 400px;
     margin: 0 auto;

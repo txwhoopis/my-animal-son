@@ -55,9 +55,9 @@ p {
    font-size: 12px;
 }
 
-form {
+.form {
     width: 100%;
-    max-width: 400px;
+    max-width: 400x;
     margin: 0 auto;
 }
 
@@ -68,7 +68,7 @@ label{
 }
 
 button {
-     width: 100%;
+    width: 100%;
     padding: 0.5rem;
     font-size: 0.8rem;
     font-weight: bold;
