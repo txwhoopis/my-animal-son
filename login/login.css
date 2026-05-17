@@ -81,7 +81,7 @@ button {
 }
 
 button:hover {
-    background-color: #9B59B6;
+    background-color: #ae5a9e;
 }
 
 .link {
@@ -102,6 +102,7 @@ input {
     width: 100%;
     box-sizing: border-box;
     padding: 0.5rem;
+    margin-top: 0.350rem;
     margin-bottom: 1rem;
     border: 1px solid #ccc;
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
