@@ -156,6 +156,32 @@
         </div>
     </footer>
 
+
+    <script>
+        function filtrar() {
+            var busca = document.getElementById('busca').value.toLowerCase();
+            var especie = document.getElementById('especie').value;
+            var cards = document.querySelectorAll(".card-guia");
+            var qtd = 0;
+
+            cards.forEach(function(c)) {
+                var texto = c.textContent.toLowerCase();
+                var cat = c.dataset.cat;
+                var esp = c.dataset.esp || '';
+
+                var okBusca = !busca || texto.includes(busca);
+
+                var okEsp = !especie || esp.includes(especie);
+
+                var show = okBusca && okEsp;
+                c.style.display = show ? '' : 'none';
+
+                if(show) qtd++;
+            }
+        };
+
+        
+    </script>
     
 
 </body>
