@@ -164,7 +164,7 @@
             var cards = document.querySelectorAll(".card-guia");
             var qtd = 0;
 
-            cards.forEach(function(c)) {
+            cards.forEach(function(c) {
                 var texto = c.textContent.toLowerCase();
                 var cat = c.dataset.cat;
                 var esp = c.dataset.esp || '';
@@ -177,7 +177,7 @@
                 c.style.display = show ? '' : 'none';
 
                 if(show) qtd++;
-            }
+            })
         };
 
         
