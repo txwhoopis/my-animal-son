@@ -13,6 +13,7 @@ body {
     font-family: "Plus Jakarta Sans", sans-serif;
     color: #2b2b2b;
     background: #ffffff;
+    min-height: 100vh;
 
 }
 
@@ -24,6 +25,7 @@ body {
 
 html {
     scroll-behavior: smooth;
+    min-height: 100vh;
 }
 
     /* ──--------------------------------- separações divas para a gnt se achar - nav -------------------------------------------------── */
@@ -525,7 +527,7 @@ select:focus {
 
 #botoesResultado button:hover { background: rgba(0,0,0,0.04); }
 
-/* RODAPÉ */
+/* RODAPÉ-*/
 #rodape {
     background: #2b2b2b;
     color: rgba(255,255,255,0.5);
@@ -534,6 +536,12 @@ select:focus {
     text-align: center;
     font-size: 0.75rem;
 }
+
+body > footer { 
+    position: sticky; top: 100vh; 
+}
+
+
 
 /* RESPONSIVE */
 @media (max-width: 768px) {
