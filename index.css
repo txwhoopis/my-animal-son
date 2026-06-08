@@ -385,10 +385,12 @@ a {
 
 .card-funcio p {
     font-size: 0.875rem;
-    color: #807f7f;
+    color: #000000;
     line-height: 1.65;
     flex: 1;
     margin: 0 0 1rem;
+    background: #e8cadf;
+    
 }
 
 .card-link {
