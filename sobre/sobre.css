@@ -223,7 +223,7 @@ a {
 
 #valores {
     padding: 5rem 1.5rem;
-    background: #dc99c8;
+    background: #faf5ff;
 }
 
 #valores h2 {
@@ -241,7 +241,7 @@ a {
 
 }
 .valor-card{
-    background: #fff;
+    background: #dc99c8;
     border: 1px solid #e8e2f0;
     border-radius: 20px;
     padding: 1.5rem;
