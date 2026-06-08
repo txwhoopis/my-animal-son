@@ -158,6 +158,20 @@
 
 
     <script>
+        var catAtiva = todos;
+
+        function trocarCategoria(btn) {
+            catAtiva = btn.dataset.cat;
+            document.querySelectorAll('.btn-cat').forEach(function(b){
+                b.classList.remove('ativo');
+            });
+
+            btn.classList.add('ativo');
+            filtrar();
+
+        }
+        
+
         function filtrar() {
             var busca = document.getElementById('busca').value.toLowerCase();
             var especie = document.getElementById('especie').value;
