@@ -185,13 +185,17 @@
 
                 var okBusca = !busca || texto.includes(busca);
 
+                var okCat = catAtiva === 'todos' || cat === catAtiva;
+
                 var okEsp = !especie || esp.includes(especie);
 
                 var show = okBusca && okEsp;
                 c.style.display = show ? '' : 'none';
 
                 if(show) qtd++;
-            })
+            });
+            
+            document.getElementById('semresultados').style.display = qtd === 0 ? '' : 'none';
         };
 
         
