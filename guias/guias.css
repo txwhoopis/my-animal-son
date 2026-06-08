@@ -521,7 +521,7 @@ body > footer {
         display: block; 
     }
 
-    #navmenu.ativo{
+    #navmenu.active {
         display: block;
     }
 
@@ -537,6 +537,8 @@ body > footer {
     }
 
 }
+
+
 
 @media (max-width: 600px) {
     .cards-grid       { 
