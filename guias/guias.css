@@ -13,6 +13,7 @@ body {
     font-family: "Plus Jakarta Sans", sans-serif;
     color: #2b2b2b;
     background: #ffffff;
+    min-height: 100vh;
 }
 
 .container {
@@ -23,6 +24,7 @@ body {
 
 html {
     scroll-behavior: smooth;
+    min-height: 100vh;
 }
 
 a{
@@ -489,6 +491,10 @@ a {
     opacity: 0.35;
     flex-wrap: wrap;
     gap: 0.5rem;
+}
+
+body > footer { 
+    position: sticky; top: 100vh; 
 }
 
  /* ── separações divas para a gnt se achar - responsividade ── */
