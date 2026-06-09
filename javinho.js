@@ -1,6 +1,6 @@
-const btnmenu = document.getElementById('btnmenu')
-const navmenu = document.getElementById('navmenu')
+const btnmenu = document.getElementById('btnmenu');
+const menuMobile = document.getElementById('menuMobile');
 
 btnmenu.addEventListener('click', () => {
-    navmenu.classList.toggle('ativo');
-})
+    menuMobile.classList.toggle('ativo');
+});
