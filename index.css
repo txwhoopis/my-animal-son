@@ -147,7 +147,7 @@ a {
 
 #menuMobile a,
 #menuMobile button {
-    display: block;
+    display: flex;
     padding: 0.625rem 0.75rem;
     border-radius: 8px;
     font-size: 0.875rem;
@@ -159,6 +159,7 @@ a {
     cursor: pointer;
     font-family: inherit;
     width: 100%;
+    flex-direction: column;
 }
 
 #menuMobile a:hover { 
@@ -406,7 +407,9 @@ a {
     border: 1px solid #e8d7f3;
     border-radius: 20px;
     padding: 20px;
-    width: 280px;
+    width: 100%;
+    max-width: 500px;
+    box-sizing: border-box
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
     transition: 0.3s;
 }
@@ -416,6 +419,13 @@ a {
     grid-template-columns: 1fr 1fr;
     gap: 3rem;
     align-items: center;
+}
+@media (max-width:768px) {
+    .carteira-grid{
+        grid-template-columns: 1fr;}
+    #carteira
+        max-width: 100%
+    }
 }
 
 .carteira-texto h2 {
