@@ -118,15 +118,46 @@
                                     <span class="vacina-pet">Dr. shhdhhd</span>
                                 </div>
                                 <button class="btn-adicionar-vacina" onclick="toggleFormVacina('form-vacina-1', this)">+ Adicionar Vacina</button>
-                            </div>)
+                                <form id="form-vacina-1" class="form-vacina" style="display: none;" onsubmit="salvarVacina(event, 'vacinas-1', 'form-vacina-1')">
+                                    <input type="text" placeholder="Nome da Vacina" required>
+                                    <input type="date" required>
+                                    <input type="text" placeholder="Veterinário (opcional)">
+
+                                    <div class="form-vacina-botoes">
+                                        <button type="submit">Salvar</button>
+                                        <button type="button" onclick="document.getElementById('form-vacina-1').style.display='none'">Cancelar</button>
+                                    </div>
+                                </form>
+                            </div>
                         </div>
                     </div>
+
+
+
+
+<!----------------------------------------   pet-card                      --------------------------------------------->
+                    <div class="pet-card" id="pet-2">
+
+                    </div>
+
 
                 </div>
             </div>
 
         </div>
     </main>
+
+    <!--Modal- Adicionar novo pet-->
+
+    <div id="modal-overplay" style="display: none;">
+        <div id="modal-box">
+            <h2>Adicionar novo pet</h2>
+
+            <form id="formnovopet" onsubmit="">
+                
+            </form>
+        </div>
+    </div>
 
 <!--separações divas para a gnt se achar - dados pessoais      --------------------------------------------------->
 
