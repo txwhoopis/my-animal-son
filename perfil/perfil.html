@@ -241,6 +241,61 @@
             </div>
         </div>
     </footer>
+
+    <script>
+        var contadorPet = 3;
+
+        document.getElementById('formperfil').addEventListener('submit', function(e){
+            e.preventDefault();
+            var btn = document.getElementById('btnsalvarperfil');
+            btn.textContent = 'Salvando...';
+            btn.disabled = true;
+
+            setTimeout(function(){
+                btn.textContent = '&#9998; Salvar perfil';
+                btn.disabled = false;
+                alert('Perfil atualizado!');
+            }, 600);
+        });
+
+        function sair() {
+            localStorage.removeItem('mas_token');
+            window.location.href = '../login/login.html';
+        }
+
+        function abrirmodal() {
+            document.getElementById('modal-overplay').style.display = '';
+        }
+
+        function fecharModal() {
+            document.getElementById('modal-overplay').style.display = 'none';
+        }
+
+        document.getElementById('modal-overplay').addEventListener('click', function(e) {
+            if (e.target === this) fecharModal();
+        });
+
+        function adicionarPet(e) {
+            e.preventDefault();
+            var nome = document.getElementById('petnome').value.trim();
+            var especie = document.getElementById('petEspecie').value;
+            var raca = document.getElementById('petRaca').value.trim();
+            var idade = document.getElementById('petIdade').value;
+            var peso = document.getElementById('petPeso').value;
+
+            var id = 'pet-' + contadorPet++;
+            var tags = '<span class="tags">' + especie.chatAt(0).toUpperCase() + especie.slice(1) + '</span>';
+            if (raca) tags += '<span class="tag">' + raca + '</span>';
+            if (idade) tags += '<span class="tag">' + idade + ' anos</span>';
+            if (peso) tags += '<span class="tag">' + peso + 'kg</span>'; 
+
+            var vacinasId = 'vacinas-' + id;
+            var formId = 'form-vacina-' + id;
+
+            var html = '<div class+="pet-card" id="' + id + '">' + '<div class="pet-header">' + 
+
+        }
+    </script>
     
 </body>
 </html>
