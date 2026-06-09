@@ -406,7 +406,7 @@ a {
     border: 1px solid #e8d7f3;
     border-radius: 20px;
     padding: 20px;
-    width: 280px;
+    width: 100%
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
     transition: 0.3s;
 }
