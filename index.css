@@ -427,6 +427,7 @@ a {
     grid-template-columns: 1fr 1fr;
     gap: 3rem;
     align-items: center;
+    max-width: 100%;
 }
 @media (max-width:768px) {
     .carteira-grid{
