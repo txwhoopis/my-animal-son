@@ -16,13 +16,13 @@ body {
 }
 
 .container, card {
-    
+    width: 900 px;
     margin: 0 auto;
     padding: 0 1.5rem;
     width: 100%;
-    max-width: 100%;
+    max-width: 1200 px;
 }
-* {box-sizing: border-box
+* { box-sizing: border-box
   }
 img{
     max-width: 100%
