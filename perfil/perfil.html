@@ -292,9 +292,31 @@
             var vacinasId = 'vacinas-' + id;
             var formId = 'form-vacina-' + id;
 
-            var html = '<div class+="pet-card" id="' + id + '">' + '<div class="pet-header">' +  ''
+            var html = '<div class+="pet-card" id="' + id + '">' + '<div class="pet-header">' + 
+            '<div><strong class="pet-nome">' + nome + '</strong>' +
+                    '<div class="pet-tags">' + tags + '</div></div>' +
+                    '<button class="btn-deletar" onclick="deletarpet(\'' + id + '\')">&#128465;</button>' +
+                '</div>' +
+                '<div class="carteira">' +
+                    '<button class="btn-vacinas" onclick="toggleVacinas(\'' + vacinasId + '\', this)">&#128137; Carteira de Vacinação &#9660;</button>' +
+                    '<div id="' + vacinasId + '" class="vacinas" style="display:none;">' +
+                        '<p style="font-size:12px;color:#807f7f;">Nenhuma vacina registrada</p>' +
+                        '<button class="btn-adicionar-vacina" onclick="toggleFormVacina(\'' + formId + '\', this)">+ Adicionar vacina</button>' +
+                        '<form id="' + formId + '" class="form-vacina" style="display:none;" onsubmit="salvarVacina(event,\'' + vacinasId + '\',\'' + formId + '\')">' +
+                            '<input type="text" placeholder="Nome da vacina" required>' +
+                            '<input type="date" required>' +
+                            '<input type="text" placeholder="Veterinário (opcional)">' +
+                            '<div class="form-vacina-botoes"><button type="submit">Salvar</button><button type="button" onclick="document.getElementById(\'' + formId + '\').style.display=\'none\'">Cancelar</button></div>' +
+                        '</form>' +
+                    '</div>' +
+                '</div>' +
+            '</div>';
 
+            document.getElementById('listaPets').insertAdjacentHTML('beforeend', html);
+            document.getElementById('formNovoPet').reset();
+            fecharModal();
         }
+
 
         function deletarpet(id) {
             if(confirm('Remover esse pet?')) {
