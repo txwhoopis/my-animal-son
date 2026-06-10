@@ -292,10 +292,48 @@
             var vacinasId = 'vacinas-' + id;
             var formId = 'form-vacina-' + id;
 
-            var html = '<div class+="pet-card" id="' + id + '">' + '<div class="pet-header">' + 
+            var html = '<div class+="pet-card" id="' + id + '">' + '<div class="pet-header">' +  ''
 
         }
+
+        function deletarpet(id) {
+            if(confirm('Remover esse pet?')) {
+                document.getElementById(id).remove();
+            }
+        }
+
+        function toggleFormVacina(id, btn) {
+            var el = document.getElementById(id);
+            el.style.display = el.style.display === 'none' ? '' : 'none';
+        }
+
+        function salvarVacina(e, vacinasId, formId) {
+            e.preventDefault();
+            var form = document.getElementById(formId);
+            var nome = form.querySelectorAll('input')[0].value;
+            var data = form.querySelectorAll('input')[1].value;
+            var vet = form.querySelectorAll('input')[2].value;
+
+            dataFormatada = data ? new Date(data).toLocaleDateString('pt-br') : '';
+            var html  = '<div class="vacina-linha">' +
+                '<span><strong>' + nome + '</strong> <span class="vacina-data">' + dataFormatada + '</span></span>' +
+                (vet ? '<span class="vacina-vet">' + vet + '</span>' : '') +
+            '</div>';
+
+            var vacinasEl = document.getElementById(vacinasId);
+            var semVacina = vacinasEl.querySelector('p');
+            if (semVacina) semVacina.remove();
+
+            form.insertAdjacentHTML('beforebegin', html);
+            form.reset();
+            form.style.display = 'none';
+        }
+        
+        
+
+
     </script>
     
+
 </body>
 </html>
