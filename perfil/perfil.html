@@ -244,27 +244,51 @@
 
             document.getElementById('inputnome').value = usuarioLogado.nome;
 
-            var telefone = document.getElementById('tel').value.trim();
+            if (usuarioLogado.telefone) {
+                document.getElementById('inputtelefone').value = usuarioLogado.telefone;
+            }
 
-            const novoUsuario = {
-                nome: nome,
-                email: email,
-                telefone: telefone,
-                senha: senha
-            };
+            if (usuarioLogado.cidade) {
+                document.getElementById('inputcidade').value = usuarioLogado.cidade;
+            }
+
+            if (usuarioLogado.estado) {
+                document.getElementById('inputestado').value = usuarioLogado.estado;
+            }
         }
 
         var contadorPet = 3;
 
         document.getElementById('formperfil').addEventListener('submit', function(e){
             e.preventDefault();
+
+            usuarioLogado.nome = document.getElementById('inputnome').value.trim();
+            usuarioLogado.telefone = document.getElementById('inputtelefone').value.trim();
+            usuarioLogado.cidade = document.getElementById('inputcidade').value.trim();
+            usuarioLogado.estado = document.getElementById('inputestado').value.trim().toUpperCase();
+
+            localStorage.setItem('usuarioLogado', JSON.stringify(usuarioLogado));
+
+            let usuarios = JSON.parse(localStorage.getItem('usuarios')) || [];
+
+            usuarios = usuarios.map(function(usuario) {
+                if (usuario.email === usuarioLogado.email) {
+                    return usuarioLogado;
+                }
+                return usuario;
+            });
+
+            localStorage.setItem('usuarios', JSON.stringify(usuarios));
+
+            document.getElementById('nomeusuario').textContent = usuarioLogado.nome;
+            document.getElementById('avatar').textContent = usuarioLogado.nome.charAt(0).toUpperCase();
+
             var btn = document.getElementById('btnsalvarperfil');
             btn.textContent = 'Salvando...';
             btn.disabled = true;
-            
 
             setTimeout(function(){
-                btn.textContent = '&#9998; Salvar perfil';
+                btn.textContent = '✎ Salvar perfil';
                 btn.disabled = false;
                 alert('Perfil atualizado!');
             }, 600);
