@@ -328,6 +328,60 @@ input[type="text"], input[type="tel"], input[type="email"], input[type="number"]
     margin-bottom: 1.25rem;
 }
 
+/* separações divas para a gnt se achar ------- Pet card ------------------------------*/
+
+.pet-card {
+    background: #f9f7fc;
+    border: 1px solid #e8e2f0;
+    border-radius: 14px;
+    padding: 1rem;
+}
+
+.pet-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-bottom: 0.75rem;
+}
+
+.pet-nome { 
+    display: block; 
+    font-weight: 700; 
+    font-size: 0.9375rem; 
+    margin-bottom: 0.375rem; 
+}
+
+.pet-tags { 
+    display: flex; 
+    flex-wrap: wrap; 
+    gap: 0.25rem; 
+}
+
+.tag {
+    display: inline-block;
+    padding: 0.125rem 0.5rem;
+    background: rgba(155,89,182,0.1);
+    color: #985986;
+    border-radius: 999px;
+    font-size: 0.6875rem;
+    font-weight: 600;
+}
+
+.btn-deletar {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 0.875rem;
+    color: #807f7f;
+    transition: color 0.15s;
+    flex-shrink: 0;
+    padding: 0.125rem;
+}
+
+.btn-deletar:hover { 
+    color: #e53e3e; 
+}
+
 
 /* separações divas para a gtn se achar ------- Carteira de vacinação -------------------------------*/
 .carteira { 
