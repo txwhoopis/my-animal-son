@@ -19,7 +19,7 @@
         <h1>Criar sua conta</h1>
         <p>Gratuito e sem complicação</p>
 
-        <form action="#" method="post">
+        <form action="#" method="post" id="formCadastro">
             <div>
                 <label for="nome">Nome completo</label>
                 <input type="text" id="nome" name="nome" placeholder="Seu nome" required>
@@ -37,7 +37,7 @@
                 <input type="password" id="senha" name="senha" min="6" placeholder="Mínimo 6 caracteres" required>
             </div>
             <div>
-                <button type="submit">Criar conta</button>
+                <button type="submit" id="btnCriar">Criar conta</button>
             </div>
             <div class="linkentrar">
             <p>Ja tem conta? <a href="../login/login.html">Entrar</a></p>
@@ -49,5 +49,66 @@
             <p>© 2026 My Animal Son. Todos os direitos reservados.</p>
         </div>
     </footer>
+
+    <script>
+
+        document.getElementById('formCadastro').addEventListener('submit', function(e){
+            e.preventDefault();
+
+            var nome = document.getElementById('nome').value.trim();
+            var email = getElementById('email').value.trim();
+            var senha = document.getElementById('senha').value;
+            var ok = true;
+
+            ['erroNome', 'erroEmail', 'erroSenha', 'erroConfirmar'].forEach(function(id){
+                document.getElementById(id).textContent = '';
+            })
+        
+
+        if (nome.length < 2) {
+            document.getElementById('erroNome').textContent = 'Nome deve ter pelo menos 2 caracteres';
+
+            ok = false;
+        }
+
+        if (!email || !email.includes('@')){
+            document.getElementById('erroEmail').textContent = 'Email inválido';
+            ok = false;
+        }
+
+        if (ok){
+
+            let usuarios = JSON.parse(localStorage.getItem('usuarios')) || [];
+
+            const emailExiste = usuarios.some(usuario => usuario.email === email);
+            if (emailExiste){
+                document.getElementById('erroEmail').textContent = 'Este email já está cadastrado!';
+                return;
+            }
+
+            const novoUsuario = {
+                nome: nome,
+                email: email,
+                senha: senha
+            };
+
+            usuarios.push(novoUsuario);
+            
+            localStorage.setItem('usuarios', JSON.stringify(usuarios));
+
+            localStorage.setItem('usuarioLogado', JSON.stringify(novoUsuario));
+            var btn = document.getElementById('btnCriar');
+            btn.disable = true;
+            btn.textContent = 'Criando conta...'
+
+            setTimeout(function(){
+                window.location.href = '../perfil/perfil.html';
+            }, 800);
+        }
+
+    });
+
+
+    </script>
 </body>
 </html>
