@@ -36,7 +36,7 @@
             </div>
             <div>
                 <label for="senha">Senha</label>
-                <input type="password" id="senha" name="senha" min="6" placeholder="Mínimo 6 caracteres" required>
+                <input type="password" id="senha" name="senha" minlength="6" placeholder="Mínimo 6 caracteres" required>
                 <span class="erro" id="erroSenha"></span>
             </div>
             <div>
@@ -110,7 +110,7 @@
             btn.textContent = 'Criando conta...'
 
             setTimeout(function(){
-                window.location.href = './perfil/perfil.html';
+                window.location.href = '../perfil/perfil.html';
             }, 800);
         }
 
