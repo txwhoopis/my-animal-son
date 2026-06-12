@@ -59,7 +59,7 @@
             e.preventDefault();
 
             var nome = document.getElementById('nome').value.trim();
-            var email = getElementById('email').value.trim().toLowerCase();
+            var email = document.getElementById('email').value.trim().toLowerCase();
             var senha = document.getElementById('senha').value;
             var ok = true;
 
@@ -106,7 +106,7 @@
 
             localStorage.setItem('usuarioLogado', JSON.stringify(novoUsuario));
             var btn = document.getElementById('btnCriar');
-            btn.disable = true;
+            btn.disabled = true;
             btn.textContent = 'Criando conta...'
 
             setTimeout(function(){
