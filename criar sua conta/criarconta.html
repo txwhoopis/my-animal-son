@@ -37,7 +37,7 @@
             <div>
                 <label for="senha">Senha</label>
                 <input type="password" id="senha" name="senha" minlength="6" placeholder="Mínimo 6 caracteres" required>
-                <span class="erro" id="erroSenha"></span>
+                <span class="erro" id="forcaSenha</span>
             </div>
             <div>
                 <button type="submit" id="btnCriar">Criar conta</button>
@@ -66,7 +66,30 @@
             ['erroNome', 'erroEmail', 'erroSenha'].forEach(function(id){
                 document.getElementById(id).textContent = '';
             })
-        
+            
+            document.getElementById('senha').addEventListener('input', function() {
+                const senha = this.value;
+                const forca = document.getElementById('forcaSenha');
+
+                let pontos = 0;
+
+                if (senha.length >= 8) pontos++;
+                if (/[A-Z]/.test(senha)) pontos++;
+                if (/[a-z]/.test(senha)) pontos++;
+                if (/[0-9]/.test(senha)) pontos++;
+                if (/[^A-Za-z0-9]/.test(senha)) pontos++;
+
+                if (pontos <= 2) {
+                    forca.textContent = 'Senha fraca';
+                    forca.style.color = 'red';
+                } else if (pontos <= 4) {
+                    forca.textContent = 'Senha média';
+                    forca.style.color = 'orange';
+                } else {
+                    forca.textContent = 'Senha forte';
+                    forca.style.color = 'green';
+                }
+            });
 
             if (nome.length < 2) {
                 document.getElementById('erroNome').textContent = 'Nome deve ter pelo menos 2 caracteres';
@@ -77,11 +100,6 @@
             if (!email || !email.includes('@')){
                 document.getElementById('erroEmail').textContent = 'Email inválido';
                 ok = false;
-            }
-
-            if (!senha) {
-                document.getElementById('erroSenha').textContent = 'Senha Obrigatória';
-                ok = false;         
             }
 
             if (ok){
@@ -115,7 +133,6 @@
         }
 
     });
-
 
     </script>
 </body>
