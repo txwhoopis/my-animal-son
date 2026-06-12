@@ -68,31 +68,36 @@
             })
         
 
-        if (nome.length < 2) {
-            document.getElementById('erroNome').textContent = 'Nome deve ter pelo menos 2 caracteres';
+            if (nome.length < 2) {
+                document.getElementById('erroNome').textContent = 'Nome deve ter pelo menos 2 caracteres';
 
-            ok = false;
-        }
-
-        if (!email || !email.includes('@')){
-            document.getElementById('erroEmail').textContent = 'Email inválido';
-            ok = false;
-        }
-
-        if (ok){
-
-            let usuarios = JSON.parse(localStorage.getItem('usuarios')) || [];
-
-            const emailExiste = usuarios.some(usuario => usuario.email === email);
-            if (emailExiste){
-                document.getElementById('erroEmail').textContent = 'Este email já está cadastrado!';
-                return;
+                ok = false;
             }
 
-            const novoUsuario = {
-                nome: nome,
-                email: email,
-                senha: senha
+            if (!email || !email.includes('@')){
+                document.getElementById('erroEmail').textContent = 'Email inválido';
+                ok = false;
+            }
+
+            if (!senha) {
+                document.getElementById('erroSenha').textContent = 'Senha Obrigatória';
+                ok = false;         
+            }
+
+            if (ok){
+
+                let usuarios = JSON.parse(localStorage.getItem('usuarios')) || [];
+
+                const emailExiste = usuarios.some(usuario => usuario.email === email);
+                if (emailExiste){
+                    document.getElementById('erroEmail').textContent = 'Este email já está cadastrado!';
+                    return;
+                }
+
+                const novoUsuario = {
+                    nome: nome,
+                    email: email,
+                    senha: senha
             };
 
             usuarios.push(novoUsuario);
