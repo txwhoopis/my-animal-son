@@ -319,13 +319,42 @@ input[type="text"], input[type="tel"], input[type="email"], input[type="number"]
 }
 
 
-/* separações divas pets */
+/* separações divas ---------- pets ----------------------------------*/
 
 #pets-cabecalho {
     display: flex;
     align-items: center;
     justify-items: space-between;
     margin-bottom: 1.25rem;
+}
+
+#pets-cabecalho h2 {
+    font-family: 'Fraunces', serif;
+    font-size: 1.0625rem;
+    font-weight: 700;
+}
+
+#btnabrirmodal {
+     padding: 0.375rem 0.875rem;
+    background: #985986;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 0.8125rem;
+    font-weight: 700;
+    font-family: inherit;
+    cursor: pointer;
+    transition: background 0.15s;
+}
+
+#btnabrirmodal:hover {
+     background: #af659a; 
+}
+
+#listaPets { 
+    display: flex; 
+    flex-direction: column; 
+    gap: 1rem; 
 }
 
 /* separações divas para a gnt se achar ------- Pet card ------------------------------*/
@@ -512,5 +541,107 @@ input[type="text"], input[type="tel"], input[type="email"], input[type="number"]
 }
 .form-vacina-botoes button[type="button"]:hover { 
     background: #f9f7fc; 
+}
+
+* separações divas para a gnt se achar ----MODAL------------------ */
+#modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.5);
+    z-index: 200;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+}
+
+#modal-box {
+    background: #fff;
+    border-radius: 20px;
+    padding: 2rem;
+    width: 100%;
+    max-width: 28rem;
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+#modal-box h2 {
+    font-family: 'Fraunces', serif;
+    font-size: 1.125rem;
+    font-weight: 700;
+    margin-bottom: 1.25rem;
+}
+
+#formNovoPet { 
+    display: flex; 
+    flex-direction: column; 
+    gap: 0.875rem; 
+}
+
+#modal-botoes { 
+    display: grid; 
+    grid-template-columns: 1fr 1fr; 
+    gap: 0.75rem; 
+    margin-top: 0.25rem; 
+}
+
+#modal-botoes button[type="submit"] {
+    padding: 0.625rem;
+    background: #9B59B6;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    font-size: 0.875rem;
+    font-weight: 700;
+    font-family: inherit;
+    cursor: pointer;
+    transition: background 0.15s;
+}
+
+#modal-botoes button[type="submit"]:hover { 
+    background: #af659a; 
+}
+
+#modal-botoes button[type="button"] {
+    padding: 0.625rem;
+    background: transparent;
+    color: #807f7f;
+    border: 1px solid #d0c8db;
+    border-radius: 10px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    font-family: inherit;
+    cursor: pointer;
+    transition: background 0.15s;
+}
+
+#modal-botoes button[type="button"]:hover { 
+    background: #f9f7fc; 
+}
+
+select {
+    width: 100%;
+    padding: 0.5rem 0.75rem;
+    border: 1px solid #d0c8db;
+    border-radius: 10px;
+    font-size: 0.875rem;
+    font-family: inherit;
+    outline: none;
+    background: #fff;
+    transition: border-color 0.15s;
+}
+
+select:focus { 
+    border-color: #985986; 
+}
+
+/* RODAPÉ */
+#rodape { 
+    background: transparent; 
+    color: rgba(255,255,255,0.5); 
+    padding: 1.5rem; 
+    text-align: center; 
+    font-size: 0.75rem; 
+    margin-top: 4rem; 
 }
 
