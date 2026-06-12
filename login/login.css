@@ -85,6 +85,13 @@ button:hover {
     background-color: #ae5a9e;
 }
 
+.erro{
+    display: block;
+    font-size: 0.75rem;
+    color: #e53e3e;
+    margin-top: 0.25rem;
+}
+
 .link {
     font-size: 12px;
     color: #807f7f;
