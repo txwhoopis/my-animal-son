@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>perfile>
+    <link rel="stylesheet" href="perfil.css">
+    <link rel="icon" href="../logotipo.png">
+
+</head>
+<body>
+    <nav id="navbar">
+        <div class="nav-logo">
+            <a href="../index.html" class="logo">
+                <img src="../logotipo.png" alt="Logo" id="logonav">
+                <span>My Animal Son</span>
+            </a>
+
+            <ul id="navmenu">
+                <li><a href="../mapaclinica/mapaclinica.html">Mapa de Clínicas</a></li>
+                <li><a href="../emergencia/emergencia.html">Emergência</a></li>
+                <li><a href="../guias/guias.html">Guias</a></li>
+                <li><a href="../sobre/sobre.html">Sobre Nós</a></li>
+                <li><a href="../parceiros/parceiro.html">Parcerias</a></li>
+            </ul>
+
+            <div class="btnentradas">
+                <a href="../login/login.html" class="btn-login">Entrar</a>
+                <a href="../criar sua conta/criarconta.html" class="btn-criar">Criar conta</a>
+            </div>
+
+            <button id="btnmenu" aria-label="Menu">&#9776;</button>
+        </div>
+    </nav>
+
+    <main id="conteudo">
+        <div class="container">
+            <div class="cabecalho-perfil">
+                <h1>Meu Perfil</h1>
+                <button onclick="sair"() id="btnsairtopo">Sair</button>
+            </div>
+        </div>
+
+
+
+
+        <div class="coluna-esquerda">
+            <div class="caixa-perfil">
+                <div id="usuario-header">
+                    <div id="avatar">X</div>
+                    <strong id="nomeusuario">xxxxx</strong>
+                    <span id="emailusuario">xxxxx@gmail.com</span>
+                </div>
+            
+
+                <form id="formperfil" action="#" method="post">
+                    <label for="inputnome">Nome</label>
+                    <input type="text" id="inputnome" name="nome">
+
+                    <label for="inputtelefone">Telefone</label>
+                    <input type="tel" id="inputtelefone" name="telefone" placeholder="(xx) xxxxx-xxxx">
+
+                    <div class="linha-dupla">
+                        <div>
+                            <label for="inputcidade">Cidade</label>
+                            <input type="text" id="inputcidade" name="cidade">
+                        </div>
+
+                        <div>
+                            <label for="inputestado">Estado</label>
+                            <input type="text" id="inputestado" name="estado" maxlength="2">
+                        </div>
+                    </div>
+
+                    <button type="submit" id="btnsalvarperfil">&#9998; Salvar</button>
+                </form>
+            </div>
+        </div>
+
+
+
+        <div class="coluna-direita">
+            <div class="caixa-perfil">
+                <div id="pets-cabecalho">
+                    <h2>&#128062; Meus Pets</h2>
+                    <button id="btnabrirmodal" onclick="abrirmodal()">+ Adicionar pet</button>
+                </div>
+
+
+                <div id="listapets">
+                    <div class="pet-card" id="pet-1">
+                        <div class="pet-header">
+                            <div>
+                                <strong class="pet-nome">belinha</strong>
+                                <div class="pet-tags">
+                                    <span class="tag">Cachorro</span>
+                                    <span class="tag">Poodle</span>
+                                    <span class="tag">13 anos</span>
+                                    <span class="tag">10kg</span>
+                                </div>
+                            </div>
+                            <button class="btn-deletar" onclick="deletarpet"('pet-1')>&#128465;</button>
+                        </div>
+
+
+
+
+                        <div class="carteira">
+                            <button class="btn-vacinas" onclick="toggleVacinas('vacinas-1', this)">&#128137;Carteira de Vacinação &#9660;</button>
+                            <div id="vacinas-1" class="vacinas" style="display: none;">
+                                <div class="vacina-linha">
+                                    <span><strong>V10</strong> <span class="vacina-data">12/01/2024</span></span>
+                                    <span class="vacina-pet">Dr. Josefino</span>
+                                </div>
+
+                                <div class="vacina-linha">
+                                    <span><strong>Antirrabica</strong><span class="vacina-data">15/03/2024</span></span>
+                                    <span class="vacina-pet">Dr. shhdhhd</span>
+                                </div>
+                                <button class="btn-adicionar-vacina" onclick="toggleFormVacina('form-vacina-1', this)">+ Adicionar Vacina</button>
+                                <form id="form-vacina-1" class="form-vacina" style="display: none;" onsubmit="salvarVacina(event, 'vacinas-1', 'form-vacina-1')">
+                                    <input type="text" placeholder="Nome da Vacina" required>
+                                    <input type="date" required>
+                                    <input type="text" placeholder="Veterinário (opcional)">
+
+                                    <div class="form-vacina-botoes">
+                                        <button type="submit">Salvar</button>
+                                        <button type="button" onclick="document.getElementById('form-vacina-1').style.display='none'">Cancelar</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!----------seprações divas para a gnt se acahr -Modal- Adicionar novo pet ----------------------------------------------------------->
+
+    <div id="modal-overplay" style="display: none;">
+        <div id="modal-box">
+            <h2>Adicionar novo pet</h2>
+
+            <form id="formnovopet" onsubmit="adicionarPet(event)">
+                <label for="petnome">Nome</label>
+                <input type="text" id="petnome" placeholder="Nome do pet" required>
+
+                <label for="petEspecie">Espécie</label>
+                <select id="petEspecie" required>
+                    <option value="cachorro">Cachorro</option>
+                    <option value="gato">Gato</option>
+                    <option value="passaro">Pássaro</option>
+                    <option value="coelho">Coelho</option>
+                    <option value="outro">Outro</option>
+                </select>
+
+                <div class="linha-dupla">
+                    <div>
+                        <label for="petRaca">Raça</label>
+                        <input type="text" id="petRaca" placeholder="Opcional">
+            
+                    </div>
+                    <div>
+                        <label for="petIdade">Idade (anos)</label>
+                        <input type="number" id="petIdade" placeholder="Opcional" min="0">
+                    </div>
+                </div>
+
+                <div class="linha-dupla">
+                    <div>
+                        <label for="petPeso">Peso (kg)</label>
+                        <input type="number" id="petPeso" placeholder="Opcional" step="0.1">
+                    </div>
+                    <div>
+                        <label for="petCor">Cor</label>
+                        <input  type="text" id="petCor" placeholder="Opcional">
+                    </div>
+                </div>
+
+                <div id="modal-botoes">
+                    <button type="submit">Adiconar pet</button>
+                    <button type="button" onclick="fecharModal()">Cancelar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!--separações divas para a gnt se achar - o rodape----------------------------------------------------------------->
+
+    <footer id="rodape">
+        <div class="container">
+            <div class="rodape-grid">
+
+                <div class="rodape-marca">
+                    <div class="logo-rodape">
+                        <img src="../logotipo.png" alt="Logo">
+                        <span>My Animal Son</span>
+                    </div>
+                    <p>Orientação veterinária acessível para quem mais precisa. Porque todo pet merece cuidado, independente da renda.</p>
+                    <div class="redes-sociais">
+                        <!--precisa colocar as fotinhas depois-->
+                        <a href="#" aria-label="Instagram">Insta</a>
+                        <a href="#" aria-label="Facebook">Face</a>
+                        <a href="#" aria-label="WhatsApp">Wtt</a>
+                        <a href="#" aria-label="Twitter">X</a>
+                    </div>
+                </div>
+
+                <div class="rodape-col">
+                    <h4>Plataforma</h4>
+                    <a href="../mapaclinica/mapaclinica.html">Mapa de Clínicas</a>
+                    <a href="../emergencia/emergencia.html">Questionário de Emergência</a>
+                    <a href="../guias/guias.html">Guia de Cuidados</a>
+                    <a href="../guias/guias.html">Primeiros Socorros</a>
+                </div>
+
+                <div class="rodape-col">
+                    <h4>Institucional</h4>
+                    <a href="../sobre/sobre.html">Sobre Nós</a>
+                    <a href="../parceiros/parceiro.html">Seja um Parceiro</a>
+                    <a href="../criar sua conta/criarconta.html">Criar Conta</a>
+                </div>
+
+            </div>
+
+            <div class="rodape-direito">
+                <span>© 2026 My Animal Son. Todos os direitos reservados.</span>
+                <span>Feito com amor para tutores e seus pets</span>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        var contadorPet = 3;
+
+        document.getElementById('formperfil').addEventListener('submit', function(e){
+            e.preventDefault();
+            var btn = document.getElementById('btnsalvarperfil');
+            btn.textContent = 'Salvando...';
+            btn.disabled = true;
+
+            setTimeout(function(){
+                btn.textContent = '&#9998; Salvar perfil';
+                btn.disabled = false;
+                alert('Perfil atualizado!');
+            }, 600);
+        });
+
+        function sair() {
+            localStorage.removeItem('mas_token');
+            window.location.href = '../login/login.html';
+        }
+
+        function abrirmodal() {
+            document.getElementById('modal-overplay').style.display = '';
+        }
+
+        function fecharModal() {
+            document.getElementById('modal-overplay').style.display = 'none';
+        }
+
+        document.getElementById('modal-overplay').addEventListener('click', function(e) {
+            if (e.target === this) fecharModal();
+        });
+
+        function adicionarPet(e) {
+            e.preventDefault();
+            var nome = document.getElementById('petnome').value.trim();
+            var especie = document.getElementById('petEspecie').value;
+            var raca = document.getElementById('petRaca').value.trim();
+            var idade = document.getElementById('petIdade').value;
+            var peso = document.getElementById('petPeso').value;
+
+            var id = 'pet-' + contadorPet++;
+            var tags = '<span class="tags">' + especie.chatAt(0).toUpperCase() + especie.slice(1) + '</span>';
+            if (raca) tags += '<span class="tag">' + raca + '</span>';
+            if (idade) tags += '<span class="tag">' + idade + ' anos</span>';
+            if (peso) tags += '<span class="tag">' + peso + 'kg</span>'; 
+
+            var vacinasId = 'vacinas-' + id;
+            var formId = 'form-vacina-' + id;
+
+            var html = '<div class+="pet-card" id="' + id + '">' + '<div class="pet-header">' + 
+            '<div><strong class="pet-nome">' + nome + '</strong>' +
+                    '<div class="pet-tags">' + tags + '</div></div>' +
+                    '<button class="btn-deletar" onclick="deletarpet(\'' + id + '\')">&#128465;</button>' +
+                '</div>' +
+                '<div class="carteira">' +
+                    '<button class="btn-vacinas" onclick="toggleVacinas(\'' + vacinasId + '\', this)">&#128137; Carteira de Vacinação &#9660;</button>' +
+                    '<div id="' + vacinasId + '" class="vacinas" style="display:none;">' +
+                        '<p style="font-size:12px;color:#807f7f;">Nenhuma vacina registrada</p>' +
+                        '<button class="btn-adicionar-vacina" onclick="toggleFormVacina(\'' + formId + '\', this)">+ Adicionar vacina</button>' +
+                        '<form id="' + formId + '" class="form-vacina" style="display:none;" onsubmit="salvarVacina(event,\'' + vacinasId + '\',\'' + formId + '\')">' +
+                            '<input type="text" placeholder="Nome da vacina" required>' +
+                            '<input type="date" required>' +
+                            '<input type="text" placeholder="Veterinário (opcional)">' +
+                            '<div class="form-vacina-botoes"><button type="submit">Salvar</button><button type="button" onclick="document.getElementById(\'' + formId + '\').style.display=\'none\'">Cancelar</button></div>' +
+                        '</form>' +
+                    '</div>' +
+                '</div>' +
+            '</div>';
+
+            document.getElementById('listaPets').insertAdjacentHTML('beforeend', html);
+            document.getElementById('formNovoPet').reset();
+            fecharModal();
+        }
+
+
+        function deletarpet(id) {
+            if(confirm('Remover esse pet?')) {
+                document.getElementById(id).remove();
+            }
+        }
+
+        function toggleFormVacina(id, btn) {
+            var el = document.getElementById(id);
+            el.style.display = el.style.display === 'none' ? '' : 'none';
+        }
+
+        function salvarVacina(e, vacinasId, formId) {
+            e.preventDefault();
+            var form = document.getElementById(formId);
+            var nome = form.querySelectorAll('input')[0].value;
+            var data = form.querySelectorAll('input')[1].value;
+            var vet = form.querySelectorAll('input')[2].value;
+
+            dataFormatada = data ? new Date(data).toLocaleDateString('pt-br') : '';
+            var html  = '<div class="vacina-linha">' +
+                '<span><strong>' + nome + '</strong> <span class="vacina-data">' + dataFormatada + '</span></span>' +
+                (vet ? '<span class="vacina-vet">' + vet + '</span>' : '') +
+            '</div>';
+
+            var vacinasEl = document.getElementById(vacinasId);
+            var semVacina = vacinasEl.querySelector('p');
+            if (semVacina) semVacina.remove();
+
+            form.insertAdjacentHTML('beforebegin', html);
+            form.reset();
+            form.style.display = 'none';
+        }
+        
+        
+
+
+    </script>
+    
+
+</body>
+</html>

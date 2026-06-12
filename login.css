@@ -1,0 +1,188 @@
+
+@font-face {
+    font-family: 'playfair';
+    src: url('../criar sua conta/font/PlayfairDisplay-Black.ttf') format('truetype');
+}
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&display=swap');
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-family: "Plus Jakarta Sans", sans-serif;
+    background: linear-gradient(135deg, rgba(155, 89, 182, 0.06) 0%, transparent 50%, rgba(78, 205, 196, 0.08) 100%);
+    
+}
+logo{
+    padding: 15px;
+    margin-bottom: 3px;
+}
+
+h2{
+    font-size: 16px;
+    display: inline-block;
+    color: #2b2b2b;
+    vertical-align: top;
+    font-family: "DM Serif Display", serif;
+    font-weight: 700;
+}
+
+img {
+    width: 40px;
+    height: 40px;
+    margin-right: 8px;
+    margin-bottom: 10px;
+    
+}
+
+h1 {
+    font-size: 20px;
+    margin-bottom: 3px;
+    color: #2b2b2b;
+    margin-top: 0;
+    font-family: "DM Serif Display", serif;
+    font-weight: 700;
+}
+
+p {
+   color: #807f7f;
+   margin-top: 0;
+   font-size: 12px;
+}
+
+.form {
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+label{
+    margin-bottom: 1rem;
+    color: #2b2b2b;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+button {
+    width: 100%;
+    padding: 0.5rem;
+    font-size: 0.8rem;
+    background-color: #985986;
+    color: white;
+    font-weight: bold;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    margin-top: 1rem;
+    box-sizing: border-box;
+}
+
+button:hover {
+    background-color: #ae5a9e;
+}
+
+.link {
+    font-size: 12px;
+    color: #807f7f;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5px;
+    padding: 0.4rem;
+}
+
+a{
+    color: #985986;
+}
+
+input {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0.5rem;
+    margin-top: 0.350rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ccc;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+    font-size: 1.1rem;
+    border-radius: 10px;
+    outline: none;
+}
+
+::placeholder {
+    font-size: 11px;
+    margin-right: 1rem;
+}
+
+.voltar{
+    display: inline-block;
+    margin-bottom: 1.2rem;
+    font-size: 0.812rem;
+    font-weight: 600;
+    color: #2b2b2b;
+    text-decoration: none;
+    transition: transform 0.2s;
+
+}
+
+.voltar:hover{
+    color: #af659a;
+    transition: all 0.15s;
+    transform: translateY(-2px);
+    
+}
+
+
+/* ---------------------------RODAPÉ-------------------------------------- */
+#rodape {
+    background: transparent;
+    color: rgba(255,255,255,0.5);
+    padding: 1.5rem;
+    text-align: center;
+    font-size: 0.75rem;
+}
+
+
+
+
+
+@media (max-width: 600px) {
+    form {
+        padding: 0.5rem;
+    }
+
+    button:font-size {
+        font-size: 1.1rem;
+        border-radius: 15px;
+    }
+}
+
+
+@media (max-width: 600px) {
+    input {
+        padding: 0.2rem;
+        font-size: 0.8rem;
+    }
+}
+@media (min-width: 601px) {
+    input {
+        width: 100%;
+        max-width: 450px;
+        font-size: 0.8rem;
+    }
+}
+
+
+@media (min-width: 601px) {
+    form {
+        width: 100%;
+        max-width: 500px;
+    }
+
+    button:font-size {
+        font-size: 1.1rem;
+    }
+}
