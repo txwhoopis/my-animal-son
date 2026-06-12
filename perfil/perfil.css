@@ -543,7 +543,7 @@ input[type="text"], input[type="tel"], input[type="email"], input[type="number"]
     background: #f9f7fc; 
 }
 
-* separações divas para a gnt se achar ----MODAL------------------ */
+/* separações divas para a gnt se achar ----MODAL------------------ */
 #modal-overlay {
     position: fixed;
     inset: 0;
