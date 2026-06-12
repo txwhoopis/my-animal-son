@@ -180,7 +180,7 @@ a {
 
 
 
-/* separações divas para a gnt se achar ----- CONTEÚDO ---------------*/
+
 
 #conteudo { 
     padding-top: 6rem; 
@@ -319,7 +319,13 @@ input[type="text"], input[type="tel"], input[type="email"], input[type="number"]
 }
 
 
-/* separações divas ---------- pets ----------------------------------*/
+
+
+
+
+
+
+
 
 #pets-cabecalho {
     display: flex;
@@ -357,7 +363,14 @@ input[type="text"], input[type="tel"], input[type="email"], input[type="number"]
     gap: 1rem; 
 }
 
-/* separações divas para a gnt se achar ------- Pet card ------------------------------*/
+
+
+
+
+
+
+
+
 
 .pet-card {
     background: #f9f7fc;
@@ -412,7 +425,13 @@ input[type="text"], input[type="tel"], input[type="email"], input[type="number"]
 }
 
 
-/* separações divas para a gtn se achar ------- Carteira de vacinação -------------------------------*/
+
+
+
+
+
+
+
 .carteira { 
     border-top: 1px solid #e8e2f0; 
     padding-top: 0.75rem; 
@@ -484,7 +503,14 @@ input[type="text"], input[type="tel"], input[type="email"], input[type="number"]
     background: rgba(155,89,182,0.04); 
 }
 
-/* separações divas para  a gnt se achar ----- Formulário de vacina inline -------------------------------*/
+
+
+
+
+
+
+
+
 .form-vacina {
     display: flex;
     flex-direction: column;
@@ -543,7 +569,13 @@ input[type="text"], input[type="tel"], input[type="email"], input[type="number"]
     background: #f9f7fc; 
 }
 
-/* separações divas para a gnt se achar ----MODAL------------------ */
+
+
+
+
+
+
+
 #modal-overlay {
     position: fixed;
     inset: 0;
@@ -635,7 +667,7 @@ select:focus {
     border-color: #985986; 
 }
 
-/* RODAPÉ */
+
 #rodape { 
     background: transparent; 
     color: rgba(255,255,255,0.5); 
