@@ -99,7 +99,7 @@
                                     <span class="tag">10kg</span>
                                 </div>
                             </div>
-                            <button class="btn-deletar" onclick="deletarpet"('pet-1')>&#128465;</button>
+                            <button class="btn-deletar" onclick="deletarpet('pet-1')">&#128465;</button>
                         </div>
 
 
@@ -244,9 +244,14 @@
 
             document.getElementById('inputnome').value = usuarioLogado.nome;
 
-            if (usuarioLogado.telefone) {
-                document.getElementById('inputtelefone').value = usuarioLogado.telefone;
-            }
+            var telefone = document.getElementById('tel').value.trim();
+
+            const novoUsuario = {
+                nome: nome,
+                email: email,
+                telefone: telefone,
+                senha: senha
+            };
         }
 
         var contadorPet = 3;
@@ -256,6 +261,7 @@
             var btn = document.getElementById('btnsalvarperfil');
             btn.textContent = 'Salvando...';
             btn.disabled = true;
+            
 
             setTimeout(function(){
                 btn.textContent = '&#9998; Salvar perfil';
@@ -290,7 +296,7 @@
             var peso = document.getElementById('petPeso').value;
 
             var id = 'pet-' + contadorPet++;
-            var tags = '<span class="tags">' + especie.chatAt(0).toUpperCase() + especie.slice(1) + '</span>';
+            var tags = '<span class="tags">' + especie.charAt(0).toUpperCase() + especie.slice(1) + '</span>';
             if (raca) tags += '<span class="tag">' + raca + '</span>';
             if (idade) tags += '<span class="tag">' + idade + ' anos</span>';
             if (peso) tags += '<span class="tag">' + peso + 'kg</span>'; 
@@ -298,7 +304,7 @@
             var vacinasId = 'vacinas-' + id;
             var formId = 'form-vacina-' + id;
 
-            var html = '<div class+="pet-card" id="' + id + '">' + '<div class="pet-header">' + 
+            var html = '<div class="pet-card" id="' + id + '">' + '<div class="pet-header">' + 
             '<div><strong class="pet-nome">' + nome + '</strong>' +
                     '<div class="pet-tags">' + tags + '</div></div>' +
                     '<button class="btn-deletar" onclick="deletarpet(\'' + id + '\')">&#128465;</button>' +
@@ -319,7 +325,7 @@
             '</div>';
 
             document.getElementById('listapets').insertAdjacentHTML('beforeend', html);
-            document.getElementById('formNovoPet').reset();
+            document.getElementById('formnovopet').reset();
             fecharModal();
         }
 
