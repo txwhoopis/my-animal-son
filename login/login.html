@@ -22,10 +22,12 @@
             <div>
                 <label for="email">Email</label>
                 <input type="email" id="email" name="email" placeholder="seu@email.com" required>
+                <span class="erro" id="erroEmail"></span>
             </div>
             <div>
                 <label for="senha">Senha</label>
                 <input type="password" id="senha" name="senha" min="6" placeholder="Mínimo 6 caracteres" required>
+                <span class="erro" id="erroSenha"></span>
             </div>
             <div>
                 <button type="submit" id="btnEntrar">Entrar</button>
@@ -85,7 +87,7 @@
             
 
                 setTimeout(function(){
-                window.location.href = './perfil/perfil.html'; }, 800);
+                window.location.href = '../perfil/perfil.html'; }, 800);
             }
         });
 
