@@ -46,7 +46,7 @@
         document.getElementById('formLogin').addEventListener('submit', function(e){
             e.preventDefault();
 
-            var email = document.getElementById('email').value.trim();
+            var email = document.getElementById('email').value.trim().toLowerCase();
             var senha = document.getElementById('senha').value;
             var ok = true;
 
@@ -64,12 +64,27 @@
             }
 
             if (ok){
+
+                let usuarios = JSON.parse(localStorage.getItem('usuarios')) || [];
+
+                let usuarioEncontrado = usuarios.find(function(usuario){
+                    return usuario.email === email && usuario.senha === senha;
+                });
+
+                if (!usuarioEncontrado) {
+                    document.getElementById('erroSenha').textContent = 'Email ou senha incorretos';
+                    return;
+                }
+
+                localStorage.setItem('usuarioLogado', JSON.stringify(usuarioEncontrado));
+
+
                 var btn = document.getElementById('btnEntrar');
                 btn.disabled = true;
                 btn.textContent = 'Entrando...';
-            }
+            
 
-            setTimeout(function(){
+                setTimeout(function(){
                 window.location.href = '../perfil/perfil.html'; }, 800);
             }
         });
