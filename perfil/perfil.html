@@ -37,7 +37,7 @@
         <div class="container">
             <div class="cabecalho-perfil">
                 <h1>Meu Perfil</h1>
-                <button onclick="sair"() id="btnsairtopo">Sair</button>
+                <button onclick="sair()" id="btnsairtopo">Sair</button>
             </div>
         </div>
 
@@ -233,6 +233,22 @@
     </footer>
 
     <script>
+        const usuarioLogado = JSON.parse(localStorage.getItem('usuarioLogado'));
+
+        if (!usuarioLogado) {
+            window.location.href = '../login/login.html';
+        } else {
+            document.getElementById('nomeusuario').textContent = usuarioLogado.nome;
+            document.getElementById('emailusuario').textContent = usuarioLogado.email;
+            document.getElementById('avatar').textContent = usuarioLogado.nome.charAt(0).toUpperCase();
+
+            document.getElementById('inputnome').value = usuarioLogado.nome;
+
+            if (usuarioLogado.telefone) {
+                document.getElementById('inputtelefone').value = usuarioLogado.telefone;
+            }
+        }
+
         var contadorPet = 3;
 
         document.getElementById('formperfil').addEventListener('submit', function(e){
@@ -249,7 +265,7 @@
         });
 
         function sair() {
-            localStorage.removeItem('mas_token');
+            localStorage.removeItem('usuarioLogado');
             window.location.href = '../login/login.html';
         }
 
@@ -302,7 +318,7 @@
                 '</div>' +
             '</div>';
 
-            document.getElementById('listaPets').insertAdjacentHTML('beforeend', html);
+            document.getElementById('listapets').insertAdjacentHTML('beforeend', html);
             document.getElementById('formNovoPet').reset();
             fecharModal();
         }
