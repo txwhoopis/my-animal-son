@@ -242,6 +242,7 @@ a {
     justify-content: center;
     font-size: 1.375rem;
     flex-shrink: 0;
+    background: #af659a;
 }
 
 #nomeusuario {
@@ -306,5 +307,156 @@ input[type="text"], input[type="tel"], input[type="email"], input[type="number"]
     cursor: pointer;
     transition: background 0.15s;
     margin-top: 0.25rem;
+}
+
+#btnsalvarperfil:hover{
+    background: #af659a;
+}
+
+#btnsalvarperfil:disabled{
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+
+/* separações divas pets */
+
+#pets-cabecalho {
+    display: flex;
+    align-items: center;
+    justify-items: space-between;
+    margin-bottom: 1.25rem;
+}
+
+
+/* separações divas para a gtn se achar ------- Carteira de vacinação -------------------------------*/
+.carteira { 
+    border-top: 1px solid #e8e2f0; 
+    padding-top: 0.75rem; 
+}
+
+.btn-vacinas {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    color: #985986;
+    font-family: inherit;
+    padding: 0;
+    transition: opacity 0.15s;
+    width: 100%;
+    text-align: left;
+}
+
+.btn-vacinas:hover { 
+    opacity: 0.75; 
+}
+
+.vacinas { 
+    margin-top: 0.75rem; 
+    display: flex; 
+    flex-direction: column; 
+    gap: 0.5rem; 
+}
+
+.vacina-linha {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.5rem 0.625rem;
+    background: #fff;
+    border: 1px solid #e8e2f0;
+    border-radius: 8px;
+    font-size: 0.8125rem;
+}
+
+.vacina-data { 
+    color: #807f7f; 
+    font-size: 0.75rem; 
+    margin-left: 0.375rem; 
+}
+.vacina-vet  { 
+    font-size: 0.75rem; 
+    color: #807f7f; 
+}
+
+.btn-adicionar-vacina {
+    background: transparent;
+    border: 1px dashed #d0c8db;
+    border-radius: 8px;
+    padding: 0.5rem;
+    font-size: 0.8125rem;
+    color: #807f7f;
+    cursor: pointer;
+    font-family: inherit;
+    width: 100%;
+    transition: all 0.15s;
+    margin-top: 0.25rem;
+}
+
+.btn-adicionar-vacina:hover { 
+    border-color: #985986; 
+    color: #985986; 
+    background: rgba(155,89,182,0.04); 
+}
+
+/* separações divas para  a gnt se achar ----- Formulário de vacina inline -------------------------------*/
+.form-vacina {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+    padding: 0.75rem;
+    background: #fff;
+    border: 1px solid #e8e2f0;
+    border-radius: 10px;
+}
+
+.form-vacina input {
+    padding: 0.375rem 0.625rem;
+    border: 1px solid #d0c8db;
+    border-radius: 8px;
+    font-size: 0.8125rem;
+    font-family: inherit;
+    outline: none;
+    width: 100%;
+}
+
+.form-vacina input:focus { 
+    border-color: #985986; 
+}
+
+.form-vacina-botoes { 
+    display: flex; 
+    gap: 0.5rem; 
+}
+
+.form-vacina-botoes button {
+    flex: 1;
+    padding: 0.375rem;
+    border-radius: 8px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    font-family: inherit;
+    cursor: pointer;
+    transition: all 0.15s;
+}
+
+.form-vacina-botoes button[type="submit"] { 
+    background: #985986; 
+    color: #fff; 
+    border: none; 
+}
+.form-vacina-botoes button[type="submit"]:hover { 
+    background: #af659a; 
+}
+.form-vacina-botoes button[type="button"] { 
+    background: transparent; 
+    color: #807f7f; 
+    border: 1px solid #d0c8db; 
+}
+.form-vacina-botoes button[type="button"]:hover { 
+    background: #f9f7fc; 
 }
 
