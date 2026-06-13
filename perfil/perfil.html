@@ -321,11 +321,16 @@
         }
 
         function salvarPets() {
-            localStorage.setItem('pets', document.getElementById('listaPets').innerHTML);
+            localStorage.setItem(
+                'pets_' + usuarioLogado.email,
+                document.getElementById('listaPets').innerHTML
+            );
         }
 
         function carregarPets() {
-            const petsSalvos = localStorage.getItem('pets');
+            const petsSalvos = localStorage.getItem(
+                'pets_' + usuarioLogado.email
+            );
 
             if (petsSalvos) {
                 document.getElementById('listaPets').innerHTML = petsSalvos;
