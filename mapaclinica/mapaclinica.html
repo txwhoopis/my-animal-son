@@ -24,7 +24,7 @@
                 <li><a href="../parceiros/parceiro.html">Parcerias</a></li>
             </ul>
 
-            <div class="btnentradas">
+            <div class="btnentradas" id="areaUsuario">
                 <a href="../login/login.html" class="btn-login">Entrar</a>
                 <a href="../criar sua conta/criarconta.html" class="btn-criar">Criar conta</a>
             </div>
@@ -103,6 +103,23 @@
             </div>
         </div>
     </footer>
+
+    <script>
+        const areaUsuario = document.getElementById('areaUsuario');
+        const usuarioLogado = JSON.parse(localStorage.getItem('usuarioLogado'));
+
+        if (usuarioLogado && areaUsuario) {
+            areaUsuario.innerHTML = `
+                <a href="../perfil/perfil.html" class="btn-login">Perfil</a>
+                <button onclick="sair()" class="btn-criar">Sair</button>
+            `;
+        }
+
+        function sair() {
+            localStorage.removeItem('usuarioLogado');
+            window.location.href = '../mapaclinica/mapaclinica.html';
+        }
+    </script>
 
 </body>
 </html>
