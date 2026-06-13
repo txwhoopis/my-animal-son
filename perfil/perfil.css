@@ -327,7 +327,8 @@ input::placeholder {
 }
 
 #btnSalvarPerfil:hover { 
-    background: #7d3f99; 
+    background: #af659a;
+    transform: translateY(0.2); 
 }
 #btnSalvarPerfil:disabled { 
     opacity: 0.6; cursor: not-allowed; 
@@ -598,7 +599,7 @@ input::placeholder {
 
 #modal-botoes button[type="submit"] {
     padding: 0.625rem;
-    background: #9B59B6;
+    background: #985986;
     color: #fff;
     border: none;
     border-radius: 10px;
