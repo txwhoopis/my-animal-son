@@ -119,6 +119,7 @@ a {
     font-size: 0.875rem;
     font-weight: 600;
     background: #985986;
+    border: none;
     color: #ffffff;
     transition: background 0.15s;
 }
