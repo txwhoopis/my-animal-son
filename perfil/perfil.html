@@ -74,7 +74,7 @@
                                 </div>
                             </div>
 
-                            <button type="submit" id="btnSalvarPerfil">&#9998; Salvar perfil</button>
+                            <button type="submit" id="btnSalvarPerfil">Salvar perfil</button>
                         </form>
 
                     </div>
@@ -254,7 +254,7 @@
             btn.disabled = true;
 
             setTimeout(function(){
-                btn.textContent = '✎ Salvar perfil';
+                btn.textContent = 'Salvar perfil';
                 btn.disabled = false;
                 alert('Perfil atualizado!');
             }, 600);
@@ -300,7 +300,7 @@
                     '<button class="btn-deletar" onclick="deletarPet(\'' + id + '\')">&#128465;</button>' +
                 '</div>' +
                 '<div class="carteira">' +
-                    '<button class="btn-vacinas" onclick="toggleVacinas(\'' + vacinasId + '\', this)">&#128137; Carteira de Vacinação &#9660;</button>' +
+                    '<button class="btn-vacinas" onclick="toggleVacinas(\'' + vacinasId + '\', this)">Carteira de Vacinação</button>' +
                     '<div id="' + vacinasId + '" class="vacinas" style="display:none;">' +
                         '<p style="font-size:12px;color:#807f7f;">Nenhuma vacina registrada</p>' +
                         '<button class="btn-adicionar-vacina" onclick="toggleFormVacina(\'' + formId + '\', this)">+ Adicionar vacina</button>' +
