@@ -129,6 +129,7 @@ a {
     color: #ffffff;
     transition: background 0.15s;
     border: none;
+    cursor: pointer
 }
 
 #btnSair:hover { 
