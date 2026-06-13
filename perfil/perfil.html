@@ -204,34 +204,34 @@
         if (!usuarioLogado) {
             window.location.href = '../login/login.html';
         } else {
-            document.getElementById('nomeusuario').textContent = usuarioLogado.nome;
-            document.getElementById('emailusuario').textContent = usuarioLogado.email;
+            document.getElementById('nomeUsuario').textContent = usuarioLogado.nome;
+            document.getElementById('emailUsuario').textContent = usuarioLogado.email;
             document.getElementById('avatar').textContent = usuarioLogado.nome.charAt(0).toUpperCase();
 
-            document.getElementById('inputnome').value = usuarioLogado.nome;
+            document.getElementById('inputNome').value = usuarioLogado.nome;
 
             if (usuarioLogado.telefone) {
-                document.getElementById('inputtelefone').value = usuarioLogado.telefone;
+                document.getElementById('inputTelefone').value = usuarioLogado.telefone;
             }
 
             if (usuarioLogado.cidade) {
-                document.getElementById('inputcidade').value = usuarioLogado.cidade;
+                document.getElementById('inputCidade').value = usuarioLogado.cidade;
             }
 
             if (usuarioLogado.estado) {
-                document.getElementById('inputestado').value = usuarioLogado.estado;
+                document.getElementById('inputEstado').value = usuarioLogado.estado;
             }
         }
 
         var contadorPet = 3;
 
-        document.getElementById('formperfil').addEventListener('submit', function(e){
+        document.getElementById('formPerfil').addEventListener('submit', function(e){
             e.preventDefault();
 
-            usuarioLogado.nome = document.getElementById('inputnome').value.trim();
-            usuarioLogado.telefone = document.getElementById('inputtelefone').value.trim();
-            usuarioLogado.cidade = document.getElementById('inputcidade').value.trim();
-            usuarioLogado.estado = document.getElementById('inputestado').value.trim().toUpperCase();
+            usuarioLogado.nome = document.getElementById('inputNome').value.trim();
+            usuarioLogado.telefone = document.getElementById('inputTelefone').value.trim();
+            usuarioLogado.cidade = document.getElementById('inputCidade').value.trim();
+            usuarioLogado.estado = document.getElementById('inputEstado').value.trim().toUpperCase();
 
             localStorage.setItem('usuarioLogado', JSON.stringify(usuarioLogado));
 
@@ -246,10 +246,10 @@
 
             localStorage.setItem('usuarios', JSON.stringify(usuarios));
 
-            document.getElementById('nomeusuario').textContent = usuarioLogado.nome;
+            document.getElementById('nomeUsuario').textContent = usuarioLogado.nome;
             document.getElementById('avatar').textContent = usuarioLogado.nome.charAt(0).toUpperCase();
 
-            var btn = document.getElementById('btnsalvarperfil');
+            var btn = document.getElementById('btnSalvarPerfil');
             btn.textContent = 'Salvando...';
             btn.disabled = true;
 
@@ -261,7 +261,7 @@
         });
 
         function sair() {
-            localStorage.removeItem('mas_token');
+            localStorage.removeItem('usuarioLogado');
             window.location.href = '../login/login.html';
         }
 
