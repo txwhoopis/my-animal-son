@@ -178,6 +178,21 @@
 
 
     <script>
+        const areaUsuario = document.getElementById('areaUsuario');
+        const usuarioLogado = JSON.parse(localStorage.getItem('usuarioLogado'));
+
+        if (usuarioLogado && areaUsuario) {
+            areaUsuario.innerHTML = `
+                <a href="../perfil/perfil.html" class="btn-login">Perfil</a>
+                <button onclick="sair()" class="btn-criar">Sair</button>
+            `;
+        }
+
+        function sair() {
+            localStorage.removeItem('usuarioLogado');
+            window.location.href = '../guias/guias.html';
+        }
+
         var catAtiva = todos;
 
         function trocarCategoria(btn) {
@@ -222,22 +237,6 @@
             var m = document.getElementById('menuMobile');
             m.style.display === 'flex' ? 'none' : 'flex';
         });
-
-
-        const areaUsuario = document.getElementById('areaUsuario');
-        const usuarioLogado = JSON.parse(localStorage.getItem('usuarioLogado'));
-
-        if (usuarioLogado && areaUsuario) {
-            areaUsuario.innerHTML = `
-                <a href="../perfil/perfil.html" class="btn-login">Perfil</a>
-                <button onclick="sair()" class="btn-criar">Sair</button>
-            `;
-        }
-
-        function sair() {
-            localStorage.removeItem('usuarioLogado');
-            window.location.href = '../guias/guias.html';
-        }
 
         
     </script>
