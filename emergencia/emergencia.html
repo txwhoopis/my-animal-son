@@ -153,6 +153,22 @@
 
 
     <script>
+
+        const areaUsuario = document.getElementById('areaUsuario');
+        const usuarioLogado = JSON.parse(localStorage.getItem('usuarioLogado'));
+
+        if (usuarioLogado && areaUsuario) {
+            areaUsuario.innerHTML = `
+                <a href="../perfil/perfil.html" class="btn-login">Perfil</a>
+                <button onclick="sair()" class="btn-criar">Sair</button>
+            `;
+        }
+
+        function sair() {
+            localStorage.removeItem('usuarioLogado');
+            window.location.href = '../emergencia/emergencia.html';
+        }
+        
         var perguntas = [
             { categoria:"Respiração",   texto:"Seu pet está com dificuldade para respirar ou respirando muito rápido?",         ajuda:"Observe esforço visível, batimento das narinas ou boca aberta.",               peso:3 },
             { categoria:"Consciência",  texto:"Seu pet está inconsciente, desorientado ou sem reagir ao toque?",               ajuda:"Chame pelo nome e observe se ele responde normalmente.",                       peso:3 },
@@ -245,21 +261,6 @@
             m.style.display = m.style.display === 'flex' ? 'none' : 'flex';
         });
 
-
-        const areaUsuario = document.getElementById('areaUsuario');
-        const usuarioLogado = JSON.parse(localStorage.getItem('usuarioLogado'));
-
-        if (usuarioLogado && areaUsuario) {
-            areaUsuario.innerHTML = `
-                <a href="../perfil/perfil.html" class="btn-login">Perfil</a>
-                <button onclick="sair()" class="btn-criar">Sair</button>
-            `;
-        }
-
-        function sair() {
-            localStorage.removeItem('usuarioLogado');
-            window.location.href = '../emergencia/emergencia.html';
-        }
     </script>
 </body>
 </html>
