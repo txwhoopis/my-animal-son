@@ -129,6 +129,7 @@ a {
     background: #985986;
     color: #ffffff;
     transition: background 0.15s;
+    border: none;
 }
 
 .btn-criar:hover { 
