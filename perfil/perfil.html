@@ -315,13 +315,29 @@
             '</div>';
 
             document.getElementById('listaPets').insertAdjacentHTML('beforeend', html);
+            salvarPets();
             document.getElementById('formNovoPet').reset();
             fecharModal();
         }
 
+        function salvarPets() {
+            localStorage.setItem('pets', document.getElementById('listaPets').innerHTML);
+        }
+
+        function carregarPets() {
+            const petsSalvos = localStorage.getItem('pets');
+
+            if (petsSalvos) {
+                document.getElementById('listaPets').innerHTML = petsSalvos;
+            }
+        }
+
+        carregarPets();
+
         function deletarPet(id) {
             if (confirm('Remover este pet?')) {
                 document.getElementById(id).remove();
+                salvarPets();
             }
         }
 
