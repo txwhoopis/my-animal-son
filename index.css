@@ -413,7 +413,7 @@ a {
     /* ── separações divas para a gnt se achar - carteira digital la── */
 #carteira {
     background: linear-gradient(135deg, #985986 20%, #af659a 100%);
-    border: 1px solid #e8d7f3;
+    border: 10px;
     padding: 5rem 1.5rem;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
     transition: 0.3s;
