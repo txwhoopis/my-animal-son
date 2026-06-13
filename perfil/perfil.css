@@ -643,3 +643,102 @@ select {
 select:focus { 
     border-color: #985986; 
 }
+
+  /* ──----------------- separações divas para a gnt se achar - o rodape------------------------------── */
+
+#rodape {
+    background: #2b2b2b;
+    color: rgba(255, 255, 255, 0.8);
+    padding: 3rem 1.5rem 2rem;
+    margin-top: 4rem;
+}
+
+.rodape-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 2rem;
+    margin-bottom: 2.5rem;
+}
+
+.logo-rodape {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.75rem;
+}
+
+.logo-rodape img  { 
+    width: 28px; 
+    height: 28px; 
+}
+.logo-rodape span { 
+    font-family: "DM Serif Display", serif;
+   font-weight: 600; 
+    color: #fff; 
+    font-size: 0.9rem; 
+}
+
+.rodape-marca p {
+    font-size: 0.8125rem;
+    opacity: 0.5;
+    line-height: 1.6;
+    max-width: 18rem;
+    color: rgba(255, 255, 255, 0.8);
+    margin: 0;
+}
+
+.redes-sociais {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 1.25rem;
+}
+
+.redes-sociais a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2rem;
+    height: 2rem;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 8px;
+    color: rgba(255, 255, 255, 0.75);
+    font-size: 0.75rem;
+    font-weight: 700;
+    transition: background 0.15s;
+}
+
+.redes-sociais a:hover { 
+    background: rgba(255, 255, 255, 0.18); 
+}
+
+.rodape-col h4 {
+    font-size: 0.8125rem;
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-weight: 600;
+    color: #fff;
+    margin-bottom: 0.875rem;
+}
+
+.rodape-col a {
+    display: block;
+    font-size: 0.875rem;
+    opacity: 0.5;
+    margin-bottom: 0.5rem;
+    color: #9B59B6;
+    transition: opacity 0.15s;
+}
+
+.rodape-col a:hover { 
+    opacity: 1; 
+}
+
+.rodape-direito {
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    padding-top: 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.75rem;
+    opacity: 0.35;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
