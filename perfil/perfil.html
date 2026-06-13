@@ -35,117 +35,83 @@
 
     <main id="conteudo">
         <div class="container">
-            <div class="cabecalho-perfil">
+
+            <div id="cabecalho-perfil">
                 <h1>Meu Perfil</h1>
-                <button onclick="sair()" id="btnsairtopo">Sair</button>
+                <button onclick="sair()" id="btnSairTopo">&#x2192; Sair</button>
             </div>
-        </div>
+
+            <div id="perfil-grid">
 
 
 
+                <div class="coluna-esquerda">
+                    <div class="caixa-perfil">
 
-        <div class="coluna-esquerda">
-            <div class="caixa-perfil">
-                <div id="usuario-header">
-                    <div id="avatar">X</div>
-                    <strong id="nomeusuario">xxxxx</strong>
-                    <span id="emailusuario">xxxxx@gmail.com</span>
-                </div>
-            
-
-                <form id="formperfil" action="#" method="post">
-                    <label for="inputnome">Nome</label>
-                    <input type="text" id="inputnome" name="nome">
-
-                    <label for="inputtelefone">Telefone</label>
-                    <input type="tel" id="inputtelefone" name="telefone" placeholder="(xx) xxxxx-xxxx">
-
-                    <div class="linha-dupla">
-                        <div>
-                            <label for="inputcidade">Cidade</label>
-                            <input type="text" id="inputcidade" name="cidade">
-                        </div>
-
-                        <div>
-                            <label for="inputestado">Estado</label>
-                            <input type="text" id="inputestado" name="estado" maxlength="2">
-                        </div>
-                    </div>
-
-                    <button type="submit" id="btnsalvarperfil">&#9998; Salvar</button>
-                </form>
-            </div>
-        </div>
-
-
-
-        <div class="coluna-direita">
-            <div class="caixa-perfil">
-                <div id="pets-cabecalho">
-                    <h2>&#128062; Meus Pets</h2>
-                    <button id="btnabrirmodal" onclick="abrirmodal()">+ Adicionar pet</button>
-                </div>
-
-
-                <div id="listapets">
-                    <div class="pet-card" id="pet-1">
-                        <div class="pet-header">
+                        <div id="usuario-header">
+                            <div id="avatar">X</div>
                             <div>
-                                <strong class="pet-nome">belinha</strong>
-                                <div class="pet-tags">
-                                    <span class="tag">Cachorro</span>
-                                    <span class="tag">Poodle</span>
-                                    <span class="tag">13 anos</span>
-                                    <span class="tag">10kg</span>
-                                </div>
-                            </div>
-                            <button class="btn-deletar" onclick="deletarpet('pet-1')">&#128465;</button>
-                        </div>
-
-
-
-
-                        <div class="carteira">
-                            <button class="btn-vacinas" onclick="toggleVacinas('vacinas-1', this)">&#128137;Carteira de Vacinação &#9660;</button>
-                            <div id="vacinas-1" class="vacinas" style="display: none;">
-                                <div class="vacina-linha">
-                                    <span><strong>V10</strong> <span class="vacina-data">12/01/2024</span></span>
-                                    <span class="vacina-pet">Dr. Josefino</span>
-                                </div>
-
-                                <div class="vacina-linha">
-                                    <span><strong>Antirrabica</strong><span class="vacina-data">15/03/2024</span></span>
-                                    <span class="vacina-pet">Dr. shhdhhd</span>
-                                </div>
-                                <button class="btn-adicionar-vacina" onclick="toggleFormVacina('form-vacina-1', this)">+ Adicionar Vacina</button>
-                                <form id="form-vacina-1" class="form-vacina" style="display: none;" onsubmit="salvarVacina(event, 'vacinas-1', 'form-vacina-1')">
-                                    <input type="text" placeholder="Nome da Vacina" required>
-                                    <input type="date" required>
-                                    <input type="text" placeholder="Veterinário (opcional)">
-
-                                    <div class="form-vacina-botoes">
-                                        <button type="submit">Salvar</button>
-                                        <button type="button" onclick="document.getElementById('form-vacina-1').style.display='none'">Cancelar</button>
-                                    </div>
-                                </form>
+                                <strong id="nomeUsuario">xxxx</strong>
+                                <span id="emailUsuario">xxxxx@email.com</span>
                             </div>
                         </div>
+
+                        <form id="formPerfil" action="#" method="post">
+                            <label for="inputNome">Nome</label>
+                            <input type="text" id="inputNome" name="nome">
+
+                            <label for="inputTelefone">Telefone</label>
+                            <input type="tel" id="inputTelefone" name="telefone" placeholder="(XX) XXXXX-XXXX">
+
+                            <div class="linha-dupla">
+                                <div>
+                                    <label for="inputCidade">Cidade</label>
+                                    <input type="text" id="inputCidade" name="cidade">
+                                </div>
+                                <div>
+                                    <label for="inputEstado">Estado</label>
+                                    <input type="text" id="inputEstado" name="estado" maxlength="2">
+                                </div>
+                            </div>
+
+                            <button type="submit" id="btnSalvarPerfil">&#9998; Salvar perfil</button>
+                        </form>
+
                     </div>
                 </div>
-            </div>
 
+
+        <!-- ===================== meus pets ====================== -->
+
+                <div class="coluna-direita">
+                    <div class="caixa-perfil">
+
+                        <div id="pets-cabecalho">
+                            <h2>Meus Pets</h2>
+                            <button id="btnAbrirModal" onclick="abrirModal()">+ Adicionar pet</button>
+                        </div>
+
+                        <!-- Lista de pets -->
+                        <div id="listaPets">
+        
+                                   
+                        </div><!-- /#listaPets -->
+                    </div>
+                </div>
+            </div><!-- /#perfil-grid -->
         </div>
     </main>
 
-    <!----------seprações divas para a gnt se acahr -Modal- Adicionar novo pet ----------------------------------------------------------->
 
-    <div id="modal-overplay" style="display: none;">
+    <!-- MODAL — --------------------------- Adicionar pet -->
+
+    <div id="modal-overlay" style="display:none;">
         <div id="modal-box">
             <h2>Adicionar novo pet</h2>
 
-            <form id="formnovopet" onsubmit="adicionarPet(event)">
-                <label for="petnome">Nome</label>
-                <input type="text" id="petnome" placeholder="Nome do pet" required>
+            <form id="formNovoPet" onsubmit="adicionarPet(event)">
+                <label for="petNome">Nome</label>
+                <input type="text" id="petNome" placeholder="Nome do pet" required>
 
                 <label for="petEspecie">Espécie</label>
                 <select id="petEspecie" required>
@@ -160,7 +126,6 @@
                     <div>
                         <label for="petRaca">Raça</label>
                         <input type="text" id="petRaca" placeholder="Opcional">
-            
                     </div>
                     <div>
                         <label for="petIdade">Idade (anos)</label>
@@ -175,17 +140,18 @@
                     </div>
                     <div>
                         <label for="petCor">Cor</label>
-                        <input  type="text" id="petCor" placeholder="Opcional">
+                        <input type="text" id="petCor" placeholder="Opcional">
                     </div>
                 </div>
 
                 <div id="modal-botoes">
-                    <button type="submit">Adiconar pet</button>
+                    <button type="submit">Adicionar pet</button>
                     <button type="button" onclick="fecharModal()">Cancelar</button>
                 </div>
             </form>
         </div>
     </div>
+
 
     <!--separações divas para a gnt se achar - o rodape----------------------------------------------------------------->
 
@@ -295,43 +261,43 @@
         });
 
         function sair() {
-            localStorage.removeItem('usuarioLogado');
+            localStorage.removeItem('mas_token');
             window.location.href = '../login/login.html';
         }
 
-        function abrirmodal() {
-            document.getElementById('modal-overplay').style.display = '';
+        function abrirModal()  { 
+            document.getElementById('modal-overlay').style.display = ''; 
+        }
+        function fecharModal() { 
+            document.getElementById('modal-overlay').style.display = 'none'; 
         }
 
-        function fecharModal() {
-            document.getElementById('modal-overplay').style.display = 'none';
-        }
-
-        document.getElementById('modal-overplay').addEventListener('click', function(e) {
+        document.getElementById('modal-overlay').addEventListener('click', function(e) {
             if (e.target === this) fecharModal();
         });
 
         function adicionarPet(e) {
             e.preventDefault();
-            var nome = document.getElementById('petnome').value.trim();
+            var nome    = document.getElementById('petNome').value.trim();
             var especie = document.getElementById('petEspecie').value;
-            var raca = document.getElementById('petRaca').value.trim();
-            var idade = document.getElementById('petIdade').value;
-            var peso = document.getElementById('petPeso').value;
+            var raca    = document.getElementById('petRaca').value.trim();
+            var idade   = document.getElementById('petIdade').value;
+            var peso    = document.getElementById('petPeso').value;
 
-            var id = 'pet-' + contadorPet++;
-            var tags = '<span class="tags">' + especie.charAt(0).toUpperCase() + especie.slice(1) + '</span>';
-            if (raca) tags += '<span class="tag">' + raca + '</span>';
+            var id   = 'pet-' + contadorPet++;
+            var tags = '<span class="tag">' + especie.charAt(0).toUpperCase() + especie.slice(1) + '</span>';
+            if (raca)  tags += '<span class="tag">' + raca  + '</span>';
             if (idade) tags += '<span class="tag">' + idade + ' anos</span>';
-            if (peso) tags += '<span class="tag">' + peso + 'kg</span>'; 
+            if (peso)  tags += '<span class="tag">' + peso  + 'kg</span>';
 
             var vacinasId = 'vacinas-' + id;
-            var formId = 'form-vacina-' + id;
+            var formId    = 'form-vacina-' + id;
 
-            var html = '<div class="pet-card" id="' + id + '">' + '<div class="pet-header">' + 
-            '<div><strong class="pet-nome">' + nome + '</strong>' +
+            var html = '<div class="pet-card" id="' + id + '">' +
+                '<div class="pet-header">' +
+                    '<div><strong class="pet-nome">' + nome + '</strong>' +
                     '<div class="pet-tags">' + tags + '</div></div>' +
-                    '<button class="btn-deletar" onclick="deletarpet(\'' + id + '\')">&#128465;</button>' +
+                    '<button class="btn-deletar" onclick="deletarPet(\'' + id + '\')">&#128465;</button>' +
                 '</div>' +
                 '<div class="carteira">' +
                     '<button class="btn-vacinas" onclick="toggleVacinas(\'' + vacinasId + '\', this)">&#128137; Carteira de Vacinação &#9660;</button>' +
@@ -348,16 +314,23 @@
                 '</div>' +
             '</div>';
 
-            document.getElementById('listapets').insertAdjacentHTML('beforeend', html);
-            document.getElementById('formnovopet').reset();
+            document.getElementById('listaPets').insertAdjacentHTML('beforeend', html);
+            document.getElementById('formNovoPet').reset();
             fecharModal();
         }
 
-
-        function deletarpet(id) {
-            if(confirm('Remover esse pet?')) {
+        function deletarPet(id) {
+            if (confirm('Remover este pet?')) {
                 document.getElementById(id).remove();
             }
+        }
+
+        function toggleVacinas(id, btn) {
+            var el = document.getElementById(id);
+            el.style.display = el.style.display === 'none' ? '' : 'none';
+            btn.textContent = el.style.display === 'none'
+                ? '&#128137; Carteira de Vacinação &#9660;'
+                : '&#128137; Carteira de Vacinação &#9650;';
         }
 
         function toggleFormVacina(id, btn) {
@@ -367,16 +340,15 @@
 
         function salvarVacina(e, vacinasId, formId) {
             e.preventDefault();
-            var form = document.getElementById(formId);
-            var nome = form.querySelectorAll('input')[0].value;
-            var data = form.querySelectorAll('input')[1].value;
-            var vet = form.querySelectorAll('input')[2].value;
+            var form  = document.getElementById(formId);
+            var nome  = form.querySelectorAll('input')[0].value;
+            var data  = form.querySelectorAll('input')[1].value;
+            var vet   = form.querySelectorAll('input')[2].value;
 
-            dataFormatada = data ? new Date(data).toLocaleDateString('pt-br') : '';
-            var html  = '<div class="vacina-linha">' +
+            var dataFormatada = data ? new Date(data).toLocaleDateString('pt-BR') : '';
+            var html = '<div class="vacina-linha">' +
                 '<span><strong>' + nome + '</strong> <span class="vacina-data">' + dataFormatada + '</span></span>' +
-                (vet ? '<span class="vacina-vet">' + vet + '</span>' : '') +
-            '</div>';
+                (vet ? '<span class="vacina-vet">' + vet + '</span>' : '') + '</div>';
 
             var vacinasEl = document.getElementById(vacinasId);
             var semVacina = vacinasEl.querySelector('p');
@@ -386,8 +358,6 @@
             form.reset();
             form.style.display = 'none';
         }
-        
-        
 
 
     </script>
