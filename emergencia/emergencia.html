@@ -229,20 +229,20 @@
 
             if (pontos >= 15) {
                 caixa.classList.add('resultado-grave');
-                icone.textContent = 'GRAVE;';
-                label.textContent = 'Procure ajuda IMEDIATAMENTE';
+                icone.textContent = 'GRAVE';
+                label.textContent = 'Procure atendimento IMEDIATAMENTE';
                 msg.textContent   = 'Os sinais indicam risco de vida. Leve seu pet a uma clínica de emergência agora.';
                 btnCli.style.display = '';
             } else if (pontos >= 7) {
                 caixa.classList.add('resultado-moderado');
-                icone.textContent = '&#9888;';
-                label.textContent = 'MODERADO — Procure atendimento em breve';
+                icone.textContent = 'MODERADO';
+                label.textContent = 'Procure atendimento em breve';
                 msg.textContent   = 'Seu pet precisa de avaliação veterinária nas próximas horas.';
                 btnCli.style.display = '';
             } else {
                 caixa.classList.add('resultado-leve');
-                icone.textContent = '&#9989;';
-                label.textContent = 'LEVE — Observe em casa';
+                icone.textContent = 'LEVE';
+                label.textContent = 'Observe com atenção';
                 msg.textContent   = 'Os sinais não indicam emergência imediata. Observe seu pet e consulte um veterinário se piorar.';
                 btnCli.style.display = 'none';
             }
