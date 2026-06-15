@@ -45,15 +45,99 @@
         </div>
     </nav>
 
+<!-- separações divas para a gnt se achar ------------------ PÁGINA ------------------------------------->
 
+    <div id="pagina">
+        <div id="cabecalho">
+            <h1>Mapa de Clínicas</h1>
+            <p>Atendimento veterinário acessível no estado do Rio de Janeiro</p>
+        </div>
+    
+        <div id="mapaWrapper">
 
+        <!----------- separaçãoes divas para a gnt se achar ----------- sidebar ---------------------------->
 
+            <aside id="sidebar">
+                <div class="sb-sec">
+                    <div class="search-box">
+                        <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+                        </svg>
+                        <input id="searchInput" type="text" placeholder="Buscar clínica ou bairro…"/>
+                    </div>
+                </div>
+    
+                <div class="filter-pills">
+                    <div class="pill at"  data-f="todos"    onclick="setFiltro(this)">Todos</div>
+                    <div class="pill"     data-f="gratuito" onclick="setFiltro(this)">Gratuito</div>
+                    <div class="pill"     data-f="popular"  onclick="setFiltro(this)">Popular</div>
+                    <div class="pill"     data-f="24h"      onclick="setFiltro(this)">24 horas</div>
+                </div>
+                
+                <div class="count-label">Mostrando <strong id="countDisplay">0</strong> clínicas</div>
+                <div id="clinicList"></div>
+                <div id="emptyState">
+                    <svg width="40" height="40" fill="none" stroke="#d0c8db" stroke-width="1.5" viewBox="0 0 24 24">
+                        <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/>
+                        <circle cx="12" cy="9" r="2.5"/>
+                    </svg>
+                    <p>Nenhuma clínica encontrada.<br/>Tente outros filtros.</p>
+                </div>
+            </aside>
+    
+        <!--separações divas para a gnt se achar --------------------- mapa --------------------- -->
+            <div id="map"></div>
+        </div>
+    </div>
+    
+    <!------------------------ separações divas para a gnt se achar --- modal --------------------------------->
 
-
-
-
-
-
+    <div id="modalOverlay" onclick="fecharFora(event)">
+        <div id="modalCard">
+            <div class="modal-head">
+                <div class="modal-head-left">
+                    <div class="modal-emoji" id="mEmoji"></div>
+                    <div class="modal-title">
+                        <h2 id="mNome"></h2>
+                        <div class="modal-sub-txt" id="mSub"></div>
+                        <div class="modal-rating" id="mRating"></div>
+                    </div>
+                </div>
+                <button class="modal-close" onclick="fecharModal()">
+                    <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                        <path d="M18 6 6 18M6 6l12 12"/>
+                    </svg>
+                </button>
+            </div>
+            <div class="modal-badges" id="mBadges"></div>
+            <div class="modal-body">
+                <div class="modal-section">
+                    <p class="modal-section-title">Sobre</p>
+                    <p class="modal-desc" id="mDesc"></p>
+                </div>
+                <div class="modal-section">
+                    <p class="modal-section-title">Informações</p>
+                    <div class="info-row">
+                        <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+                        <span id="mEndereco"></span>
+                    </div>
+                    <div class="info-row">
+                        <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2A19.79 19.79 0 013.1 5.18 2 2 0 015.09 3h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L9.09 10.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 17.92z"/></svg>
+                        <span id="mTel"></span>
+                    </div>
+                    <div class="info-row">
+                        <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+                        <span id="mHorario"></span>
+                    </div>
+                </div>
+                <div class="modal-section">
+                    <p class="modal-section-title">Serviços disponíveis</p>
+                    <div class="service-list" id="mServicos"></div>
+                </div>
+            </div>
+            <div class="modal-cta" id="mCta"></div>
+        </div>
+    </div>
 
 
     <!--separações divas para a gnt se achar - o rodape-->
@@ -70,13 +154,13 @@
                     <p>Orientação veterinária acessível para quem mais precisa. Porque todo pet merece cuidado, independente da renda.</p>
                     <div class="redes-sociais">
                         <!--precisa colocar as fotinhas depois-->
-         <div class="redes-sociais">
+                        <div class="redes-sociais">
     
-    <a href="#" aria-label="Instagram">Insta</a>
-    <a href="#" aria-label="Facebook">Face</a>
-    <a href="#" aria-label="WhatsApp">Wtt</a>
-    <a href="#" aria-label="Twitter">X</a>
-</div>
+                            <a href="#" aria-label="Instagram">Insta</a>
+                            <a href="#" aria-label="Facebook">Face</a>
+                            <a href="#" aria-label="WhatsApp">Wtt</a>
+                            <a href="#" aria-label="Twitter">X</a>
+                        </div>
                     </div>
                 </div>
                     
@@ -104,6 +188,10 @@
         </div>
     </footer>
 
+    <!-- Leaflet CSS + JS inline via jsDelivr -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.min.css"/>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.min.js"></script>
+
     <script>
         const areaUsuario = document.getElementById('areaUsuario');
         const usuarioLogado = JSON.parse(localStorage.getItem('usuarioLogado'));
@@ -119,6 +207,223 @@
             localStorage.removeItem('usuarioLogado');
             window.location.href = '../mapaclinica/mapaclinica.html';
         }
+
+         /* ── --------------------- separações divas para a gnt se achar --- DADOOOOOS CLINICAS ----------------- ── */
+    var clinicas = [
+        { id:1, nome:"CRMV-RJ / Clínica Escola UFRJ", tipo:"ONG", bairro:"Ilha do Governador",
+            endereco:"Av. Brigadeiro Trompowsky s/n, Ilha do Governador", telefone:"(21) 3938-7700",
+            horario:"Seg a Sex, 8h–17h", tipos:["gratuito"], rating:4.3, emoji:"🏥",
+            descricao:"Clínica escola da UFRJ. Atendimento gratuito por alunos supervisionados por professores doutores.",
+            servicos:["Consulta clínica","Vacinação","Castração","Exames básicos"], lat:-22.8185, lng:-43.1815 },
+        
+        
+    ];
+    
+    /* ── ------------- separações divas para a gnt se achar --- bolota -------------------------------- ── */
+    var LABELS = { 
+        gratuito:"Gratuito", popular:"Popular", "24h":"24 horas" 
+    };
+    var CORES  = { 
+        gratuito:"#065f46", popular:"#92400e", "24h":"#1e40af", outros:"#985986" 
+    };
+    var LETRAS = { 
+        gratuito:"G", popular:"P", "24h":"24", outros:"V" 
+    };
+    
+    function tipoMarca(tipos) {
+        if (tipos.indexOf("gratuito") > -1) return "gratuito";
+        if (tipos.indexOf("popular")  > -1) return "popular";
+        if (tipos.indexOf("24h")      > -1) return "24h";
+        return "outros";
+    }
+    
+    function badgeClass(t) {
+        return t === "gratuito" ? "g" : t === "popular" ? "p" : t === "24h" ? "h" : "o";
+    }
+    
+    function badgesHtml(tipos) {
+        return tipos.map(function(t) {
+            return '<span class="badge ' + badgeClass(t) + '">' + (LABELS[t] || t) + '</span>';
+        }).join('');
+    }
+    
+    
+    var filtroAtivo = "todos";
+    var termoBusca  = "";
+    var marcadores  = {};
+    var map;
+    
+    /* ── ------------ separações divas para a gnt se achar --- parte de iniciar o mapa ---------- ── */
+    function iniciarMapa() {
+        map = L.map('map', { center: [-22.9068, -43.1729], zoom: 11, zoomControl: false 
+
+        });
+    
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+            maxZoom: 19
+        }).addTo(map);
+    
+        L.control.zoom({ position: 'bottomright' }).addTo(map);
+    
+        clinicas.forEach(function(c) {
+            var tm  = tipoMarca(c.tipos);
+            var cor = CORES[tm];
+            var ltr = LETRAS[tm];
+            var fs  = ltr.length > 1 ? "8" : "11";
+            var svgHtml = '<svg xmlns="http://www.w3.org/2000/svg" width="36" height="46" viewBox="0 0 36 46">'
+            + '<path d="M18 2C10.27 2 4 8.27 4 16c0 10.5 14 28 14 28S32 26.5 32 16C32 8.27 25.73 2 18 2z" fill="' + cor + '" stroke="white" stroke-width="2.5"/>'
+            + '<text x="18" y="21" text-anchor="middle" font-family="sans-serif" font-weight="800" font-size="' + fs + '" fill="white">' + ltr + '</text>'
+            + '</svg>';
+        
+            var icon = L.divIcon({ html: svgHtml, className: '', iconSize: [36, 46], iconAnchor: [18, 46], popupAnchor: [0, -48] });
+        
+            var popup = '<div class="map-popup">'
+            + '<h3>' + c.nome + '</h3>'
+            + '<div class="pop-sub">' + c.tipo + ' · ' + c.bairro + '</div>'
+            + '<div class="pop-badges">' + badgesHtml(c.tipos) + '</div>'
+            + '<button class="pop-btn" onclick="abrirModal(' + c.id + ')">Ver detalhes →</button>'
+            + '</div>';
+        
+            var m = L.marker([c.lat, c.lng], { icon: icon }).addTo(map).bindPopup(popup, { maxWidth: 230 });
+            marcadores[c.id] = m;
+        });
+    }
+    
+    /* ── ------------------- separações divas para a gnt se achar ---- filtro ------------------------ ── */
+    function setFiltro(el) {
+        filtroAtivo = el.dataset.f;
+        document.querySelectorAll('.pill').forEach(function(p) {
+            p.className = 'pill';
+            if (p.dataset.f === filtroAtivo) {
+                var cls = { todos:"at", gratuito:"ag", popular:"ap", "24h":"a24" };
+                p.classList.add(cls[filtroAtivo] || 'at');
+            }
+        });
+        renderLista();
+    }
+    
+    document.getElementById('searchInput').addEventListener('input', function() {
+        termoBusca = this.value.toLowerCase();
+        renderLista();
+    });
+    
+    function visivel(c) {
+        var okF = filtroAtivo === "todos" || c.tipos.indexOf(filtroAtivo) > -1;
+        var okB = !termoBusca || c.nome.toLowerCase().indexOf(termoBusca) > -1 || c.bairro.toLowerCase().indexOf(termoBusca) > -1;
+        return okF && okB;
+    }
+    
+    /* ── --------- separações divas para a gnt se achar --- a listinha ----------------- ── */
+    function renderLista() {
+        var lista    = document.getElementById('clinicList');
+        var empty    = document.getElementById('emptyState');
+        var visiveis = clinicas.filter(visivel);
+        
+        document.getElementById('countDisplay').textContent = visiveis.length;
+        lista.innerHTML = '';
+        
+        if (!visiveis.length) {
+            lista.style.display = 'none';
+            empty.style.display = 'flex';
+        } else {
+            lista.style.display = 'block';
+            empty.style.display = 'none';
+            visiveis.forEach(function(c) {
+                var div = document.createElement('div');
+                div.className = 'clinic-card';
+                div.innerHTML =
+                    '<div class="card-top">'
+                    + '<div class="card-nome">' + c.nome + '</div>'
+                    + '<div class="card-rating">★ ' + c.rating.toFixed(1) + '</div>'
+                    + '</div>'
+                    + '<div class="card-sub">' + c.tipo + ' · ' + c.bairro + '</div>'
+                    + '<div class="card-badges">' + badgesHtml(c.tipos) + '</div>';
+                div.addEventListener('click', function() { abrirModal(c.id); });
+                lista.appendChild(div);
+            });
+        }
+        
+        if (map) {
+            clinicas.forEach(function(c) {
+            if (visivel(c)) marcadores[c.id].addTo(map);
+            else if (marcadores[c.id]) map.removeLayer(marcadores[c.id]);
+            });
+        }
+    }
+    
+    /* ── ------------------- separações divas para a gnt se achar --- modal --------------── */
+    
+    function abrirModal(id) {
+        var c = null;
+        for (var i = 0; i < clinicas.length; i++) { 
+            if (clinicas[i].id === id) { 
+                c = clinicas[i]; break; 
+            } 
+        }
+        if (!c) return;
+        
+        if (map) {
+            map.closePopup(); 
+            map.flyTo([c.lat, c.lng], 15, { duration: 1 }); 
+        }
+        
+        document.getElementById('mEmoji').textContent    = c.emoji;
+        document.getElementById('mNome').textContent     = c.nome;
+        document.getElementById('mSub').textContent      = c.tipo + ' · ' + c.bairro + ', RJ';
+        document.getElementById('mRating').innerHTML     = '★ ' + c.rating.toFixed(1);
+        document.getElementById('mDesc').textContent     = c.descricao;
+        document.getElementById('mEndereco').textContent = c.endereco;
+        document.getElementById('mTel').textContent      = c.telefone;
+        document.getElementById('mHorario').textContent  = c.horario;
+        document.getElementById('mBadges').innerHTML     = badgesHtml(c.tipos);
+        document.getElementById('mServicos').innerHTML   = c.servicos.map(function(s) {
+            return '<span class="service-tag">' + s + '</span>';
+        }).join('');
+            document.getElementById('mCta').innerHTML =
+                '<button class="btn-primary" onclick="abrirRota(' + c.lat + ',' + c.lng + ')">'
+                + '<svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/></svg>'
+                + ' Como chegar</button>'
+                + '<button class="btn-outline" onclick="ligar(\'' + c.telefone + '\')">'
+                + '<svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2A19.79 19.79 0 013.1 5.18 2 2 0 015.09 3h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L9.09 10.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 17.92z"/></svg>'
+                + ' Ligar</button>';
+        
+            document.getElementById('modalCard').scrollTop = 0;
+            document.getElementById('modalOverlay').classList.add('open');
+            document.body.style.overflow = 'hidden';
+    }
+    
+    function fecharModal() {
+        document.getElementById('modalOverlay').classList.remove('open');
+        document.body.style.overflow = '';
+    }
+    
+    function fecharFora(e) {
+        if (e.target === document.getElementById('modalOverlay')) fecharModal();
+    }
+    
+    function abrirRota(lat, lng) {
+        window.open('https://www.google.com/maps/dir/?api=1&destination=' + lat + ',' + lng, '_blank');
+    }
+    
+    function ligar(tel) {
+        window.open('tel:+55' + tel.replace(/\D/g, ''));
+    }
+    
+    /* ── ---------------- separações divas para a gnt se achar ---- esc -----------------── */
+    document.addEventListener('keydown', function(e) { 
+        if (e.key === 'Escape') fecharModal(); 
+    });
+    
+    /* ── ----------------- separações divas para a gnt se achar --- menu mobile ----------------- ── */
+    document.getElementById('btnmenu').addEventListener('click', function() {
+        var m = document.getElementById('menuMobile');
+        m.style.display = m.style.display === 'flex' ? 'none' : 'flex';
+    });
+
+    /* ── --------- separações divas para a gnt se achar ---- init ----------------------- ── */
+    renderLista();
+    iniciarMapa();
     </script>
 
 </body>
