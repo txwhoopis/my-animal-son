@@ -690,27 +690,7 @@ a {
 .btn-primary:hover { 
     background: #af659a; 
 }
-.btn-outline {
-    padding: 0.7rem 1rem; 
-    background: #fff; 
-    color: #985986;
-    border: 1px solid #d0c8db; 
-    border-radius: 12px;
-    font-family: "Plus Jakarta Sans", sans-serif;
-    font-size: 0.875rem; 
-    font-weight: 700; 
-    cursor: pointer;
-    display: flex; 
-    align-items: center; 
-    justify-content: center;
-    gap: 6px;
-    transition: background 0.15s;
-    
-}
-.btn-outline:hover { 
-    background: rgba(152,89,134,0.07); 
-}
- 
+
 
 
 
