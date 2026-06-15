@@ -145,42 +145,48 @@ a {
     color: #807f7f;
 }
 
-#menuMobile {
-    display: none;
-    flex-direction: column;
-    gap: 0.25rem;
-    padding: 0.75rem 1.5rem 1rem;
-    border-top: 1px solid #e8e2f0;
-    background: #fff;
+#menuMobile a, #menuMobile button, #logonav, #btnmenu {
+    text-align: center;
 }
 
-#menuMobile a,
-#menuMobile button {
-    display: flex;
-    padding: 0.625rem 0.75rem;
+#menuMobile {
+    display: none; 
+    flex-direction: column; 
+    gap: 0.25rem;
+    padding: 0.75rem 1.5rem 1rem;
+    border-top: 1px solid #e8e2f0; 
+    background: #fff;
+}
+#menuMobile a, #menuMobile button {
+    display: block; 
+    padding: 0.625rem 0.75rem; 
     border-radius: 8px;
-    font-size: 0.875rem;
-    font-weight: 500;
-    color: rgba(43, 43, 43, 0.65);
-    background: none;
-    border: none;
-    text-align: left;
+    font-size: 0.875rem; 
+    font-weight: 500; 
+    color: rgba(43,43,43,0.65);
+    background: none; 
+    border: none; 
+    text-align: left; 
     cursor: pointer;
     font-family: inherit;
     width: 100%;
-    flex-direction: column;
 }
-
 #menuMobile a:hover { 
-    background: #f3eef9; color: #2b2b2b; 
+    background: #f3eef9; 
+    color: #2b2b2b; 
 }
 #menuMobile hr { 
-    border: none; border-top: 1px solid #e8e2f0; margin: 0.25rem 0; 
+    border: none; 
+    border-top: 1px solid #e8e2f0; 
+    margin: 0.25rem 0; 
 }
 #menuMobile .btn-nav { 
-    color: #fff; background: #9B59B6; display: block; text-align: center; 
+    color: #fff; 
+    background: #985986; 
+    text-align: center; 
+    display: block; 
+    border-radius: 8px; 
 }
-
 
     /* ──------------------------ separações divas para a gnt se achar - o tal do hero--------------------------------------── */
 
