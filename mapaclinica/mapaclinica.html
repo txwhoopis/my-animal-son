@@ -332,6 +332,7 @@
         document.getElementById('mRating').innerHTML     = '★ ' + c.rating.toFixed(1);
         document.getElementById('mDesc').textContent     = c.descricao;
         document.getElementById('mEndereco').textContent = c.endereco;
+        document.getElementById('mTel').textContent = c.telefone;
         document.getElementById('mBadges').innerHTML     = badgesHtml(c.tipos);
         document.getElementById('mServicos').innerHTML   = c.servicos.map(function(s) {
             return '<span class="service-tag">' + s + '</span>';
