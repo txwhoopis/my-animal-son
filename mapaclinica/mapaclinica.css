@@ -200,7 +200,7 @@ a {
 /* ──--------------------------------- separações divas para a gnt se achar - cabeçalho --------------------------------------------── */
 
 #cabecalho {
-    padding: 4rem 0.125rem 1.7rem;
+    padding: 3rem 0.125rem 1.7rem;
     padding-left: 2.250rem;
     flex-shrink: 0;
 }
