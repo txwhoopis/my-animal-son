@@ -168,11 +168,44 @@
 
          /* ── --------------------- separações divas para a gnt se achar --- DADOOOOOS CLINICAS ----------------- ── */
     var clinicas = [
-        { id:1, nome:"CRMV-RJ / Clínica Escola UFRJ", tipo:"ONG", bairro:"Ilha do Governador",
-            endereco:"Av. Brigadeiro Trompowsky s/n, Ilha do Governador", telefone:"(21) 3938-7700",
-            horario:"Seg a Sex, 8h–17h", tipos:["gratuito"], rating:4.3, emoji:"🏥",
-            descricao:"Clínica escola da UFRJ. Atendimento gratuito por alunos supervisionados por professores doutores.",
-            servicos:["Consulta clínica","Vacinação","Castração","Exames básicos"], lat:-22.8185, lng:-43.1815 },
+        { id:1, nome:"Hospital Municipal Veterinário Jorge Vaitsman", tipo:"Hospital Público", bairro:"Mangueira",
+            endereco:"Av. Bartolomeu de Gusmão, 1120 - Mangueira", telefone:"1746 / (21) 3872-6080",
+            horario:"Todos os dias, 8h–20h", tipos:["gratuito","popular"], rating:4.3, emoji:"🏥",
+            descricao:"Hospital veterinário municipal de referência com consultas, especialidades, exames, cirurgias, vacinação e microchipagem. Oferece serviços gratuitos, mas eles são limitados. Castração, microchipagem, vacinação antirrábica e tratamento para esporotricose são totalmente gratuitos. Tutores inscritos no CadÚnico também têm isenção em consultas e outros procedimentos (Consultas clínicas, exames e cirurgias). Como a demanda é muito alta, o atendimento é feito por ordem de chegada com distribuição de senhas.",
+            servicos:["Consulta clínica","Cardiologia","Dermatologia","Oftalmologia","Ortopedia","Cirurgias","Ultrassonografia","Raio-X","Vacinação antirrábica","Microchipagem","Castração"], lat:-22.908287, lng:-43.231789 },
+
+        { id:2, nome:"Hospital Municipal Veterinário São Francisco de Assis", tipo:"Hospital Público", bairro:"Irajá",
+            endereco:"Rua Hannibal Porto, 450 - Irajá", telefone:"1746",
+            horario:"Todos os dias, 8h–20h", tipos:["gratuito","popular"], rating:3.9, emoji:"🏥",
+            descricao:"Hospital veterinário municipal é gratuito apenas para tutores inscritos no CadÚnico. Para quem não possui o cadastro social, é cobrada uma taxa acessível por consultas e procedimentos. Serviços como microchipagem são gratuitos para todos. É recomendado chegar cedo, pois há distribuição de senhas diárias (por volta das 6hrs da manhã), além de visitante sugerirem levar água e lanches pois a espera é longa e não há comércios próximos",
+            servicos:["Consultas clínicas","Emergência","Cirurgias gerais","Ultrassonografia","Ecocardiograma","Vacinação antirrábica","Microchipagem","Ortopedia","Tratamento de esporotricose"], lat:-22.825247, lng:-43.325487 },
+
+        { id:3, nome:"Hospital Veterinário Fazenda Modelo", tipo:"Hospital Público", bairro:"Guaratiba",
+            endereco:"Estrada do Mato Alto, 5620 - Guaratiba", telefone:"1746 / 2976-2893",
+            horario:"Seg a Sex, 8h–17h; Sáb, 8h–12h", tipos:["gratuito"],
+            rating:4.5, emoji:"🏥",
+            descricao:"Centro municipal de proteção animal com atendimento veterinário, adoção, abrigo e campanhas públicas. As consultas são de baixa complexidade, curativos e avaliação médica. O local não realiza vacinação, exames laboratoriais, internações ou cirurgias ortopédicas e oftalmológicas. A castração é realizada mediante agendamento prévio (site ou pessoalmente)",
+            servicos:["Consulta clínica","Castração","Adoção","Abrigo animal","Atendimento veterinário"], lat:-22.992508, lng:-43.592426},
+
+        { id:4, nome:"SMPDA Posto Veterinário Praça Seca", tipo:"Posto Veterinário Público", bairro:"Praça Seca",
+            endereco:"Praça Barão da Taquara, s/n - Praça Seca", telefone:"(21) 97901-4460",
+            horario:"Seg a Sex, 8h–17h", tipos:["gratuito"], rating:4.4, emoji:"🏥",
+            descricao:"Posto veterinário da Prefeitura com consultas clínicas gratuitas (de baixa complexidade) e castrações. O atendimento clínico é por ordem de chegada às 8hr, mas as castrações exigem agendamento prévio. O posto não realiza vacinações, exames laboratoriais e cirurgias ortopédicas",
+            servicos:["Consulta clínica","Castração","Atendimento veterinário gratuito"], lat:-22.898450, lng:-43.352434 },
+
+        { id:5, nome:"SMPDA Posto Veterinário Bangu", tipo:"Posto Veterinário Público", bairro:"Bangu",
+            endereco:"Praça Guilherme da Silveira, s/n - Bangu", telefone:"(21) 98577-1434",
+            horario:"Seg a Sex, 8h–17h", tipos:["gratuito"], rating:4.4, emoji:"🏥",
+            descricao:"Posto veterinário municipal com atendimento clínico gratuito (de baixa complexidade) e castrações. O atendimento clínico é por ordem de chegada às 8hr, mas as castrações exigem agendamento prévio.",
+            servicos:["Consulta clínica","Castração","Atendimento veterinário gratuito"], lat:-22.874365, lng:-43.455957 },
+
+        { id:6, nome:"SUIPA", tipo:"ONG", bairro:"Benfica",
+            endereco:"Av. Dom Hélder Câmara, 1801 - Benfica", telefone:"(21) 3297-8777",
+            horario:"Seg a Sab, 07h-14h", tipos:["popular"], rating:4.3, emoji:"🐾",
+            descricao:"Entidade tradicional de proteção animal com abrigo, adoção e assistência veterinária com preço acessível para consultas e diversos exames veterinários. Atendimentos são realizados por ordem de chegada",
+            servicos:["Assistência veterinária","Adoção","Abrigo animal","Proteção animal"], lat:-22.883821, lng:-43.254060 },
+
+
         
         
     ];
