@@ -185,8 +185,15 @@
 
         function sair() {
             localStorage.removeItem('usuarioLogado');
-            window.location.href = '../sobre/sobre.html';
+            window.location.href = '../mapaclinica/mapaclinica.html';
         }
+
+        /* ── ----------------- separações divas para a gnt se achar --- menu mobile ----------------- ── */
+        document.getElementById('btnmenu').addEventListener('click', function() {
+            var m = document.getElementById('menuMobile');
+            m.style.display = m.style.display === 'flex' ? 'none' : 'flex';
+        });
+
     </script>
 </body>
 </html>

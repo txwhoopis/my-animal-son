@@ -40,8 +40,10 @@
             <a href="../sobre/sobre.html">Sobre Nós</a>
             <a href="../parcerias/parcerias.html">Parcerias</a>
             <hr>
+            <div id="areaUsuarioMobile"> 
             <a href="../login/login.html">Entrar</a>
             <a href="../cadastro/cadastro.html" class="btn-nav">Criar conta</a>
+            </div>
         </div>
     </nav>
 
@@ -215,7 +217,7 @@
 
         if (usuarioLogado && areaUsuario) {
             areaUsuario.innerHTML = `
-                <a href="../perfil/perfil.html" class="btn-login">Perfil</a>
+                <a href="./perfil/perfil.html" class="btn-login">Perfil</a>
                 <button onclick="sair()" class="btn-criar">Sair</button>
             `;
         }
@@ -224,6 +226,12 @@
             localStorage.removeItem('usuarioLogado');
             window.location.href = 'index.html';
         }
+
+        /* ── ----------------- separações divas para a gnt se achar --- menu mobile ----------------- ── */
+        document.getElementById('btnmenu').addEventListener('click', function() {
+            var m = document.getElementById('menuMobile');
+            m.style.display = m.style.display === 'flex' ? 'none' : 'flex';
+        });
     </script>
 </body>
 </html>
