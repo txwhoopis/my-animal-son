@@ -658,3 +658,6 @@ select:focus {
     text-align: center;
     font-size: 0.75rem;
 }
+body > footer { 
+    position: sticky; top: 100vh; 
+}
