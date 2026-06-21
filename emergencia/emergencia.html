@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -18,15 +18,24 @@
 
             <ul id="navmenu">
                 <li><a href="../mapaclinica/mapaclinica.html">Mapa de Clínicas</a></li>
-                <li><a href="../emergencia/emergencia.html">Emergência</a></li>
+                <li><a href="../emergencia/emergencia.html" class="ativo">Emergência</a></li>
                 <li><a href="../guias/guias.html">Guias</a></li>
                 <li><a href="../sobre/sobre.html">Sobre Nós</a></li>
                 <li><a href="../parceiros/parceiro.html">Parcerias</a></li>
             </ul>
 
-            <div class="btnentradas" id="areaUsuario">
-                <a href="../login/login.html" class="btn-login">Entrar</a>
-                <a href="../criar sua conta/criarconta.html" class="btn-criar">Criar conta</a>
+            <div class="nav-direita">
+                <div class="btnentradas" id="areaUsuario">
+                    <a href="../login/login.html" class="btn-login">Entrar</a>
+                    <a href="../criar sua conta/criarconta.html" class="btn-criar">Criar conta</a>
+                </div>
+
+                <!-- separações divas ---- toogle tema ----- -->
+                <div class="toggle-track" id="btnTema" onclick="alternarTema()" role="button" aria-label="Alternar tema">
+                    <span class="toggle-text-dark">Modo escuro</span>
+                    <div class="toggle-thumb" id="temaIcone">☀️</div>
+                    <span class="toggle-text-light">Modo claro</span>
+                </div>
             </div>
 
             <button id="btnmenu" aria-label="Menu">&#9776;</button>
@@ -40,8 +49,17 @@
             <a href="../sobre/sobre.html">Sobre Nós</a>
             <a href="../parceiros/parceiro.html">Parcerias</a>
             <hr>
-            <a href="../login/login.html">Entrar</a>
-            <a href="../criar sua conta/criarconta.html" class="btn-nav">Criar conta</a>
+            <div id="areaUsuarioMobile">
+                <a href="../login/login.html">Entrar</a>
+                <a href="../criar sua conta/criarconta.html" class="btn-nav">Criar conta</a>
+            </div>
+
+            <!-- separações divas ---- toogle tema ----- -->
+            <div class="toggle-track toggle-mobile" id="btnTemaMobile" onclick="alternarTema()" role="button">
+                <span class="toggle-text-dark">Modo escuro</span>
+                <div class="toggle-thumb" id="temaIconeMobile">☀️</div>
+                <span class="toggle-text-light">Modo claro</span>
+            </div>
         </div>
     </nav>
 
@@ -56,9 +74,7 @@
             </div>
 
 
-            <!-- ==============================
-                 ETAPA 1 — Escolha a espécie
-            ============================== -->
+            <!-- separações divas---------------- etapas ---------------------- -->
             <div id="etapa1" class="caixa">
                 <h2>Antes de começar</h2>
                 <p>Selecione a espécie do seu pet para que as perguntas sejam adequadas.</p>
@@ -82,9 +98,7 @@
             </div>
 
 
-            <!-- ==============================
-                 ETAPA 2 — Perguntas
-            ============================== -->
+            <!-- separações divas---------------- perguntas ---------------------- -->
             <div id="etapa2" style="display:none;">
 
                 <div id="progresso-wrap">
@@ -115,13 +129,11 @@
             </div>
 
 
-            <!-- ==============================
-                 ETAPA 3 — Resultado
-            ============================== -->
+            <!-- separações divas---------------- resultado ---------------------- -->
             <div id="etapa3" style="display:none;">
                 <div id="caixaResultado">
-                    <div id="iconeResultado">&#10060;</div>
-                    <h2 id="labelResultado">GRAVE — Procure ajuda IMEDIATAMENTE</h2>
+                    <div id="iconeResultado">GRAVE</div>
+                    <h2 id="labelResultado">Procure ajuda IMEDIATAMENTE</h2>
                     <p id="mensagemResultado">Os sinais indicam uma situação de risco. Leve seu pet a uma clínica imediatamente.</p>
 
                     <div id="acoesBox">
@@ -144,7 +156,7 @@
     </main>
 
 
-    <!-- RODAPÉ -->
+    <!-- separações divas---------------- rodapé ---------------------- -->
     <footer id="rodape">
         <div class="container">
             <p>© 2026 My Animal Son. Todos os direitos reservados.</p>
@@ -154,14 +166,23 @@
 
     <script>
 
-        const areaUsuario = document.getElementById('areaUsuario');
-        const usuarioLogado = JSON.parse(localStorage.getItem('usuarioLogado'));
+        const areaUsuario       = document.getElementById('areaUsuario');
+        const areaUsuarioMobile = document.getElementById('areaUsuarioMobile');
+        const usuarioLogado     = JSON.parse(localStorage.getItem('usuarioLogado') || 'null');
 
-        if (usuarioLogado && areaUsuario) {
-            areaUsuario.innerHTML = `
-                <a href="../perfil/perfil.html" class="btn-login">Perfil</a>
-                <button onclick="sair()" class="btn-criar">Sair</button>
-            `;
+        if (usuarioLogado) {
+            if (areaUsuario) {
+                areaUsuario.innerHTML = `
+                    <a href="../perfil/perfil.html" class="btn-login">Perfil</a>
+                    <button onclick="sair()" class="btn-criar">Sair</button>
+                `;
+            }
+            if (areaUsuarioMobile) {
+                areaUsuarioMobile.innerHTML = `
+                    <a href="../perfil/perfil.html">Perfil</a>
+                    <button onclick="sair()" class="btn-nav" style="font-family:inherit;font-size:0.875rem;font-weight:600;">Sair</button>
+                `;
+            }
         }
 
         function sair() {
@@ -256,10 +277,36 @@
             document.getElementById('etapa1').style.display = '';
         }
 
-        document.getElementById('btnMenu').addEventListener('click', function() {
+        /* ── separações divas menu mobile ── */
+        document.getElementById('btnmenu').addEventListener('click', function() {
             var m = document.getElementById('menuMobile');
             m.style.display = m.style.display === 'flex' ? 'none' : 'flex';
         });
+
+        /* ── separações divas toogle tema - modo escuro ── */
+        function aplicarTema(tema) {
+            var escuro = tema === 'escuro';
+            document.body.classList.toggle('dark', escuro);
+
+            var icone = escuro ? '🌙' : '☀️';
+            ['btnTema','btnTemaMobile'].forEach(function(id) {
+                var el = document.getElementById(id);
+                if (el) el.classList.toggle('on', escuro);
+            });
+            ['temaIcone','temaIconeMobile'].forEach(function(id) {
+                var el = document.getElementById(id);
+                if (el) el.textContent = icone;
+            });
+        }
+
+        function alternarTema() {
+            var atual = localStorage.getItem('tema') || 'claro';
+            var novo  = atual === 'claro' ? 'escuro' : 'claro';
+            localStorage.setItem('tema', novo);
+            aplicarTema(novo);
+        }
+
+        aplicarTema(localStorage.getItem('tema') || 'claro');
 
     </script>
 </body>

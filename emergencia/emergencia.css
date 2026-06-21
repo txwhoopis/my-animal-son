@@ -1,4 +1,3 @@
-
 @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
 
 @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&display=swap');
@@ -9,12 +8,21 @@
     box-sizing: border-box;
 }
 
+html, body {
+    height: 100%;
+}
+
 body {
     font-family: "Plus Jakarta Sans", sans-serif;
     color: #2b2b2b;
     background: #ffffff;
     min-height: 100vh;
+    transition: background 0.3s, color 0.3s;
+}
 
+body.dark {
+    background: #1a1322;
+    color: #f0e8f8;
 }
 
 .container {
@@ -28,6 +36,10 @@ html {
     min-height: 100vh;
 }
 
+a { 
+    text-decoration: none; 
+}
+
     /* ──--------------------------------- separações divas para a gnt se achar - nav -------------------------------------------------── */
 
 #navbar {       
@@ -39,7 +51,15 @@ html {
     left: 0;
     right: 0;
     width: 100%;
-    z-index: 1000;
+    z-index: 9999;
+    transition: background 0.3s;
+    border: none;
+}
+
+body.dark #navbar {
+    background-color: rgba(24, 20, 31, 0.97);
+    box-shadow: 0 1px 0 #3a2d4a;
+    
 }
 
 .nav-logo {
@@ -69,8 +89,8 @@ html {
 
 }
 
-a {
-    text-decoration: none; 
+body.dark .logo { 
+    color: #f0e8f8; 
 }
 
 #navmenu {
@@ -80,6 +100,7 @@ a {
     list-style: none;
     flex: 1;
     justify-content: center;
+    
 }
 
 #navmenu a {
@@ -92,10 +113,23 @@ a {
 
 }
 
+body.dark #navmenu a, #navmenu{ 
+    color: #af659a; 
+    list-style: none;
+}
+
 #navmenu a:hover, #navmenu a.ativo {
     color: #af659a;
     background-color: rgba(169, 116, 190, 0.12);
 }
+
+/* -------------------Agrupamento direito (botões + toggle) ----------------------------*/
+.nav-direita {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
 .btnentradas {
     display: flex;
     align-items: center;
@@ -110,6 +144,10 @@ a {
     color: #2b2b2b;
     background: none;
     transition: background 0.15s;
+}
+
+body.dark .btn-login { 
+    color: #f0e8f8; 
 }
 
 .btn-login:hover { 
@@ -131,6 +169,85 @@ a {
     background: #af659a; 
 }
 
+/* ── ----------------------------- separaçoes divas --- toogle tema ------------------── */
+.toggle-track {
+    position: relative;
+    width: 110px; 
+    height: 32px;
+    border-radius: 999px;
+    cursor: pointer;
+    flex-shrink: 0;
+    transition: background 0.35s, box-shadow 0.35s;
+    background: linear-gradient(180deg, #fef3c7 0%, #fde68a 100%);
+    box-shadow:
+        0 4px 0 #d4a843,
+        inset 0 2px 5px rgba(0,0,0,0.10),
+        inset 0 -1px 2px rgba(255,255,255,0.6);
+    user-select: none;
+}
+.toggle-track.on {
+    background: linear-gradient(180deg, #c7d2fe 0%, #a5b4fc 100%);
+    box-shadow:
+        0 4px 0 #6366f1,
+        inset 0 2px 5px rgba(0,0,0,0.12),
+        inset 0 -1px 2px rgba(255,255,255,0.25);
+}
+
+.toggle-text-light, .toggle-text-dark {
+    position: absolute;
+    top: 50%; 
+    transform: translateY(-50%);
+    font-size: 8.5px; 
+    font-weight: 700;
+    pointer-events: none;
+    transition: opacity 0.25s;
+    letter-spacing: .02em;
+    white-space: nowrap;
+}
+.toggle-text-light { 
+    right: 8px; 
+    color: #92400e; 
+    opacity: 1; 
+}
+.toggle-text-dark  { 
+    left: 8px;  
+    color: #3730a3; 
+    opacity: 0; 
+}
+.toggle-track.on .toggle-text-light {
+    opacity: 0; 
+}
+.toggle-track.on .toggle-text-dark  { 
+    opacity: 1; 
+}
+
+.toggle-thumb {
+    position: absolute;
+    top: 3px; 
+    left: 3px;
+    width: 26px; 
+    height: 26px;
+    border-radius: 50%;
+    background: linear-gradient(160deg, #fff 60%, #f3f4f6 100%);
+    box-shadow:
+        0 2px 6px rgba(0,0,0,0.18),
+        inset 0 1px 2px rgba(255,255,255,0.95),
+        inset 0 -1px 2px rgba(0,0,0,0.08);
+    display: flex; 
+    align-items: center; 
+    justify-content: center;
+    font-size: 14px;
+    transition: transform 0.38s cubic-bezier(.34,1.56,.64,1);
+}
+.toggle-track.on .toggle-thumb { 
+    transform: translateX(78px); 
+}
+
+.toggle-mobile { 
+    width: 110px; 
+    margin: 0.5rem auto 0; 
+}
+
 #btnmenu {
     display: none;
     background: none;
@@ -147,10 +264,15 @@ a {
     padding: 0.75rem 1.5rem 1rem;
     border-top: 1px solid #e8e2f0;
     background: #fff;
+    transition: background 0.3s, border-color 0.3s;
 }
 
-#menuMobile a,
-#menuMobile button {
+body.dark #menuMobile {
+    background: #231a2e;
+    border-top-color: #3a2d4a;
+}
+
+#menuMobile a, #menuMobile button {
     display: block;
     padding: 0.625rem 0.75rem;
     border-radius: 8px;
@@ -159,35 +281,48 @@ a {
     color: rgba(43, 43, 43, 0.65);
     background: none;
     border: none;
-    text-align: left;
+    text-align: center;
     cursor: pointer;
     font-family: inherit;
     width: 100%;
 }
 
+body.dark #menuMobile a, body.dark #menuMobile button {
+    color: rgba(240, 232, 248, 0.65);
+}
+
 #menuMobile a:hover { 
     background: #f3eef9; color: #2b2b2b; 
 }
+body.dark #menuMobile a:hover {
+    background: rgba(169,116,190,0.15);
+    color: #f0e8f8;
+}
+
 #menuMobile hr { 
-    border: none; border-top: 1px solid #e8e2f0; margin: 0.25rem 0; 
+    border: none; 
+    border-top: 1px solid #e8e2f0; 
+    margin: 0.25rem 0; 
 }
+body.dark #menuMobile hr { 
+    border-top-color: #3a2d4a; 
+}
+
 #menuMobile .btn-nav { 
-    color: #fff; background: #9B59B6; display: block; text-align: center; 
+    color: #fff; 
+    background: #985986; 
+    display: block; 
+    text-align: center; 
 }
 
 
-
-
-
-
-
-/*------------------------------ CONTEÚDO ------------------------------------------------------*/
+/*------------------------------ sepraçoes divaaaas conteudooo ------------------------------------------------------*/
 #conteudo {
     padding-top: 6rem;
     padding-bottom: 5rem;
 }
 
-/*-------------------------------------- Cabeçalho ----------------------------------------------*/
+/*-------------------------------------- separações divas cabecalho ----------------------------------------------*/
 
 #cabecalho {
     text-align: center;
@@ -202,10 +337,16 @@ a {
     height: 4rem;
     color: #e53e3e;
     background: #fff1f2;
-    border-color: #fecdd3;
+    border: 1px solid #fecdd3;
     border-radius: 14px;
     font-size: 1.75rem;
     margin: 0 auto 1rem;
+}
+
+body.dark .icone-aviso {
+    background: #3a1620;
+    border-color: #6b2331;
+    color: #fca5a5;
 }
 
 #cabecalho h1 {
@@ -213,6 +354,10 @@ a {
     font-size: clamp(1.75rem, 3vw, 2.25rem);
     font-weight: 700;
     margin-bottom: 0.75rem;
+}
+
+body.dark #cabecalho h1 { 
+    color: #f0e8f8; 
 }
 
 #cabecalho p { 
@@ -223,7 +368,11 @@ a {
     line-height: 1.65; 
 }
 
-/* ------------------------------ Caixas gerais ------------------------------------------*/
+body.dark #cabecalho p { 
+    color: #9d8fb0; 
+}
+
+/* ------------------------------ separacoes divaaas caixas e tas ------------------------------------------*/
 
 .caixa {
     background: #fff;
@@ -231,6 +380,12 @@ a {
     border-radius: 20px;
     padding: 2rem;
     margin-bottom: 1rem;
+    transition: background 0.3s, border-color 0.3s;
+}
+
+body.dark .caixa {
+    background: #231a2e;
+    border-color: #3a2d4a;
 }
 
 .caixa h2 {
@@ -240,6 +395,10 @@ a {
     margin-bottom: 0.5rem;
 }
 
+body.dark .caixa h2 { 
+    color: #f0e8f8; 
+}
+
 .caixa p { 
     font-size: 0.875rem; 
     color: #807f7f; 
@@ -247,7 +406,11 @@ a {
     line-height: 1.65; 
 }
 
-/* ------------------------------------- Etapa 1 -------------------------------------------------------*/
+body.dark .caixa p { 
+    color: #9d8fb0; 
+}
+
+/* ------------------------------------- speracoess divees etapa 1 -------------------------------------------------------*/
 
 
 label {
@@ -256,6 +419,10 @@ label {
     font-weight: 600;
     color: #2b2b2b;
     margin-bottom: 0.375rem;
+}
+
+body.dark label { 
+    color: #f0e8f8; 
 }
 
 select {
@@ -269,7 +436,13 @@ select {
     background: #fff;
     color: #2b2b2b;
     margin-bottom: 1.25rem;
-    transition: border-color 0.15s;
+    transition: border-color 0.15s, background 0.3s, color 0.3s;
+}
+
+body.dark select {
+    background: #1e1728;
+    color: #f0e8f8;
+    border-color: #3a2d4a;
 }
 
 select:focus { 
@@ -285,6 +458,12 @@ select:focus {
     color: #92400e;
     line-height: 1.6;
     margin-bottom: 1.25rem;
+}
+
+body.dark .aviso-importante {
+    background: #2e2410;
+    border-color: #5c4a1a;
+    color: #fcd34d;
 }
 
 #btnIniciar {
@@ -308,7 +487,7 @@ select:focus {
     opacity: 0.5; cursor: not-allowed; 
 }
 
-/* Etapa 2 — --------------------------- Progresso --------------------------------------*/
+/* separcoes ------- etapa 2 — --------------------------- pogresso --------------------------------------*/
 
 #progresso-wrap { 
     margin-bottom: 1.5rem; 
@@ -322,11 +501,19 @@ select:focus {
     margin-bottom: 0.5rem;
 }
 
+body.dark #progresso-topo { 
+    color: #9d8fb0; 
+}
+
 #barra-track {
     height: 0.5rem;
     background: #e8e2f0;
     border-radius: 999px;
     overflow: hidden;
+}
+
+body.dark #barra-track { 
+    background: #3a2d4a; 
 }
 
 #barra-fill {
@@ -337,7 +524,7 @@ select:focus {
     width: 0%;
 }
 
-/* ----------------------------------- Pergunta ------------------------------------------------- */
+/* ----------------------------------- separaçoes divaaas perguntaq - ------------------------------------------------- */
 .tag-categoria {
     display: inline-block;
     font-size: 0.75rem;
@@ -349,6 +536,11 @@ select:focus {
     margin-bottom: 1rem;
 }
 
+body.dark .tag-categoria {
+    color: #d4a8e8;
+    background: rgba(155,89,182,0.22);
+}
+
 #caixaPergunta h2 {
     font-family: 'Fraunces', serif;
     font-size: 1.25rem;
@@ -357,11 +549,19 @@ select:focus {
     margin-bottom: 0.75rem;
 }
 
+body.dark #caixaPergunta h2 { 
+    color: #f0e8f8; 
+}
+
 #ajudaPergunta {
     font-size: 0.875rem;
     color: #807f7f;
     margin-bottom: 1.5rem;
     line-height: 1.65;
+}
+
+body.dark #ajudaPergunta { 
+    color: #9d8fb0; 
 }
 
 #botoes-resposta {
@@ -400,7 +600,7 @@ select:focus {
     background: rgba(16,185,129,0.06); 
 }
 
-/* ------------------------------------ Resultado ---------------------------------------------- */
+/* ------------------------------------ separacoes resultado ---------------------------------------------- */
 #caixaResultado {
     border-radius: 20px;
     padding: 2rem;
@@ -420,10 +620,46 @@ select:focus {
     border-color: #6ee7b7; 
 }
 
+body.dark #caixaResultado.resultado-grave { 
+    background: #3a1620; 
+    border-color: #7c2d3d; 
+}
+body.dark #caixaResultado.resultado-moderado { 
+    background: #2e2410; 
+    border-color: #6b551d; 
+}
+body.dark #caixaResultado.resultado-leve { 
+    background: #0f2e22;
+    border-color: #1f5c44; 
+}
+
 #iconeResultado {
     text-align: center;
-    font-size: 3.5rem;
+    font-size: 1.5rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
     margin-bottom: 1rem;
+    font-family: 'Fraunces', serif;
+}
+
+.resultado-grave #iconeResultado { 
+    color: #991b1b; 
+}
+.resultado-moderado #iconeResultado { 
+    color: #92400e; 
+}
+.resultado-leve #iconeResultado { 
+    color: #065f46; 
+}
+
+body.dark .resultado-grave #iconeResultado { 
+    color: #fca5a5; 
+}
+body.dark .resultado-moderado #iconeResultado { 
+    color: #fcd34d; 
+}
+body.dark .resultado-leve #iconeResultado { 
+    color: #6ee7b7; 
 }
 
 #labelResultado {
@@ -444,12 +680,26 @@ select:focus {
     color: #065f46; 
 }
 
+body.dark .resultado-grave #labelResultado { 
+    color: #fca5a5; 
+}
+body.dark .resultado-moderado #labelResultado { 
+    color: #fcd34d; 
+}
+body.dark .resultado-leve  #labelResultado { 
+    color: #6ee7b7; 
+}
+
 #mensagemResultado {
     text-align: center;
     color: #807f7f;
     margin-bottom: 1.5rem;
     font-size: 0.9375rem;
     line-height: 1.65;
+}
+
+body.dark #mensagemResultado { 
+    color: #c9bbd8; 
 }
 
 #acoesBox {
@@ -459,17 +709,25 @@ select:focus {
     margin-bottom: 1.5rem;
 }
 
+body.dark #acoesBox { 
+    background: rgba(255,255,255,0.06); 
+}
+
 #acoesBox h3 { 
     font-weight: 700; 
     font-size: 0.9375rem; 
     margin-bottom: 0.75rem; 
 }
 
+body.dark #acoesBox h3 { 
+    color: #f0e8f8; 
+}
+
 #listaAcoes { 
     list-style: none; 
     display: flex; 
-    flex-direction: 
-    column; gap: 0.5rem; 
+    flex-direction: column;
+    gap: 0.5rem; 
 }
 
 #listaAcoes li {
@@ -479,6 +737,10 @@ select:focus {
     gap: 0.375rem;
     color: #2b2b2b;
     line-height: 1.5;
+}
+
+body.dark #listaAcoes li { 
+    color: #e8def2; 
 }
 
 #listaAcoes li::before {
@@ -526,9 +788,19 @@ select:focus {
     transition: background 0.15s;
 }
 
-#botoesResultado button:hover { background: rgba(0,0,0,0.04); }
+body.dark #botoesResultado button {
+    color: #f0e8f8;
+    border-color: #3a2d4a;
+}
 
-/* RODAPÉ-*/
+#botoesResultado button:hover { 
+    background: rgba(0,0,0,0.04); 
+}
+body.dark #botoesResultado button:hover { 
+    background: rgba(255,255,255,0.06); 
+}
+
+/* separações diva rodape-*/
 #rodape {
     background: transparent;
     color: rgba(255,255,255,0.5);
@@ -543,10 +815,21 @@ body > footer {
 
 
 
-/* RESPONSIVE */
+/* separações divas responsivo */
 @media (max-width: 768px) {
-    #navLinks, .nav-acoes { display: none; }
-    #btnMenu { display: block; }
+    #navmenu, .nav-direita { 
+        display: none; 
+    }
+    #btnmenu { 
+        display: block; 
+    }
+
+    #cabecalho { 
+        padding: 0 0.5rem; 
+    }
+    .caixa { 
+        padding: 1.5rem 1.25rem; 
+    }
 }
 
 @media (max-width: 480px) {
