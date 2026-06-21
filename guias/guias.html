@@ -33,7 +33,7 @@
             <a href="../criar sua conta/criarconta.html" class="btn-criar">Criar conta</a>
           </div>
 
-          <!-- ░░ TOGGLE TEMA ░░ -->
+          <!-- separaç~~oes divas para se achar toogle tema-->
           <div class="toggle-track" id="btnTema" onclick="alternarTema()" role="button" aria-label="Alternar tema">
             <span class="toggle-text-dark">Modo escuro</span>
             <div class="toggle-thumb" id="temaIcone">☀️</div>
@@ -57,7 +57,7 @@
           <a href="../criar sua conta/criarconta.html" class="btn-nav">Criar conta</a>
         </div>
 
-        <!-- ░░ TOGGLE TEMA MOBILE ░░ -->
+        <!-- separações divas para se achar toogle tema -->
         <div class="toggle-track toggle-mobile" id="btnTemaMobile" onclick="alternarTema()" role="button">
           <span class="toggle-text-dark">Modo escuro</span>
           <div class="toggle-thumb" id="temaIconeMobile">☀️</div>
@@ -372,7 +372,7 @@
         window.location.href = '../guias/guias.html';
       }
 
-      /* ════════════════ FILTRO DOS GUIAS ════════════════ */
+      /* separações divas filtro*/
       var categoriaAtiva = 'todos';
 
       function trocarCategoria(botaoClicado) {
@@ -418,13 +418,13 @@
         }
       }
 
-      /* ── MENU MOBILE ── */
+      /* ── separações divas menu mobile ── */
       document.getElementById('btnmenu').addEventListener('click', function() {
         var m = document.getElementById('menuMobile');
         m.style.display = m.style.display === 'flex' ? 'none' : 'flex';
       });
 
-      /* ── MODO ESCURO ── */
+      /* ── separações divas modo escuro toogle tema ── */
       function aplicarTema(tema) {
         var escuro = tema === 'escuro';
         document.body.classList.toggle('dark', escuro);

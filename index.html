@@ -30,6 +30,13 @@
                 <a href="./criar sua conta/criarconta.html" class="btn-criar">Criar conta</a>
             </div>
 
+            <!-- separaç~~oes divas para se achar toogle tema-->
+            <div class="toggle-track" id="btnTema" onclick="alternarTema()" role="button" aria-label="Alternar tema">
+                <span class="toggle-text-dark">Modo escuro</span>
+                <div class="toggle-thumb" id="temaIcone">☀️</div>
+                <span class="toggle-text-light">Modo claro</span>
+            </div>
+
             <button id="btnmenu" aria-label="Menu">&#9776;</button>
         </div>
 
@@ -44,6 +51,13 @@
             <div id="areaUsuarioMobile"> 
             <a href="./login/login.html">Entrar</a>
             <a href="./criar sua conta/criarconta.html" class="btn-nav">Criar conta</a>
+            </div>
+
+            <!-- separações divas para se achar toogle tema -->
+            <div class="toggle-track toggle-mobile" id="btnTemaMobile" onclick="alternarTema()" role="button">
+                <span class="toggle-text-dark">Modo escuro</span>
+                <div class="toggle-thumb" id="temaIconeMobile">☀️</div>
+                <span class="toggle-text-light">Modo claro</span>
             </div>
         </div>
     </nav>
@@ -234,11 +248,36 @@
             window.location.href = 'index.html';
         }
 
-        /* ── ----------------- separações divas para a gnt se achar --- menu mobile ----------------- ── */
-        document.getElementById('btnmenu').addEventListener('click', function() {
-            var m = document.getElementById('menuMobile');
-            m.style.display = m.style.display === 'flex' ? 'none' : 'flex';
+        /* ── separações divas menu mobile ── */
+      document.getElementById('btnmenu').addEventListener('click', function() {
+        var m = document.getElementById('menuMobile');
+        m.style.display = m.style.display === 'flex' ? 'none' : 'flex';
+      });
+
+      /* ── separações divas modo escuro toogle tema ── */
+      function aplicarTema(tema) {
+        var escuro = tema === 'escuro';
+        document.body.classList.toggle('dark', escuro);
+
+        var icone = escuro ? '🌙' : '☀️';
+        ['btnTema','btnTemaMobile'].forEach(function(id) {
+          var el = document.getElementById(id);
+          if (el) el.classList.toggle('on', escuro);
         });
+        ['temaIcone','temaIconeMobile'].forEach(function(id) {
+          var el = document.getElementById(id);
+          if (el) el.textContent = icone;
+        });
+      }
+
+      function alternarTema() {
+        var atual = localStorage.getItem('tema') || 'claro';
+        var novo  = atual === 'claro' ? 'escuro' : 'claro';
+        localStorage.setItem('tema', novo);
+        aplicarTema(novo);
+      }
+
+      aplicarTema(localStorage.getItem('tema') || 'claro');
     </script>
 </body>
 </html>
