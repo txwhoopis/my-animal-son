@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -23,12 +23,21 @@
                 <li><a href="../emergencia/emergencia.html">Emergência</a></li>
                 <li><a href="../guias/guias.html">Guias</a></li>
                 <li><a href="../sobre/sobre.html">Sobre Nós</a></li>
-                <li><a href="../parceiros/parceiro.html">Parcerias</a></li>
+                <li><a href="../parceiros/parceiro.html" class="ativo">Parcerias</a></li>
             </ul>
 
-            <div class="btnentradas" id="areaUsuario">
-                <a href="../login/login.html" class="btn-login">Entrar</a>
-                <a href="../criar sua conta/criarconta.html" class="btn-criar">Criar conta</a>
+            <div class="nav-direita">
+                <div class="btnentradas" id="areaUsuario">
+                    <a href="../login/login.html" class="btn-login">Entrar</a>
+                    <a href="../criar sua conta/criarconta.html" class="btn-criar">Criar conta</a>
+                </div>
+
+                <!-- separações  -->
+                <div class="toggle-track" id="btnTema" onclick="alternarTema()" role="button" aria-label="Alternar tema">
+                    <span class="toggle-text-dark">Modo escuro</span>
+                    <div class="toggle-thumb" id="temaIcone">☀️</div>
+                    <span class="toggle-text-light">Modo claro</span>
+                </div>
             </div>
 
             <button id="btnmenu" aria-label="Menu">&#9776;</button>
@@ -36,14 +45,23 @@
 
           <!--separações divas para a gnt se achar - parte do menu de mobile-->
         <div id="menuMobile">
-            <a href="../clinicas/clinicas.html">Mapa de Clínicas</a>
+            <a href="../mapaclinica/mapaclinica.html">Mapa de Clínicas</a>
             <a href="../emergencia/emergencia.html">Emergência</a>
             <a href="../guias/guias.html">Guias</a>
             <a href="../sobre/sobre.html">Sobre Nós</a>
-            <a href="../parcerias/parcerias.html">Parcerias</a>
+            <a href="../parceiros/parceiro.html">Parcerias</a>
             <hr>
+            <div id="areaUsuarioMobile">
             <a href="../login/login.html">Entrar</a>
-            <a href="../cadastro/cadastro.html" class="btn-nav">Criar conta</a>
+            <a href="../criar sua conta/criarconta.html" class="btn-nav">Criar conta</a>
+            </div>
+
+            <!-- separações toogle tema ------------------>
+            <div class="toggle-track toggle-mobile" id="btnTemaMobile" onclick="alternarTema()" role="button">
+                <span class="toggle-text-dark">Modo escuro</span>
+                <div class="toggle-thumb" id="temaIconeMobile">☀️</div>
+                <span class="toggle-text-light">Modo claro</span>
+            </div>
         </div>
     </nav>
 
@@ -71,9 +89,11 @@
                     <h3>Fortalecimento da marca</h3>
                     <p>Associe sua empresa a um projeto comprometido com o bem-estar animal e a responsabilidade social.</p>
                 </div>
+            </div>
         </div>
     </section>
-    <!--separações divas para a gnt se achar - formulario-->
+
+    <!--separações divas para a gnt se achar - formulario---------------------------------------------------->
     <section id="secaoform">
         <div class="container">
             <h2>Solicitar Parceria</h2>
@@ -84,11 +104,13 @@
                     <div>
                        <label for="organome">Nome da Organização</label>
                         <input type="text" id="organome" name="organizaçaonome" placeholder="Clinica Veterinaria..." required>
+                        <span class="erro" id="erroOrganome"></span>
                     </div>
                     <div class="linhadupla">
                         <div>
                             <label for="contato">Nome do Contato</label>
                             <input type="text" id="contato" name="contato" placeholder="Dr. João Silva" required>
+                            <span class="erro" id="erroContato"></span>
                         </div>
                         <div>
                             <label for="tipoorg">Tipo de Organização</label>
@@ -104,12 +126,14 @@
                     </div>
                     <div class="linhadupla">
                         <div>
-                            <label for="email org">Email</label>
-                            <input type="email" id="emailorg" name="email"placeholder="contato@clinica.com" required>
+                            <label for="emailorg">Email</label>
+                            <input type="email" id="emailorg" name="email" placeholder="contato@clinica.com" required>
+                            <span class="erro" id="erroEmailorg"></span>
                         </div>
                         <div>
                             <label for="telorg">Telefone</label>
                             <input type="tel" id="telorg" name="telefone" placeholder="(xx)xxxx-xxxx" required>
+                            <span class="erro" id="erroTelorg"></span>
                         </div>
                     </div>
                     <div class="linhadupla">
@@ -150,19 +174,16 @@
                     <p>Orientação veterinária acessível para quem mais precisa. Porque todo pet merece cuidado, independente da renda.</p>
                     <div class="redes-sociais">
                         <!--precisa colocar as fotinhas depois-->
-                        <div class="redes-sociais">
-                         <a href="#"><i class="fab fa-instagram"></i></a>
-    <a href="#"><i class="fab fa-facebook-f"></i></a>
-    <a href="#"><i class="fab fa-whatsapp"></i></a>
-    <a href="#"><i class="fab fa-x-twitter"></i></a>
-</div>
-    
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                        <a href="#"><i class="fab fa-x-twitter"></i></a>
                     </div>
                 </div>
 
                 <div class="rodape-col">
                     <h4>Plataforma</h4>
-                    <a href="../clinicas/clinicas.html">Mapa de Clínicas</a>
+                    <a href="../mapaclinica/mapaclinica.html">Mapa de Clínicas</a>
                     <a href="../emergencia/emergencia.html">Questionário de Emergência</a>
                     <a href="../guias/guias.html">Guia de Cuidados</a>
                     <a href="../guias/guias.html">Primeiros Socorros</a>
@@ -171,8 +192,8 @@
                 <div class="rodape-col">
                     <h4>Institucional</h4>
                     <a href="../sobre/sobre.html">Sobre Nós</a>
-                    <a href="../parcerias/parcerias.html">Seja um Parceiro</a>
-                    <a href="../cadastro/cadastro.html">Criar Conta</a>
+                    <a href="../parceiros/parceiro.html">Seja um Parceiro</a>
+                    <a href="../criar sua conta/criarconta.html">Criar Conta</a>
                 </div>
 
             </div>
@@ -186,21 +207,103 @@
 
     <script>
 
-        const areaUsuario = document.getElementById('areaUsuario');
-        const usuarioLogado = JSON.parse(localStorage.getItem('usuarioLogado'));
+        const areaUsuario       = document.getElementById('areaUsuario');
+        const areaUsuarioMobile = document.getElementById('areaUsuarioMobile');
+        const usuarioLogado     = JSON.parse(localStorage.getItem('usuarioLogado') || 'null');
 
-        if (usuarioLogado && areaUsuario) {
-            areaUsuario.innerHTML = `
-                <a href="../perfil/perfil.html" class="btn-login">Perfil</a>
-                <button onclick="sair()" class="btn-criar">Sair</button>
-            `;
+        if (usuarioLogado) {
+            if (areaUsuario) {
+                areaUsuario.innerHTML = `
+                    <a href="../perfil/perfil.html" class="btn-login">Perfil</a>
+                    <button onclick="sair()" class="btn-criar">Sair</button>
+                `;
+            }
+            if (areaUsuarioMobile) {
+                areaUsuarioMobile.innerHTML = `
+                    <a href="../perfil/perfil.html">Perfil</a>
+                    <button onclick="sair()" class="btn-nav" style="font-family:inherit;font-size:0.875rem;font-weight:600;">Sair</button>
+                `;
+            }
         }
 
         function sair() {
             localStorage.removeItem('usuarioLogado');
             window.location.href = '../parceiros/parceiro.html';
         }
-        
+
+        /* ── separações divas validação do form ── */
+        document.getElementById('formparceiro').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            var organome = document.getElementById('organome').value.trim();
+            var contato  = document.getElementById('contato').value.trim();
+            var email    = document.getElementById('emailorg').value.trim().toLowerCase();
+            var tel      = document.getElementById('telorg').value.trim();
+            var ok = true;
+
+            ['erroOrganome','erroContato','erroEmailorg','erroTelorg'].forEach(function(id) {
+                document.getElementById(id).textContent = '';
+            });
+
+            if (organome.length < 2) {
+                document.getElementById('erroOrganome').textContent = 'Informe o nome da organização';
+                ok = false;
+            }
+            if (contato.length < 2) {
+                document.getElementById('erroContato').textContent = 'Informe o nome do contato';
+                ok = false;
+            }
+            if (!email || !email.includes('@')) {
+                document.getElementById('erroEmailorg').textContent = 'Email inválido';
+                ok = false;
+            }
+            if (tel.replace(/\D/g, '').length < 10) {
+                document.getElementById('erroTelorg').textContent = 'Telefone inválido';
+                ok = false;
+            }
+
+            if (ok) {
+                var btn = document.getElementById('btnenviar');
+                btn.disabled = true;
+                btn.textContent = 'Enviando...';
+
+                setTimeout(function() {
+                    btn.textContent = 'Solicitação enviada!';
+                }, 800);
+            }
+        });
+
+        /* ── seprações divas menumobile ── */
+        document.getElementById('btnmenu').addEventListener('click', function() {
+            var m = document.getElementById('menuMobile');
+            m.style.display = m.style.display === 'flex' ? 'none' : 'flex';
+        });
+
+        /* ── separações divas modo escuro ── */
+        function aplicarTema(tema) {
+            var escuro = tema === 'escuro';
+            document.body.classList.toggle('dark', escuro);
+
+            var icone = escuro ? '🌙' : '☀️';
+            ['btnTema','btnTemaMobile'].forEach(function(id) {
+                var el = document.getElementById(id);
+                if (el) el.classList.toggle('on', escuro);
+            });
+            ['temaIcone','temaIconeMobile'].forEach(function(id) {
+                var el = document.getElementById(id);
+                if (el) el.textContent = icone;
+            });
+        }
+
+        function alternarTema() {
+            var atual = localStorage.getItem('tema') || 'claro';
+            var novo  = atual === 'claro' ? 'escuro' : 'claro';
+            localStorage.setItem('tema', novo);
+            aplicarTema(novo);
+        }
+
+        aplicarTema(localStorage.getItem('tema') || 'claro');
+
     </script>
 
 </body>
