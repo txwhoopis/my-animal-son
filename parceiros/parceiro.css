@@ -1,4 +1,3 @@
-
 @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
 
 @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&display=swap');
@@ -13,6 +12,12 @@ body {
     font-family: "Plus Jakarta Sans", sans-serif;
     color: #2b2b2b;
     background: #ffffff;
+    transition: background 0.3s, color 0.3s;
+}
+
+body.dark {
+    background: #1a1322;
+    color: #f0e8f8;
 }
 
 .container {
@@ -36,7 +41,13 @@ html {
     left: 0;
     right: 0;
     width: 100%;
-    z-index: 1000;
+    z-index: 9999;
+    transition: background 0.3s;
+}
+
+body.dark #navbar {
+    background-color: rgba(24, 20, 31, 0.97);
+    box-shadow: 0 1px 0 #3a2d4a;
 }
 
 .nav-logo {
@@ -66,6 +77,10 @@ html {
 
 }
 
+body.dark .logo { 
+    color: #f0e8f8; 
+}
+
 a {
     text-decoration: none; 
 }
@@ -89,10 +104,21 @@ a {
 
 }
 
+body.dark #navmenu a { 
+    color: #af659a; 
+}
+
 #navmenu a:hover, #navmenu a.ativo {
     color: #af659a;
     background-color: rgba(169, 116, 190, 0.12);
 }
+
+.nav-direita {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
 .btnentradas {
     display: flex;
     align-items: center;
@@ -107,6 +133,10 @@ a {
     color: #2b2b2b;
     background: none;
     transition: background 0.15s;
+}
+
+body.dark .btn-login { 
+    color: #f0e8f8; 
 }
 
 .btn-login:hover { 
@@ -128,6 +158,85 @@ a {
     background: #af659a; 
 }
 
+/* ── TOGGLE TEMA ── */
+.toggle-track {
+    position: relative;
+    width: 110px; 
+    height: 32px;
+    border-radius: 999px;
+    cursor: pointer;
+    flex-shrink: 0;
+    transition: background 0.35s, box-shadow 0.35s;
+    background: linear-gradient(180deg, #fef3c7 0%, #fde68a 100%);
+    box-shadow:
+        0 4px 0 #d4a843,
+        inset 0 2px 5px rgba(0,0,0,0.10),
+        inset 0 -1px 2px rgba(255,255,255,0.6);
+    user-select: none;
+}
+.toggle-track.on {
+    background: linear-gradient(180deg, #c7d2fe 0%, #a5b4fc 100%);
+    box-shadow:
+        0 4px 0 #6366f1,
+        inset 0 2px 5px rgba(0,0,0,0.12),
+        inset 0 -1px 2px rgba(255,255,255,0.25);
+}
+
+.toggle-text-light,.toggle-text-dark {
+    position: absolute;
+    top: 50%; 
+    transform: translateY(-50%);
+    font-size: 8.5px; 
+    font-weight: 700;
+    pointer-events: none;
+    transition: opacity 0.25s;
+    letter-spacing: .02em;
+    white-space: nowrap;
+}
+.toggle-text-light { 
+    right: 8px; 
+    color: #92400e; 
+    opacity: 1; 
+}
+.toggle-text-dark  { 
+    left: 8px;  
+    color: #3730a3; 
+    opacity: 0; 
+}
+.toggle-track.on .toggle-text-light { 
+    opacity: 0; 
+}
+.toggle-track.on .toggle-text-dark  { 
+    opacity: 1; 
+}
+
+.toggle-thumb {
+    position: absolute;
+    top: 3px; 
+    left: 3px;
+    width: 26px; 
+    height: 26px;
+    border-radius: 50%;
+    background: linear-gradient(160deg, #fff 60%, #f3f4f6 100%);
+    box-shadow:
+        0 2px 6px rgba(0,0,0,0.18),
+        inset 0 1px 2px rgba(255,255,255,0.95),
+        inset 0 -1px 2px rgba(0,0,0,0.08);
+    display: flex; 
+    align-items: center; 
+    justify-content: center;
+    font-size: 14px;
+    transition: transform 0.38s cubic-bezier(.34,1.56,.64,1);
+}
+.toggle-track.on .toggle-thumb { 
+    transform: translateX(78px); 
+}
+
+.toggle-mobile { 
+    width: 110px; 
+    margin: 0.5rem auto 0; 
+}
+
 #btnmenu {
     display: none;
     background: none;
@@ -144,10 +253,15 @@ a {
     padding: 0.75rem 1.5rem 1rem;
     border-top: 1px solid #e8e2f0;
     background: #fff;
+    transition: background 0.3s, border-color 0.3s;
 }
 
-#menuMobile a,
-#menuMobile button {
+body.dark #menuMobile {
+    background: #231a2e;
+    border-top-color: #3a2d4a;
+}
+
+#menuMobile a, #menuMobile button {
     display: block;
     padding: 0.625rem 0.75rem;
     border-radius: 8px;
@@ -156,27 +270,54 @@ a {
     color: rgba(43, 43, 43, 0.65);
     background: none;
     border: none;
-    text-align: left;
+    text-align: center;
     cursor: pointer;
     font-family: inherit;
     width: 100%;
 }
 
-#menuMobile a:hover { 
-    background: #f3eef9; color: #2b2b2b; 
-}
-#menuMobile hr { 
-    border: none; border-top: 1px solid #e8e2f0; margin: 0.25rem 0; 
-}
-#menuMobile .btn-nav { 
-    color: #fff; background: #9B59B6; display: block; text-align: center; 
+body.dark #menuMobile a, body.dark #menuMobile button {
+    color: rgba(240, 232, 248, 0.65);
 }
 
-/* ── separações divas para a gnt se achar - parte orxa de cima── */
+#menuMobile a:hover { 
+    background: #f3eef9; 
+    color: #2b2b2b; 
+}
+
+body.dark #menuMobile a:hover {
+    background: rgba(169,116,190,0.15);
+    color: #f0e8f8;
+}
+
+#menuMobile hr { 
+    border: none; 
+    border-top: 1px solid #e8e2f0; 
+    margin: 0.25rem 0; 
+}
+
+body.dark #menuMobile hr { 
+    border-top-color: #3a2d4a; 
+}
+
+#menuMobile .btn-nav { 
+    color: #fff; 
+    background: #985986; 
+    display: block;
+    text-align: center; 
+    border-radius: 8px;
+}
+
+/* ── separações divas para a gnt se achar - parte roxa de cima── */
 #cimaroxo {
     padding: 8rem 1.5rem 4rem;
     background: linear-gradient(135deg, #985986 20%, #af659a 100%);
     color: #fff;
+    transition: filter 0.3s;
+}
+
+body.dark #cimaroxo { 
+    filter: brightness(0.75); 
 }
 
 #cimaroxo h1{
@@ -184,7 +325,7 @@ a {
     font-weight: 700;
     margin-bottom: 1rem;
     font-size: clamp(2rem, 5vw, 3rem);
-    color: #2b2b2b;
+    color: #fff;
 }
 
 #cimaroxo p{
@@ -194,6 +335,7 @@ a {
     line-height: 1.7;
     overflow-wrap: break-word;
     text-wrap: balance;
+    color: #fff;
 }
 /* ── separações divas para a gnt se achar - beneficios── */
 
@@ -209,20 +351,32 @@ a {
     margin-bottom: 3rem;
 }
 
+body.dark #beneficios h2 { 
+    color: #f0e8f8; 
+}
+
 .beneficio-grid{
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 1.25rem;
     background: #faf5ff;
-
-
 }
+
+body.dark .beneficio-grid { 
+    background: transparent; 
+}
+
 .bene-card {
     background: #e8cadf;
     border: 1px solid #e8e2f0;
     border-radius: 20px;
     padding: 1.5rem;
+    transition: background 0.3s, border-color 0.3s;
+}
 
+body.dark .bene-card {
+    background: #2a1f35;
+    border-color: #3a2d4a;
 }
 
 .bolota {
@@ -238,12 +392,21 @@ a {
     color: #eb7831;
 }
 
+body.dark .bolota { 
+    background: rgba(235,120,49,0.18); 
+}
+
 .bene-card h3{
     font-family: "DM Serif Display", serif;
     font-size: 0.93rem;
     font-weight: 700;
     margin-bottom: 0.5rem;
 }
+
+body.dark .bene-card h3 { 
+    color: #f0e8f8; 
+}
+
 
 .bene-card p{
     font-size: 0.8125rem;
@@ -252,22 +415,35 @@ a {
 
 }
 
+body.dark .bene-card p { 
+    color: #d8cce5; 
+}
+
 
 /* ── separações divas para a gnt se achar - form── */
 
 #secaoform {
-    padding: 0.5rem 2rem;
-    background: #f9f7fc
+    padding: 0.5rem 2rem 4rem;
+    background: #f9f7fc;
+    transition: background 0.3s;
+}
+
+body.dark #secaoform { 
+    background: #1a1322; 
 }
 
 #secaoform h2 {
     font-family: "DM Serif Display", serif;
-    font-size: clamp(1.5rem, 2w, 1.875rem);
+    font-size: clamp(1.5rem, 2vw, 1.875rem);
     font-weight: 700;
     text-align: center;
     margin-bottom: 0.5rem;
     margin-top: 2.5rem;
 
+}
+
+body.dark #secaoform h2 { 
+    color: #f0e8f8; 
 }
 
 .sub {
@@ -277,26 +453,39 @@ a {
     margin-bottom: 2.5rem
 }
 
+body.dark .sub { 
+    color: #9d8fb0; 
+}
+
 .caixaform{
     background: #fff;
-    border: 1x solid #e8e2f0;
+    border: 1px solid #e8e2f0;
     border-radius: 20px;
     padding: 2rem;
+    transition: background 0.3s, border-color 0.3s;
+}
+
+body.dark .caixaform {
+    background: #231a2e;
+    border-color: #3a2d4a;
 }
 
 form{
     display: flex;
     flex-direction: column;
-    gap: 2rem;
+    gap: 1.25rem;
 }
 
 label {
     display: block;
     font-size: 0.8125rem;
-    font-weight: 600;
-    font-weight: bold;
+    font-weight: 700;
     color: #2b2b2b;
     margin-bottom: 0.375rem;
+}
+
+body.dark label { 
+    color: #f0e8f8; 
 }
 
 input{
@@ -307,6 +496,14 @@ input{
     border-radius: 10px;
     font-size: 0.875rem;
     outline: none;
+    transition: border-color 0.15s, background 0.3s, color 0.3s;
+}
+
+body.dark input {
+    background: #1e1728;
+    color: #f0e8f8;
+    border-color: #3a2d4a;
+    box-shadow: none;
 }
 
 input:focus {
@@ -328,6 +525,14 @@ select {
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
     border-radius: 10px;
     font-size: 0.875rem;
+    transition: background 0.3s, color 0.3s, border-color 0.3s;
+}
+
+body.dark select {
+    background: #1e1728;
+    color: #f0e8f8;
+    border-color: #3a2d4a;
+    box-shadow: none;
 }
 
 select:focus {
@@ -345,7 +550,15 @@ textarea {
     outline: none;
     resize: vertical;
     min-height: 6rem;
-    transition: bodercolor 0.15s;
+    transition: border-color 0.15s, background 0.3s, color 0.3s;
+    font-family: inherit;
+}
+
+body.dark textarea {
+    background: #1e1728;
+    color: #f0e8f8;
+    border-color: #3a2d4a;
+    box-shadow: none;
 }
 
 textarea:focus {
@@ -355,6 +568,17 @@ textarea:focus {
 textarea::placeholder{
     font-size: 0.8rem;
     color: #b0a8bc;
+}
+
+.erro {
+    display: block;
+    font-size: 0.75rem;
+    color: #e53e3e;
+    margin-top: 0.25rem;
+}
+
+body.dark .erro { 
+    color: #fca5a5; 
 }
 
 .linhadupla{
@@ -374,12 +598,19 @@ textarea::placeholder{
     border-radius: 10px;
     cursor: pointer;
     margin-top: 0.25rem;
+    transition: background-color 0.15s, box-shadow 0.2s, transform 0.2s;
 }
 
 #btnenviar:hover {
     background-color: #af659a;
     box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
     transform: translateY(-2px);
+}
+
+#btnenviar:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+    transform: none;
 }
 
 
@@ -486,18 +717,36 @@ textarea::placeholder{
 
 @media (max-width: 1024px) {
     .beneficio-grid {
-        grid-template-columns: repeat(1fr, 1fr);
+        grid-template-columns: 1fr;
     }
     .rodape-grid {
         grid-template-columns: 1fr;
     }
 
 }
+@media (max-width: 768px) {
+    #navmenu, .nav-direita {
+        display: none;
+    }
+    #btnmenu {
+        display: block;
+    }
+    #cimaroxo { 
+        padding: 7rem 1.25rem 3rem; 
+    }
+    .linhadupla { 
+        grid-template-columns: 1fr; 
+    }
+    .caixaform { 
+        padding: 1.5rem; 
+    }
+}
 @media (max-width: 600px) {
     .beneficio-grid {
         grid-template-columns: 1fr;
     }
-    .equipe-grid{
-        grid-template-columns: 1fr;
+    .rodape-direito {
+        flex-direction: column;
+        text-align: center;
     }
 }
