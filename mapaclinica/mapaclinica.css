@@ -106,7 +106,7 @@ body.dark .logo {
 }
 
 body.dark #navmenu a { 
-    color: rgba(240, 232, 248, 0.65); 
+    color: #af659a; 
 }
 
 #navmenu a:hover, #navmenu a.ativo {
@@ -159,7 +159,7 @@ body.dark .btn-login {
     background: #af659a; 
 }
 
-/* ── TOGGLE TEMA ── */
+/* ── separaçoes divas toogle ── */
 .toggle-track {
     position: relative;
     width: 110px; 
