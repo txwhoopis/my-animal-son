@@ -67,21 +67,21 @@
 
             if (ok){
                 const adminEmail = "admin@gmail.com";
-const adminSenha = "123";
+            const adminSenha = "pra";
 
-if (email === adminEmail && senha === adminSenha) {
+            if (email === adminEmail && senha === adminSenha) {
 
-    var btn = document.getElementById("btnEntrar");
+            var btn = document.getElementById("btnEntrar");
 
-    btn.disabled = true;
-    btn.textContent = "Entrando...";
+            btn.disabled = true;
+            btn.textContent = "Entrando...";
 
-    setTimeout(() => {
-        window.location.href =..Administração/"index.html"; // página do admin
-    }, 1000);
+            setTimeout(() => {
+            window.location.href =../Administração/"index.html"; // página do admin
+            }, 1000);
 
-    return;
-}
+            return;
+            }
 
                 let usuarios = JSON.parse(localStorage.getItem('usuarios')) || [];
 
