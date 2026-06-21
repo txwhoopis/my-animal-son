@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mapa de Clinicas</title>
+    <title>Mapa de Clínicas</title>
     <link rel="stylesheet" href="mapaclinica.css">
     <link rel="icon" href="../logotipo.png">
     
@@ -17,16 +17,25 @@
             </a>
 
             <ul id="navmenu">
-                <li><a href="../mapaclinica/mapaclinica.html">Mapa de Clínicas</a></li>
+                <li><a href="../mapaclinica/mapaclinica.html" class="ativo">Mapa de Clínicas</a></li>
                 <li><a href="../emergencia/emergencia.html">Emergência</a></li>
                 <li><a href="../guias/guias.html">Guias</a></li>
                 <li><a href="../sobre/sobre.html">Sobre Nós</a></li>
                 <li><a href="../parceiros/parceiro.html">Parcerias</a></li>
             </ul>
 
-            <div class="btnentradas" id="areaUsuario">
-                <a href="../login/login.html" class="btn-login">Entrar</a>
-                <a href="../criar sua conta/criarconta.html" class="btn-criar">Criar conta</a>
+            <div class="nav-direita">
+                <div class="btnentradas" id="areaUsuario">
+                    <a href="../login/login.html" class="btn-login">Entrar</a>
+                    <a href="../criar sua conta/criarconta.html" class="btn-criar">Criar conta</a>
+                </div>
+
+                <!-- separações divas para a gnt se achar toogle tema -->
+                <div class="toggle-track" id="btnTema" onclick="alternarTema()" role="button" aria-label="Alternar tema">
+                    <span class="toggle-text-dark">Modo escuro</span>
+                    <div class="toggle-thumb" id="temaIcone">☀️</div>
+                    <span class="toggle-text-light">Modo claro</span>
+                </div>
             </div>
 
             <button id="btnmenu" aria-label="Menu">&#9776;</button>
@@ -34,20 +43,27 @@
 
           <!--separações divas para a gnt se achar - parte do menu de mobile-->
         <div id="menuMobile">
-            <a href="../clinicas/clinicas.html">Mapa de Clínicas</a>
+            <a href="../mapaclinica/mapaclinica.html">Mapa de Clínicas</a>
             <a href="../emergencia/emergencia.html">Emergência</a>
             <a href="../guias/guias.html">Guias</a>
             <a href="../sobre/sobre.html">Sobre Nós</a>
-            <a href="../parcerias/parcerias.html">Parcerias</a>
+            <a href="../parceiros/parceiro.html">Parcerias</a>
             <hr>
             <div id="areaUsuarioMobile"> 
             <a href="../login/login.html">Entrar</a>
-            <a href="../cadastro/cadastro.html" class="btn-nav">Criar conta</a>
+            <a href="../criar sua conta/criarconta.html" class="btn-nav">Criar conta</a>
+            </div>
+
+            <!-- separações divas para a gnt se achar toogle tema -->
+            <div class="toggle-track toggle-mobile" id="btnTemaMobile" onclick="alternarTema()" role="button">
+                <span class="toggle-text-dark">Modo escuro</span>
+                <div class="toggle-thumb" id="temaIconeMobile">☀️</div>
+                <span class="toggle-text-light">Modo claro</span>
             </div>
         </div>
     </nav>
 
-<!-- separações divas para a gnt se achar ------------------ PÁGINA ------------------------------------->
+<!-- separações divas para a gnt se achar ------------------ pagina ------------------------------------->
 
     <div id="pagina">
         <div id="cabecalho">
@@ -151,14 +167,23 @@
     <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.min.js"></script>
 
     <script>
-        const areaUsuario = document.getElementById('areaUsuario');
-        const usuarioLogado = JSON.parse(localStorage.getItem('usuarioLogado'));
+        const areaUsuario       = document.getElementById('areaUsuario');
+        const areaUsuarioMobile = document.getElementById('areaUsuarioMobile');
+        const usuarioLogado     = JSON.parse(localStorage.getItem('usuarioLogado') || 'null');
 
-        if (usuarioLogado && areaUsuario) {
-            areaUsuario.innerHTML = `
-                <a href="../perfil/perfil.html" class="btn-login">Perfil</a>
-                <button onclick="sair()" class="btn-criar">Sair</button>
-            `;
+        if (usuarioLogado) {
+            if (areaUsuario) {
+                areaUsuario.innerHTML = `
+                    <a href="../perfil/perfil.html" class="btn-login">Perfil</a>
+                    <button onclick="sair()" class="btn-criar">Sair</button>
+                `;
+            }
+            if (areaUsuarioMobile) {
+                areaUsuarioMobile.innerHTML = `
+                    <a href="../perfil/perfil.html">Perfil</a>
+                    <button onclick="sair()" class="btn-nav" style="font-family:inherit;font-size:0.875rem;font-weight:600;">Sair</button>
+                `;
+            }
         }
 
         function sair() {
@@ -168,59 +193,40 @@
 
          /* ── --------------------- separações divas para a gnt se achar --- DADOOOOOS CLINICAS ----------------- ── */
     var clinicas = [
-        { id:1, nome:"Hospital Municipal Veterinário Jorge Vaitsman", tipo:"Hospital Público", bairro:"Mangueira",
-            endereco:"Av. Bartolomeu de Gusmão, 1120 - Mangueira", telefone:"1746 / (21) 3872-6080",
-            horario:"Todos os dias, 8h–20h", tipos:["popular","gratuito"], rating:4.3, emoji:"🏥",
-            descricao:"Hospital veterinário municipal de referência com consultas, especialidades, exames, cirurgias, vacinação e microchipagem. Oferece serviços gratuitos, mas eles são limitados. Castração, microchipagem, vacinação antirrábica e tratamento para esporotricose são totalmente gratuitos. Tutores inscritos no CadÚnico também têm isenção em consultas e outros procedimentos (Consultas clínicas, exames e cirurgias). Como a demanda é muito alta, o atendimento é feito por ordem de chegada com distribuição de senhas.",
+        { id:1, nome:"Hospital Municipal Veterinário Jorge Vaitsman", tipo:"Hospital Público", bairro:"Mangueira", endereco:"Av. Bartolomeu de Gusmão, 1120 - Mangueira", telefone:"1746 / (21) 3872-6080",
+            horario:"Todos os dias, 8h–20h", tipos:["popular","gratuito"], rating:4.3, emoji:"🏥", descricao:"Hospital veterinário municipal de referência com consultas, especialidades, exames, cirurgias, vacinação e microchipagem. Oferece serviços gratuitos, mas eles são limitados. Castração, microchipagem, vacinação antirrábica e tratamento para esporotricose são totalmente gratuitos. Tutores inscritos no CadÚnico também têm isenção em consultas e outros procedimentos (Consultas clínicas, exames e cirurgias). Como a demanda é muito alta, o atendimento é feito por ordem de chegada com distribuição de senhas.",
             servicos:["Consulta clínica","Cardiologia","Dermatologia","Oftalmologia","Ortopedia","Cirurgias","Ultrassonografia","Raio-X","Vacinação antirrábica","Microchipagem","Castração"], lat:-22.908287, lng:-43.231789 },
 
-        { id:2, nome:"Hospital Municipal Veterinário São Francisco de Assis", tipo:"Hospital Público", bairro:"Irajá",
-            endereco:"Rua Hannibal Porto, 450 - Irajá", telefone:"1746",
-            horario:"Todos os dias, 8h–20h", tipos:["popular","gratuito"], rating:3.9, emoji:"🏥",
-            descricao:"Hospital veterinário municipal é gratuito apenas para tutores inscritos no CadÚnico. Para quem não possui o cadastro social, é cobrada uma taxa acessível por consultas e procedimentos. Serviços como microchipagem são gratuitos para todos. É recomendado chegar cedo, pois há distribuição de senhas diárias (por volta das 6hrs da manhã), além de visitante sugerirem levar água e lanches pois a espera é longa e não há comércios próximos",
+        { id:2, nome:"Hospital Municipal Veterinário São Francisco de Assis", tipo:"Hospital Público", bairro:"Irajá", endereco:"Rua Hannibal Porto, 450 - Irajá", telefone:"1746",
+            horario:"Todos os dias, 8h–20h", tipos:["popular","gratuito"], rating:3.9, emoji:"🏥", descricao:"Hospital veterinário municipal é gratuito apenas para tutores inscritos no CadÚnico. Para quem não possui o cadastro social, é cobrada uma taxa acessível por consultas e procedimentos. Serviços como microchipagem são gratuitos para todos. É recomendado chegar cedo, pois há distribuição de senhas diárias (por volta das 6hrs da manhã), além de visitante sugerirem levar água e lanches pois a espera é longa e não há comércios próximos",
             servicos:["Consultas clínicas","Emergência","Cirurgias gerais","Ultrassonografia","Ecocardiograma","Vacinação antirrábica","Microchipagem","Ortopedia","Tratamento de esporotricose"], lat:-22.825247, lng:-43.325487 },
 
-        { id:3, nome:"Hospital Veterinário Fazenda Modelo", tipo:"Hospital Público", bairro:"Guaratiba",
-            endereco:"Estrada do Mato Alto, 5620 - Guaratiba", telefone:"1746 / 2976-2893",
-            horario:"Seg a Sex, 8h–17h; Sáb, 8h–12h", tipos:["gratuito"],
-            rating:4.5, emoji:"🏥",
-            descricao:"Centro municipal de proteção animal com atendimento veterinário, adoção, abrigo e campanhas públicas. As consultas são de baixa complexidade, curativos e avaliação médica. O local não realiza vacinação, exames laboratoriais, internações ou cirurgias ortopédicas e oftalmológicas. A castração é realizada mediante agendamento prévio (site ou pessoalmente)",
+        { id:3, nome:"Hospital Veterinário Fazenda Modelo", tipo:"Hospital Público", bairro:"Guaratiba", endereco:"Estrada do Mato Alto, 5620 - Guaratiba", telefone:"1746 / 2976-2893",
+            horario:"Seg a Sex, 8h–17h; Sáb, 8h–12h", tipos:["gratuito"], rating:4.5, emoji:"🏥", descricao:"Centro municipal de proteção animal com atendimento veterinário, adoção, abrigo e campanhas públicas. As consultas são de baixa complexidade, curativos e avaliação médica. O local não realiza vacinação, exames laboratoriais, internações ou cirurgias ortopédicas e oftalmológicas. A castração é realizada mediante agendamento prévio (site ou pessoalmente)",
             servicos:["Consulta clínica","Castração","Adoção","Abrigo animal","Atendimento veterinário"], lat:-22.992508, lng:-43.592426},
 
         { id:4, nome:"SMPDA Posto Veterinário Praça Seca", tipo:"Posto Veterinário Público", bairro:"Praça Seca",
-            endereco:"Praça Barão da Taquara, s/n - Praça Seca", telefone:"(21) 97901-4460",
-            horario:"Seg a Sex, 8h–17h", tipos:["gratuito"], rating:4.4, emoji:"🏥",
-            descricao:"Posto veterinário da Prefeitura com consultas clínicas gratuitas (de baixa complexidade) e castrações. O atendimento clínico é por ordem de chegada às 8hr, mas as castrações exigem agendamento prévio. O posto não realiza vacinações, exames laboratoriais e cirurgias ortopédicas",
+            endereco:"Praça Barão da Taquara, s/n - Praça Seca", telefone:"(21) 97901-4460", horario:"Seg a Sex, 8h–17h", tipos:["gratuito"], rating:4.4, emoji:"🏥", descricao:"Posto veterinário da Prefeitura com consultas clínicas gratuitas (de baixa complexidade) e castrações. O atendimento clínico é por ordem de chegada às 8hr, mas as castrações exigem agendamento prévio. O posto não realiza vacinações, exames laboratoriais e cirurgias ortopédicas",
             servicos:["Consulta clínica","Castração","Atendimento veterinário gratuito"], lat:-22.898450, lng:-43.352434 },
 
-        { id:5, nome:"SMPDA Posto Veterinário Bangu", tipo:"Posto Veterinário Público", bairro:"Bangu",
-            endereco:"Praça Guilherme da Silveira, s/n - Bangu", telefone:"(21) 98577-1434",
-            horario:"Seg a Sex, 8h–17h", tipos:["gratuito"], rating:4.4, emoji:"🏥",
-            descricao:"Posto veterinário municipal com atendimento clínico gratuito (de baixa complexidade) e castrações. O atendimento clínico é por ordem de chegada às 8hr, mas as castrações exigem agendamento prévio.",
+        { id:5, nome:"SMPDA Posto Veterinário Bangu", tipo:"Posto Veterinário Público", bairro:"Bangu", endereco:"Praça Guilherme da Silveira, s/n - Bangu", telefone:"(21) 98577-1434",
+            horario:"Seg a Sex, 8h–17h", tipos:["gratuito"], rating:4.4, emoji:"🏥", descricao:"Posto veterinário municipal com atendimento clínico gratuito (de baixa complexidade) e castrações. O atendimento clínico é por ordem de chegada às 8hr, mas as castrações exigem agendamento prévio.",
             servicos:["Consulta clínica","Castração","Atendimento veterinário gratuito"], lat:-22.874365, lng:-43.455957 },
 
-        { id:6, nome:"SUIPA", tipo:"ONG", bairro:"Benfica",
-            endereco:"Av. Dom Hélder Câmara, 1801 - Benfica", telefone:"(21) 3297-8777",
-            horario:"Seg a Sab, 07h-14h", tipos:["popular"], rating:4.3, emoji:"🐾",
-            descricao:"Entidade tradicional de proteção animal com abrigo, adoção e assistência veterinária com preço acessível para consultas e diversos exames veterinários. Atendimentos são realizados por ordem de chegada",
+        { id:6, nome:"SUIPA", tipo:"ONG", bairro:"Benfica", endereco:"Av. Dom Hélder Câmara, 1801 - Benfica", telefone:"(21) 3297-8777",
+            horario:"Seg a Sab, 07h-14h", tipos:["popular"], rating:4.3, emoji:"🐾", descricao:"Entidade tradicional de proteção animal com abrigo, adoção e assistência veterinária com preço acessível para consultas e diversos exames veterinários. Atendimentos são realizados por ordem de chegada",
             servicos:["Assistência veterinária","Adoção","Abrigo animal","Proteção animal"], lat:-22.883821, lng:-43.254060 },
 
-        { id:7, nome:"ONG Os Indefesos", tipo:"ONG", bairro:"Barra da Tijuca",
-            endereco:"Praça do Ó  - Rio de Janeiro", telefone:"(21) 99338-1991",
-            horario:"Domingo, 10h-14h  ", tipos:["gratuito","social"], rating:4.3, emoji:"🐾",
-            descricao:"ONG voltada ao resgate, cuidado e adoção de animais em situação de rua. Por atuar principalmente através de clínicas parceiras, os atendimentos não são abertos ao público geral e são focados em demandas internas da instituição, animais resgatados e população de baixa renda. A instituição realiza triagem conseguindo oferecer assistência a tutores em extrema vulnerabilidade. Os serviços incluem consultas, exames laboratoriais, castração e tratamentos cirúrgicos, direcionados aos animais abrigados ou resgatados pela ONG.",
+        { id:7, nome:"ONG Os Indefesos", tipo:"ONG", bairro:"Barra da Tijuca", endereco:"Praça do Ó  - Rio de Janeiro", telefone:"(21) 99338-1991",
+            horario:"Domingo, 10h-14h  ", tipos:["gratuito","social"], rating:4.3, emoji:"🐾", descricao:"ONG voltada ao resgate, cuidado e adoção de animais em situação de rua. Por atuar principalmente através de clínicas parceiras, os atendimentos não são abertos ao público geral e são focados em demandas internas da instituição, animais resgatados e população de baixa renda. A instituição realiza triagem conseguindo oferecer assistência a tutores em extrema vulnerabilidade. Os serviços incluem consultas, exames laboratoriais, castração e tratamentos cirúrgicos, direcionados aos animais abrigados ou resgatados pela ONG.",
             servicos:["Resgate animal","Adoção","Campanhas veterinárias","Proteção animal"], lat:-23.012222, lng:-43.317500 },
 
-        { id:8, nome:"ONG Paraíso dos Focinhos", tipo:"ONG", bairro:"Guaratiba",
-            endereco:"Estrada do Mato Alto (s/n, loteamento 7376641, quadra 43)", telefone:"(21) 97609-0612",
-            horario:"Consultar redes sociais", tipos:["gratuito","social"], rating:3.0, emoji:"🐾",
-            descricao:"ONG é uma organização sem fins lucrativos dedicada ao resgate, tratamento e proteção de animais abandonados ou vítimas de maus-tratos. As visitas e a entrega de doações no abrigo devem ser combinadas previamente com a instituição. Você pode conferir mais detalhes sobre os animais e formas de contato no site da ONG Paraíso dos Focinhos ou acompanhar os resgates pelo Instagram da ONG Paraíso dos Focinhos. ",
+        { id:8, nome:"ONG Paraíso dos Focinhos", tipo:"ONG", bairro:"Guaratiba", endereco:"Estrada do Mato Alto (s/n, loteamento 7376641, quadra 43)", telefone:"(21) 97609-0612",
+            horario:"Consultar redes sociais", tipos:["gratuito","social"], rating:3.0, emoji:"🐾", descricao:"ONG é uma organização sem fins lucrativos dedicada ao resgate, tratamento e proteção de animais abandonados ou vítimas de maus-tratos. As visitas e a entrega de doações no abrigo devem ser combinadas previamente com a instituição. Você pode conferir mais detalhes sobre os animais e formas de contato no site da ONG Paraíso dos Focinhos ou acompanhar os resgates pelo Instagram da ONG Paraíso dos Focinhos. ",
             servicos:["Resgate animal","Adoção","Castração","Castramóvel","Proteção animal"], lat:-22.9627, lng:-43.5981 },
 
-        { id:9, nome:"Apaixonados por Quatro Patas - Cascadura", tipo:"Clínica Popular", bairro:"Cascadura",
-            endereco:"Rua da Pedreira, 112 - Cascadura", telefone:"(21) 99016-7128",
-            horario:"Emergência 24h", tipos:["24h","popular"], rating:4.6, emoji:"⚡",
-            descricao:"Clínica veterinária popular com campanhas sociais e atendimento emergencial.",
+        { id:9, nome:"Apaixonados por Quatro Patas - Cascadura", tipo:"Clínica Popular", bairro:"Cascadura", endereco:"Rua da Pedreira, 112 - Cascadura", telefone:"(21) 99016-7128",
+            horario:"Emergência 24h", tipos:["24h","popular"], rating:4.6, emoji:"⚡", descricao:"Clínica veterinária popular com campanhas sociais e atendimento emergencial.",
             servicos:["Emergência 24h","Consulta clínica","Cirurgias","Ultrassonografia","Cardiologia","Dermatologia"], lat:-22.883327, lng:-43.325419 },
 
 
@@ -422,6 +428,31 @@
         var m = document.getElementById('menuMobile');
         m.style.display = m.style.display === 'flex' ? 'none' : 'flex';
     });
+
+    /* ── separações divas modo escuroo ── */
+    function aplicarTema(tema) {
+        var escuro = tema === 'escuro';
+        document.body.classList.toggle('dark', escuro);
+
+        var icone = escuro ? '🌙' : '☀️';
+        ['btnTema','btnTemaMobile'].forEach(function(id) {
+            var el = document.getElementById(id);
+            if (el) el.classList.toggle('on', escuro);
+        });
+        ['temaIcone','temaIconeMobile'].forEach(function(id) {
+            var el = document.getElementById(id);
+            if (el) el.textContent = icone;
+        });
+    }
+
+    function alternarTema() {
+        var atual = localStorage.getItem('tema') || 'claro';
+        var novo  = atual === 'claro' ? 'escuro' : 'claro';
+        localStorage.setItem('tema', novo);
+        aplicarTema(novo);
+    }
+
+    aplicarTema(localStorage.getItem('tema') || 'claro');
 
     /* ── --------- separações divas para a gnt se achar ---- init ----------------------- ── */
     renderLista();
