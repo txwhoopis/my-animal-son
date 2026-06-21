@@ -159,7 +159,7 @@ body.dark .btn-login {
     background: #af659a; 
 }
 
-/* ── separaçoes divas toogle ── */
+/* ── seaparaões dvas toogle tema ── */
 .toggle-track {
     position: relative;
     width: 110px; 
@@ -302,7 +302,10 @@ body.dark #menuMobile a:hover {
     margin: 0.25rem 0; 
 }
 
-body.dark #menuMobile hr { border-top-color: #3a2d4a; }
+body.dark #menuMobile hr { 
+    border-top-color: #3a2d4a; 
+    border: none;
+}
 
 #menuMobile .btn-nav { 
     color: #fff; 
