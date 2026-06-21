@@ -66,6 +66,22 @@
             }
 
             if (ok){
+                const adminEmail = "admin@gmail.com";
+const adminSenha = "123";
+
+if (email === adminEmail && senha === adminSenha) {
+
+    var btn = document.getElementById("btnEntrar");
+
+    btn.disabled = true;
+    btn.textContent = "Entrando...";
+
+    setTimeout(() => {
+        window.location.href = "admin.html"; // página do admin
+    }, 1000);
+
+    return;
+}
 
                 let usuarios = JSON.parse(localStorage.getItem('usuarios')) || [];
 
