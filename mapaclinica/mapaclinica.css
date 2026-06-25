@@ -8,6 +8,10 @@
     box-sizing: border-box;
 }
 
+html, body {
+    height: 100%;
+}
+
 body {
     font-family: "Plus Jakarta Sans", sans-serif;
     color: #2b2b2b;
@@ -24,18 +28,19 @@ body.dark {
 .container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 0.125rem;
-}
-
-a {
-    text-decoration: none;
+    padding: 0 1.5rem;
 }
 
 html {
     scroll-behavior: smooth;
+    min-height: 100vh;
 }
 
-/* ──--------------------------------- separações divas para a gnt se achar - nav -------------------------------------------------── */
+a { 
+    text-decoration: none; 
+}
+
+    /* ──--------------------------------- separações divas para a gnt se achar - nav -------------------------------------------------── */
 
 #navbar {       
     justify-content: space-between;   
@@ -48,11 +53,13 @@ html {
     width: 100%;
     z-index: 9999;
     transition: background 0.3s;
+    border: none;
 }
 
 body.dark #navbar {
     background-color: rgba(24, 20, 31, 0.97);
     box-shadow: 0 1px 0 #3a2d4a;
+    
 }
 
 .nav-logo {
@@ -93,6 +100,7 @@ body.dark .logo {
     list-style: none;
     flex: 1;
     justify-content: center;
+    
 }
 
 #navmenu a {
@@ -105,8 +113,9 @@ body.dark .logo {
 
 }
 
-body.dark #navmenu a { 
+body.dark #navmenu a, #navmenu{ 
     color: #af659a; 
+    list-style: none;
 }
 
 #navmenu a:hover, #navmenu a.ativo {
@@ -114,6 +123,7 @@ body.dark #navmenu a {
     background-color: rgba(169, 116, 190, 0.12);
 }
 
+/* -------------------Agrupamento direito (botões + toggle) ----------------------------*/
 .nav-direita {
     display: flex;
     align-items: center;
@@ -159,7 +169,7 @@ body.dark .btn-login {
     background: #af659a; 
 }
 
-/* ── seaparaões dvas toogle tema ── */
+/* ── ----------------------------- separaçoes divas --- toogle tema ------------------── */
 .toggle-track {
     position: relative;
     width: 110px; 
@@ -183,7 +193,7 @@ body.dark .btn-login {
         inset 0 -1px 2px rgba(255,255,255,0.25);
 }
 
-.toggle-text-light,.toggle-text-dark {
+.toggle-text-light, .toggle-text-dark {
     position: absolute;
     top: 50%; 
     transform: translateY(-50%);
@@ -199,12 +209,12 @@ body.dark .btn-login {
     color: #92400e; 
     opacity: 1; 
 }
-.toggle-text-dark{ 
+.toggle-text-dark  { 
     left: 8px;  
     color: #3730a3; 
     opacity: 0; 
 }
-.toggle-track.on .toggle-text-light { 
+.toggle-track.on .toggle-text-light {
     opacity: 0; 
 }
 .toggle-track.on .toggle-text-dark  { 
@@ -247,17 +257,12 @@ body.dark .btn-login {
     color: #807f7f;
 }
 
-#menuMobile a, #menuMobile button, #logonav, #btnmenu {
-    text-align: center;
-    align-items: center;
-}
-
 #menuMobile {
-    display: none; 
-    flex-direction: column; 
+    display: none;
+    flex-direction: column;
     gap: 0.25rem;
     padding: 0.75rem 1.5rem 1rem;
-    border-top: 1px solid #e8e2f0; 
+    border-top: 1px solid #e8e2f0;
     background: #fff;
     transition: background 0.3s, border-color 0.3s;
 }
@@ -268,29 +273,28 @@ body.dark #menuMobile {
 }
 
 #menuMobile a, #menuMobile button {
-    display: block; 
-    padding: 0.625rem 0.75rem; 
+    display: block;
+    padding: 0.625rem 0.75rem;
     border-radius: 8px;
-    font-size: 0.875rem; 
-    font-weight: 500; 
-    color: rgba(43,43,43,0.65);
-    background: none; 
-    border: none; 
-    text-align: left; 
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: rgba(43, 43, 43, 0.65);
+    background: none;
+    border: none;
+    text-align: center;
     cursor: pointer;
     font-family: inherit;
     width: 100%;
 }
 
 body.dark #menuMobile a, body.dark #menuMobile button {
-    color: rgba(240,232,248,0.65);
+    color: rgba(240, 232, 248, 0.65);
 }
 
 #menuMobile a:hover { 
     background: #f3eef9; 
     color: #2b2b2b; 
 }
-
 body.dark #menuMobile a:hover {
     background: rgba(169,116,190,0.15);
     color: #f0e8f8;
@@ -301,32 +305,29 @@ body.dark #menuMobile a:hover {
     border-top: 1px solid #e8e2f0; 
     margin: 0.25rem 0; 
 }
-
 body.dark #menuMobile hr { 
     border-top-color: #3a2d4a; 
-    border: none;
 }
 
 #menuMobile .btn-nav { 
     color: #fff; 
     background: #985986; 
-    text-align: center; 
     display: block; 
-    border-radius: 8px; 
+    text-align: center; 
 }
 
-/* ──--------------------------------- separações divas para a gnt se achar - pagina -------------------------------------------------── */
+/* ──--------------------------------- separações divas para a gnt se achar - pagina ----------------------------── */
 
 #pagina {
     display: flex;
     flex-direction: column;  
     flex: 1;
-    padding-top: 64px; /* altura do navbar */
+    padding-top: 64px; 
     overflow: hidden;
     height: 100%;
 }
 
-/* ──--------------------------------- separações divas para a gnt se achar - cabeçalho --------------------------------------------── */
+/* ──--------------------------------- separações divas para a gnt se achar - cabeçalho -------------------------── */
 
 #cabecalho {
     padding: 3rem 0.125rem 1.7rem;
@@ -388,7 +389,9 @@ body.dark #sidebar {
     background: #1e1728;
     border-right-color: #3a2d4a;
 }
- 
+
+
+
 .sb-sec { padding: 1rem 1.25rem 0; 
     flex-shrink: 0; 
 }
@@ -427,6 +430,9 @@ body.dark .search-box {
 
 body.dark .search-box input { 
     color: #f0e8f8; 
+}
+body.dark .search-box:focus-within { 
+    border-color: #985986; 
 }
 
 .search-box input::placeholder { 
@@ -484,21 +490,53 @@ body.dark .pill {
     border-color: #93c5fd; 
 }
 
-body.dark .pill.ag  { 
+body.dark .pill.at  { 
+    background: #3a102f; 
+    color: #fc8cdc; 
+    border-color: #985986; 
+}
+
+body.dark #t:hover { 
+    background: #3a102f; 
+    color: #fc8cdc; 
+    border-color: #985986; 
+}
+
+body.dark .pill.ag { 
     background: #0f2e22; 
     color: #6ee7b7; 
     border-color: #1f5c44; 
 }
+
+body.dark #g:hover { 
+    background: #0f2e22; 
+    color: #6ee7b7; 
+    border-color: #1f5c44; 
+}
+
 body.dark .pill.ap  { 
     background: #2e2410; 
     color: #fcd34d;
     border-color: #6b551d; 
 }
+body.dark #p:hover { 
+    background: #2e2410; 
+    color: #fcd34d;
+    border-color: #6b551d; 
+}
+
 body.dark .pill.a24 { 
     background: #14233f; 
     color: #93c5fd; 
     border-color: #2c4a7c; 
 }
+
+body.dark #vinte:hover { 
+    background: #14233f; 
+    color: #93c5fd; 
+    border-color: #2c4a7c; 
+}
+
  
 .count-label { 
     padding: 0.5rem 1.25rem 0.25rem; 
@@ -510,11 +548,12 @@ body.dark .pill.a24 {
     color: #985986; 
 }
 
+
 body.dark .count-label { 
     color: #9d8fb0; 
 }
 body.dark .count-label strong { 
-    color: #d4a8e8; 
+    color: #fc8cdc; 
 }
  
 #clinicList { 
@@ -1043,9 +1082,7 @@ body > footer {
         border-right: none; 
         border-bottom: 1px solid #e8e2f0; 
     }
-    body.dark #sidebar { 
-        border-bottom-color: #3a2d4a; 
-    }
+    body.dark #sidebar { border-bottom-color: #3a2d4a; }
     #map { 
         height: 44vh; 
         min-height: 44vh; 
