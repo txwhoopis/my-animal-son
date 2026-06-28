@@ -830,6 +830,13 @@ body > footer {
     .caixa { 
         padding: 1.5rem 1.25rem; 
     }
+    .nav-logo {
+        justify-content: space-between;
+    }
+    .logo {
+        flex: 1;
+        justify-content: center;
+    }
 }
 
 @media (max-width: 480px) {
@@ -843,6 +850,7 @@ body > footer {
         flex-direction: column; 
     }
     #btnClinica, #botoesResultado button { 
-        flex: none; width: 100%; 
+        flex: none; 
+        width: 100%; 
     }
 }
