@@ -13,6 +13,18 @@ body {
     background: linear-gradient(135deg, rgba(155, 89, 182, 0.06) 0%, transparent 50%, rgba(78, 205, 196, 0.08) 100%);
     
 }
+body.dark{
+    background:linear-gradient(135deg,rgba(39, 13, 59, 0.5) 0%,#3b2f4d 50%,rgba(7, 33, 39, 0.4) 100%);
+}
+
+body.dark p { 
+    color:#b0a8ba; 
+}
+
+body.dark h2, body.dark h1, body.dark label { 
+    color: #f0e8f8; 
+}
+
 logo{
     padding: 15px;
     margin-bottom: 3px;
@@ -86,6 +98,10 @@ button:hover {
     color: #e53e3e;
     margin-top: 0.25rem;
 }
+
+body.dark .erro { 
+    color:#fca5a5; 
+}
 .linkentrar {
     font-size: 12px;
     color: #807f7f;
@@ -96,9 +112,18 @@ button:hover {
     padding: 0.4rem;
 }
 
+body.dark .link { 
+    color:#9d8fb0; 
+}
+
 a {
     color: #985986;
 }
+
+.body.dark a { 
+    color:#985986; 
+}
+
 
 input {
     width: 100%;
@@ -112,11 +137,20 @@ input {
     border-radius: 10px;
     outline: none;
 }
+body.dark input { 
+    background:#231a2e; 
+    color:#f0e8f8; 
+    border-color:#3a2d4a; 
+}
 
 ::placeholder {
     font-size: 11px;
     margin-right: 1rem;
 }
+body.dark ::placeholder { 
+    color:#b0a8ba; 
+}
+
 
 .voltar{
     display: inline-block;
@@ -137,7 +171,16 @@ input {
     
 }
 
-/* ---------------------------RODAPÉ-------------------------------------- */
+body.dark .voltar { 
+    color:#f0e8f8; 
+}
+
+body.dark .voltar:hover { 
+    color: #fc8cdc; 
+} 
+
+
+/* ---------------------------separacao rodape-------------------------------------- */
 #rodape {
     background: transparent;
     color: rgba(255,255,255,0.5);
@@ -146,7 +189,7 @@ input {
     font-size: 0.75rem;
 }
 
-
+/* ---------------------------separacao responsivo-------------------------------------- */
 @media (max-width: 600px) {
     form {
         padding: 0.5rem;

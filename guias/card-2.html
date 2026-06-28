@@ -199,6 +199,31 @@
             localStorage.removeItem('usuarioLogado');
             window.location.href = '../guias/exemplo.html';
         }
+        /* ── separações divas modo escuro ── */
+        function aplicarTema(tema) {
+            var escuro = tema === 'escuro';
+            document.body.classList.toggle('dark', escuro);
+
+            var icone = escuro ? '🌙' : '☀️';
+            ['btnTema','btnTemaMobile'].forEach(function(id) {
+                var el = document.getElementById(id);
+                if (el) el.classList.toggle('on', escuro);
+            });
+            ['temaIcone','temaIconeMobile'].forEach(function(id) {
+                var el = document.getElementById(id);
+                if (el) el.textContent = icone;
+            });
+        }
+
+        function alternarTema() {
+            var atual = localStorage.getItem('tema') || 'claro';
+            var novo  = atual === 'claro' ? 'escuro' : 'claro';
+            localStorage.setItem('tema', novo);
+            aplicarTema(novo);
+        }
+
+        aplicarTema(localStorage.getItem('tema') || 'claro');
+
     </script>
 </body>
 </html>

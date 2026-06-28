@@ -1062,7 +1062,7 @@ body > footer {
     position: sticky; top: 100vh; 
 }
 
-/* ── responsivo ── */
+/* ── separações divas ------------ responsivo ------------------------------------── */
 @media (max-width: 768px) {
     #navmenu, .nav-direita { 
         display: none; 
@@ -1082,7 +1082,9 @@ body > footer {
         border-right: none; 
         border-bottom: 1px solid #e8e2f0; 
     }
-    body.dark #sidebar { border-bottom-color: #3a2d4a; }
+    body.dark #sidebar { 
+        border-bottom-color: #3a2d4a; 
+    }
     #map { 
         height: 44vh; 
         min-height: 44vh; 

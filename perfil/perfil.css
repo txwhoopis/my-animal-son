@@ -1,4 +1,3 @@
-
 @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
 
 @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&display=swap');
@@ -9,11 +8,21 @@
     box-sizing: border-box;
 }
 
+html, body {
+    height: 100%;
+}
+
 body {
     font-family: "Plus Jakarta Sans", sans-serif;
     color: #2b2b2b;
     background: #ffffff;
     min-height: 100vh;
+    transition: background 0.3s, color 0.3s;
+}
+
+body.dark {
+    background: #1a1322;
+    color: #f0e8f8;
 }
 
 .container {
@@ -27,24 +36,30 @@ html {
     min-height: 100vh;
 }
 
-a{
-    text-decoration: none;
-    color: inherit;
+a { 
+    text-decoration: none; 
 }
 
-/* ──--------------------------------- separações divas para a gnt se achar - nav -------------------------------------------------── */
+    /* ──--------------------------------- separações divas para a gnt se achar - nav -------------------------------------------------── */
 
-#navbar {
-      
+#navbar {       
     justify-content: space-between;   
     background-color: rgba(255, 255, 255, 0.96);
     padding: 10px 30px;
     position: fixed;
     top: 0;
-    right: 0;
     left: 0;
+    right: 0;
     width: 100%;
-    z-index: 100;
+    z-index: 9999;
+    transition: background 0.3s;
+    border: none;
+}
+
+body.dark #navbar {
+    background-color: rgba(24, 20, 31, 0.97);
+    box-shadow: 0 1px 0 #3a2d4a;
+    
 }
 
 .nav-logo {
@@ -74,8 +89,8 @@ a{
 
 }
 
-a {
-    text-decoration: none; 
+body.dark .logo { 
+    color: #f0e8f8; 
 }
 
 #navmenu {
@@ -85,6 +100,7 @@ a {
     list-style: none;
     flex: 1;
     justify-content: center;
+    
 }
 
 #navmenu a {
@@ -97,17 +113,30 @@ a {
 
 }
 
+body.dark #navmenu a, #navmenu{ 
+    color: #af659a; 
+    list-style: none;
+}
+
 #navmenu a:hover, #navmenu a.ativo {
     color: #af659a;
     background-color: rgba(169, 116, 190, 0.12);
 }
+
+/* -------------------Agrupamento direito (botões + toggle) ----------------------------*/
+.nav-direita {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
 .btnentradas {
     display: flex;
     align-items: center;
     gap: 0.5rem;
 }
 
-.btnPerfil {
+.btn-login {
     padding: 0.375rem 0.875rem;
     border-radius: 8px;
     font-size: 0.875rem;
@@ -117,24 +146,106 @@ a {
     transition: background 0.15s;
 }
 
-.btnPerfil:hover { 
+body.dark .btn-login { 
+    color: #f0e8f8; 
+}
+
+.btn-login:hover { 
     background: rgba(169, 116, 190, 0.12); 
 }
 
-#btnSair {
+.btn-criar {
     padding: 0.375rem 0.875rem;
     border-radius: 8px;
     font-size: 0.875rem;
     font-weight: 600;
     background: #985986;
     color: #ffffff;
-    transition: background 0.15s;
     border: none;
-    cursor: pointer
+    transition: background 0.15s;
 }
 
-#btnSair:hover { 
+.btn-criar:hover { 
     background: #af659a; 
+}
+
+/* ── ----------------------------- separaçoes divas --- toogle tema ------------------── */
+.toggle-track {
+    position: relative;
+    width: 110px; 
+    height: 32px;
+    border-radius: 999px;
+    cursor: pointer;
+    flex-shrink: 0;
+    transition: background 0.35s, box-shadow 0.35s;
+    background: linear-gradient(180deg, #fef3c7 0%, #fde68a 100%);
+    box-shadow:
+        0 4px 0 #d4a843,
+        inset 0 2px 5px rgba(0,0,0,0.10),
+        inset 0 -1px 2px rgba(255,255,255,0.6);
+    user-select: none;
+}
+.toggle-track.on {
+    background: linear-gradient(180deg, #c7d2fe 0%, #a5b4fc 100%);
+    box-shadow:
+        0 4px 0 #6366f1,
+        inset 0 2px 5px rgba(0,0,0,0.12),
+        inset 0 -1px 2px rgba(255,255,255,0.25);
+}
+
+.toggle-text-light, .toggle-text-dark {
+    position: absolute;
+    top: 50%; 
+    transform: translateY(-50%);
+    font-size: 8.5px; 
+    font-weight: 700;
+    pointer-events: none;
+    transition: opacity 0.25s;
+    letter-spacing: .02em;
+    white-space: nowrap;
+}
+.toggle-text-light { 
+    right: 8px; 
+    color: #92400e; 
+    opacity: 1; 
+}
+.toggle-text-dark  { 
+    left: 8px;  
+    color: #3730a3; 
+    opacity: 0; 
+}
+.toggle-track.on .toggle-text-light {
+    opacity: 0; 
+}
+.toggle-track.on .toggle-text-dark  { 
+    opacity: 1; 
+}
+
+.toggle-thumb {
+    position: absolute;
+    top: 3px; 
+    left: 3px;
+    width: 26px; 
+    height: 26px;
+    border-radius: 50%;
+    background: linear-gradient(160deg, #fff 60%, #f3f4f6 100%);
+    box-shadow:
+        0 2px 6px rgba(0,0,0,0.18),
+        inset 0 1px 2px rgba(255,255,255,0.95),
+        inset 0 -1px 2px rgba(0,0,0,0.08);
+    display: flex; 
+    align-items: center; 
+    justify-content: center;
+    font-size: 14px;
+    transition: transform 0.38s cubic-bezier(.34,1.56,.64,1);
+}
+.toggle-track.on .toggle-thumb { 
+    transform: translateX(78px); 
+}
+
+.toggle-mobile { 
+    width: 110px; 
+    margin: 0.5rem auto 0; 
 }
 
 #btnmenu {
@@ -146,13 +257,19 @@ a {
     color: #807f7f;
 }
 
-#menumobile {
+#menuMobile {
     display: none;
     flex-direction: column;
     gap: 0.25rem;
     padding: 0.75rem 1.5rem 1rem;
     border-top: 1px solid #e8e2f0;
     background: #fff;
+    transition: background 0.3s, border-color 0.3s;
+}
+
+body.dark #menuMobile {
+    background: #231a2e;
+    border-top-color: #3a2d4a;
 }
 
 #menuMobile a, #menuMobile button {
@@ -164,26 +281,43 @@ a {
     color: rgba(43, 43, 43, 0.65);
     background: none;
     border: none;
-    text-align: left;
+    text-align: center;
     cursor: pointer;
     font-family: inherit;
     width: 100%;
 }
-   
+
+body.dark #menuMobile a, body.dark #menuMobile button {
+    color: rgba(240, 232, 248, 0.65);
+}
+
 #menuMobile a:hover { 
-    background: #f3eef9; color: #2b2b2b; 
+    background: #f3eef9; 
+    color: #2b2b2b; 
 }
+body.dark #menuMobile a:hover {
+    background: rgba(169,116,190,0.15);
+    color: #f0e8f8;
+}
+
 #menuMobile hr { 
-    border: none; border-top: 1px solid #e8e2f0; margin: 0.25rem 0; 
+    border: none; 
+    border-top: 1px solid #e8e2f0; 
+    margin: 0.25rem 0; 
 }
+body.dark #menuMobile hr { 
+    border-top-color: #3a2d4a; 
+}
+
 #menuMobile .btn-nav { 
-    color: #fff; background: #9B59B6; display: block; text-align: center; 
+    color: #fff; 
+    background: #985986; 
+    display: block; 
+    text-align: center; 
 }
-  
 
 
-
-
+/* ──----------------------- separações divas para a gnt se achar - conteudoo -------------------── */
 
 #conteudo { 
     padding-top: 6rem; 
@@ -232,8 +366,21 @@ a {
     padding: 1.5rem;
     margin-bottom: 2rem;
 }
+body.dark #cabecalho-perfil h1 { 
+    color:#f0e8f8; 
+}
 
-/*---------------------------------- Dados pessoais ---------------------------------------------------*/
+body.dark #btnSairTopo { 
+    border-color:#3a2d4a; 
+    color:#f0e8f8; 
+}
+body.dark .caixa-perfil { 
+    background:#231a2e; 
+    border-color:#3a2d4a;
+}
+
+
+/* ──--------------------- separações divas para a gnt se achar - dados pessoais-------------------── */
 #usuario-header {
     display: flex;
     align-items: center;
@@ -241,6 +388,9 @@ a {
     padding-bottom: 1.25rem;
     border-bottom: 1px solid #e8e2f0;
     margin-bottom: 1.25rem;
+}
+body.dark #usuario-header { 
+    border-bottom-color:#3a2d4a; 
 }
 
 #avatar {
@@ -266,7 +416,11 @@ a {
     margin-top: 0.125rem; 
 }
 
-/* Formulário perfil */
+
+body.dark #emailUsuario { 
+    color:#9d8fb0; 
+}
+/* ──---------------- separações divas para a gnt se achar - formulario do perfil-------------------── */
 #formPerfil { 
     display: flex; 
     flex-direction: 
@@ -335,7 +489,29 @@ input::placeholder {
     opacity: 0.6; cursor: not-allowed; 
 }
 
-/* Pets */
+
+body.dark label { 
+    color:#f0e8f8; 
+}
+
+body.dark input[type="text"],body.dark input[type="tel"],body.dark input[type="email"], body.dark input[type="number"],body.dark input[type="date"] {
+    background:#1e1728; 
+    color:#f0e8f8; 
+    border-color:#3a2d4a; ;
+}
+
+body.dark input[type="text"]:focus ,body.dark input[type="tel"]:focus ,body.dark input[type="email"]:focus, body.dark input[type="number"]:focus ,body.dark input[type="date"]:focus {
+    border-color:#985986;
+}
+
+body.dark select { 
+    background:#1e1728; 
+    color:#f0e8f8; 
+    border-color:#3a2d4a; 
+}
+
+
+/* ──----------------------- separações divas para a gnt se achar - pets -------------------── */
 #pets-cabecalho {
     display: flex;
     align-items: center;
@@ -372,7 +548,7 @@ input::placeholder {
     gap: 1rem; 
 }
 
-/* separações divas para a gnt se achar ------- Pet card ------------------------------*/
+/* separações divas para a gnt se achar ------- pet card ------------------------------*/
 .pet-card {
     background: #e8cadf;
     border: 1px solid #e8e2f0;
@@ -425,7 +601,7 @@ input::placeholder {
     color: #e53e3e; 
 }
 
-/* separações divas para a gtn se achar ------- Carteira de vacinação -------------------------------*/
+/* separações divas para a gtn se achar ------- carteira de vacinação -------------------------------*/
 .carteira { 
     border-top: 1px solid #e8e2f0; 
     padding-top: 0.75rem; 
@@ -497,7 +673,7 @@ input::placeholder {
     background: rgba(155,89,182,0.04); 
 }
 
-/* separações divas para  a gnt se achar ----- Formulário de vacina inline -------------------------------*/
+/* separações divas para  a gnt se achar ----- formulário de vacina-------------------------------*/
 .form-vacina {
     display: flex;
     flex-direction: column;
@@ -557,7 +733,66 @@ input::placeholder {
     background: #f9f7fc; 
 }
 
-/* separações divas para a gnt se achar ----MODAL------------------ */
+body.dark #pets-cabecalho h2 { 
+    color:#f0e8f8; 
+}
+
+body.dark .pet-card { 
+    background:#2a1f35; 
+    border-color:#3a2d4a; 
+}
+
+body.dark .pet-nome { 
+    color:#f0e8f8; 
+}
+
+body.dark .tag { 
+    background:rgba(155,89,182,0.25); 
+    color:#d4a8e8; 
+}
+
+
+body.dark .carteira { 
+    border-top-color:#3a2d4a; 
+}
+
+body.dark .btn-vacinas { 
+    color:#d4a8e8; 
+}
+
+body.dark .vacina-linha { 
+    background:#1e1728; 
+    border-color:#3a2d4a; 
+    color:#f0e8f8; 
+}
+
+body.dark .vacina-data { 
+    color:#9d8fb0; 
+}
+
+body.dark .btn-adicionar-vacina { 
+    border-color:#3a2d4a; 
+    color:#9d8fb0; 
+}
+
+body.dark .form-vacina { 
+    background:#1e1728; 
+    border-color:#3a2d4a; 
+}
+
+body.dark .form-vacina input { 
+    background:#231a2e; 
+    color:#f0e8f8; 
+    border-color:#3a2d4a; 
+    
+}
+
+body.dark .form-vacina-botoes button[type="button"]:last-child { 
+    border-color:#3a2d4a; 
+}
+
+
+/*---------------------- separações divas para a gnt se achar ---- modal ------------------ */
 #modal-overlay {
     position: fixed;
     inset: 0;
@@ -578,12 +813,19 @@ input::placeholder {
     max-height: 90vh;
     overflow-y: auto;
 }
+body.dark #modal-box { 
+    background:#231a2e; 
+}
 
 #modal-box h2 {
     font-family: 'Fraunces', serif;
     font-size: 1.125rem;
     font-weight: 700;
     margin-bottom: 1.25rem;
+}
+
+body.dark #modal-box h2 { 
+    color:#f0e8f8; 
 }
 
 #formNovoPet { 
@@ -633,6 +875,12 @@ input::placeholder {
     background: #f9f7fc; 
 }
 
+
+body.dark #modal-botoes button[type="button"] { 
+    border-color:#3a2d4a; 
+}
+
+
 select {
     width: 100%;
     padding: 0.5rem 0.75rem;
@@ -649,7 +897,7 @@ select:focus {
     border-color: #985986; 
 }
 
-  /* ──----------------- separações divas para a gnt se achar - o rodape------------------------------── */
+  /* ──----------------- separações divas para a gnt se achar - o rodape--------------------------── */
 
 #rodape {
     background: transparent;
@@ -660,4 +908,27 @@ select:focus {
 }
 body > footer { 
     position: sticky; top: 100vh; 
+}
+
+
+
+/* separações divas ---------- responsivo ----------------------- */
+@media (max-width: 768px) {
+    #navmenu, .nav-direita { 
+        display: none; 
+    }
+    #btnmenu { 
+        display: block; 
+        
+    }
+
+    #sidebar { 
+        width: 100%; 
+        height: 46vh; 
+        border-right: none; 
+        border-bottom: 1px solid #e8e2f0; 
+    }
+    body.dark #sidebar { 
+        border-bottom-color: #3a2d4a; 
+    }
 }

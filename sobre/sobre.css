@@ -342,7 +342,7 @@ body.dark #cimaroxo {
     line-height: 1.7; 
 }
  
-/* ── separações divas ----------------------- missão ── */
+/* ── separações divas ----------------------- missão -------------------------------── */
 #missao { 
     padding: 5rem 1.5rem; 
 }
@@ -376,7 +376,7 @@ body.dark .missao-destaque {
     color: #d4a8e8 !important; 
 }
  
-/* ── separações divas ----------------------- valores ── */
+/* ── separações divas ----------------------- valores -------------------------------── */
 #valores { 
     padding: 5rem 1.5rem; 
     background: #faf5ff; 
@@ -448,7 +448,7 @@ body.dark .valor-card p {
     color: #d8cce5; 
 }
  
-/* ── separações divas ----------------------- equipe ── */
+/* ── separações divas ----------------------- equipe --------------------------------------- ── */
 #equipe { 
     padding: 5rem 1.5rem; 
 }
@@ -522,7 +522,7 @@ body.dark .cargo {
     color: #d4a8e8; 
 }
  
-/* ── separações divas ----------------------- rodapé ── */
+/* ── separações divas ----------------------- rodapé ---------------------------------------── */
 #rodape { 
     background: #2b2b2b; 
     color: rgba(255,255,255,0.8); 
@@ -611,7 +611,7 @@ body.dark .cargo {
     gap: 0.5rem;
 }
  
-/* ── separações divas respondivo── */
+/* ── separações divas ------------------------- respondivo --------------------------── */
 @media (max-width: 1024px) {
     .valores-grid { 
         grid-template-columns: repeat(2,1fr); 
