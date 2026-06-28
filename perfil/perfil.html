@@ -28,9 +28,36 @@
             <div class="btnentradas" id="areaUsuarioMobile">
                 <a href="../perfil/perfil.html" class="btnPerfil">Perfil</a>
                 <button onclick="sair()" id="btnSair">Sair</button>
+
+                <!-- separações divas para a gnt se achar toogle tema -->
+                <div class="toggle-track" id="btnTema" onclick="alternarTema()" role="button" aria-label="Alternar tema">
+                    <span class="toggle-text-dark">Modo escuro</span>
+                    <div class="toggle-thumb" id="temaIcone">☀️</div>
+                    <span class="toggle-text-light">Modo claro</span>
+                </div>
             </div>
 
             <button id="btnmenu" aria-label="Menu">&#9776;</button>
+        </div>
+        <!--separações divas para a gnt se achar - parte do menu de mobile-->
+        <div id="menuMobile">
+            <a href="../mapaclinica/mapaclinica.html">Mapa de Clínicas</a>
+            <a href="../emergencia/emergencia.html">Emergência</a>
+            <a href="../guias/guias.html">Guias</a>
+            <a href="../sobre/sobre.html">Sobre Nós</a>
+            <a href="../parceiros/parceiro.html">Parcerias</a>
+            <hr>
+            <div id="areaUsuarioMobile"> 
+            <a href="../login/login.html">Entrar</a>
+            <a href="../criar sua conta/criarconta.html" class="btn-nav">Criar conta</a>
+            </div>
+
+            <!-- separações divas para a gnt se achar toogle tema -->
+            <div class="toggle-track toggle-mobile" id="btnTemaMobile" onclick="alternarTema()" role="button">
+                <span class="toggle-text-dark">Modo escuro</span>
+                <div class="toggle-thumb" id="temaIconeMobile">☀️</div>
+                <span class="toggle-text-light">Modo claro</span>
+            </div>
         </div>
     </nav>
 
@@ -344,6 +371,29 @@
 
             salvarPets();
         }
+        function aplicarTema(tema) {
+            var escuro = tema === 'escuro';
+            document.body.classList.toggle('dark', escuro);
+
+            var icone = escuro ? '🌙' : '☀️';
+            ['btnTema','btnTemaMobile'].forEach(function(id) {
+                var el = document.getElementById(id);
+                if (el) el.classList.toggle('on', escuro);
+            });
+            ['temaIcone','temaIconeMobile'].forEach(function(id) {
+                var el = document.getElementById(id);
+                if (el) el.textContent = icone;
+            });
+        }
+
+        function alternarTema() {
+            var atual = localStorage.getItem('tema') || 'claro';
+            var novo  = atual === 'claro' ? 'escuro' : 'claro';
+            localStorage.setItem('tema', novo);
+            aplicarTema(novo);
+        }
+
+        aplicarTema(localStorage.getItem('tema') || 'claro');
 
 
     </script>
