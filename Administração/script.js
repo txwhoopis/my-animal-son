@@ -32,11 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
     
     const petsDados = [
         { nome: 'Virgínia', especie: 'Cachorro (Pitbull)', idade: '1 ano', tutor: 'Vinicius Jr' },
-        { nome: 'Hakimi', especie: 'Cachorro (Poodle)', idade: '5 anos', tutor: 'Vinicius Jr' },
-        { nome: 'Pé de pano', especie: 'Cachorro (Vira Lata)', idade: '12 anos', tutor: 'Rogério' },
-        { nome: 'Lula', especie: 'Gato (Gato Ruivo)', idade: '9 meses', tutor: 'Luisa' },
-        { nome: 'Messi', especie: 'Cachorro (Poodle)', idade: '4 anos', tutor: 'Ronaldo' },
-        { nome: 'Elias', especie: 'Gato (Gato Siamês )', idade: '5 anos', tutor: 'Vinicius Jr' },
+        { nome: 'Hakimi', especie: 'Cachorro (Poodle)', idade: '5 anos', tutor: 'Vinicius Jr' }
     ];
 
     const tabelaPets = document.getElementById('lista-pets-dinamica');
