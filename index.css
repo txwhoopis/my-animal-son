@@ -335,6 +335,14 @@ body.dark #menuMobile hr {
     margin-bottom: 1.5rem;
 }
 
+body.dark #hero{
+    background: #1e1728;
+}
+
+body.dark #hero h1 {
+    color: #f0e8f8;
+}
+
 #hero h1 {
     font-family: "DM Serif Display", serif;
     font-size: clamp(2rem, 5vw, 3.5rem);
@@ -357,7 +365,9 @@ body.dark #menuMobile hr {
     line-height: 1.7;
     margin-bottom: 2rem;
 }
-
+body.dark .subtitulo{
+    color: #9d8fb0;
+}
 .botoes-hero {
     display: flex;
     flex-wrap: wrap;
@@ -378,7 +388,9 @@ body.dark #menuMobile hr {
     transition: background 0.15s;
 }
 
-.btn-1:hover { background: #af659a; }
+.btn-1:hover { 
+    background: #af659a; 
+}
 
 .btn-emergencia {
     display: inline-flex;
@@ -404,12 +416,18 @@ body.dark #menuMobile hr {
     background: #f3eef9;
     text-align: center;
 }
+body.dark #rota{
+    background: #211829;
+}
 
 #rota > p {
     font-size: 0.8125rem;
     color: #807f7f;
     font-weight: 500;
     margin-bottom: 0.75rem;
+}
+body.dark #rota > p{
+    color: #9d8fb0;
 }
 
 .rota-lista {
@@ -429,7 +447,13 @@ body.dark #menuMobile hr {
     padding: 0.375rem 0.875rem;
     font-size: 0.8125rem;
 }
-
+body.dark .rota-item{
+    background: #231a2e;
+    border: 1px solid #3a2d4a;
+}
+body.dark .rota-item strong{
+    color: #f0e8f8
+}
 .rota-item strong{
     font-weight: 600; 
 }
@@ -468,6 +492,10 @@ body.dark #menuMobile hr {
     margin-bottom: 0.75rem;
 }
 
+body.dark #funcionalidades h2{
+    color: #f0e8f8;
+}
+
 .secaodesub {
     text-align: center;
     color: #807f7f;
@@ -475,7 +503,9 @@ body.dark #menuMobile hr {
     margin: 0 auto 3rem;
     font-size: 0.9375rem;
 }
-
+body.dark .secaosub{
+    color: #9d8fb0;
+}
 .cards-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -490,6 +520,10 @@ body.dark #menuMobile hr {
     border-radius: 20px;
     padding: 1.5rem;
     transition: box-shadow 0.2s, transform 0.2s;
+}
+body.dark .card-funcio{
+    background: #2a1f35;
+    border: 1px solid #3a2d4a;
 }
 
 .card-funcio:hover {
@@ -524,6 +558,14 @@ body.dark #menuMobile hr {
     font-weight: 700;
     margin-bottom: 0.5rem;
     color: #2b2b2b;
+}
+
+body.dark .card-funcio h3{
+    color: #f0e8f8;
+}
+
+body.dark .card-funcio p{
+    color: #c9bbd8;
 }
 
 .card-funcio p {
