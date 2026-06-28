@@ -638,12 +638,8 @@ body.dark .cargo {
         justify-content: space-between;
     }
     .logo {
-        position: absolute;
-        left: 50%;
-        transform: translateX(-50%);
-    }
-    .nav-logo {
-        position: relative;
+        flex: 1;
+        justify-content: center;
     }
     .rodape-grid {
         grid-template-columns: 1fr;

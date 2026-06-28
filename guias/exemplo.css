@@ -572,38 +572,28 @@ body.dark #menuMobile hr {
 }
 
 @media (max-width: 768px) {
-    #navmenu, .btnentradas { 
+    #navmenu, .nav-direita { 
         display: none; 
-        position: absolute;
-        top: 70px;
-        left: 0;
-        width: 100%;
-        text-align: center;
-        background: #ffffff;
     }
     #btnmenu { 
         display: block; 
     }
-
-    #navmenu.ativo{
-        display: block;
+    
+    .nav-logo {
+        justify-content: space-between;
     }
-
-    .btnentradas {
-        flex-direction: column;
-        padding: 0.125rem 0.75rem;
+    .logo {
+        flex: 1;
+        justify-content: center;
     }
-
-    #navmenu a, #navmenu a:hover, #navmenu{
-        flex-direction: column;
-        padding: 0.095rem 0.75rem;
-        gap: 0.175rem;
+    .rodape-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
     }
-
 }
 
 @media (max-width: 600px) {
-    .rodape-grid      { 
+    .rodape-grid { 
         grid-template-columns: 1fr; 
     }
     .rodape-direito    { 

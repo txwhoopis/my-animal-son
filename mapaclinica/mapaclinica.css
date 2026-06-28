@@ -1097,14 +1097,7 @@ body > footer {
         justify-content: space-between;
     }
     .logo {
-        position: absolute;
-        left: 50%;
-        transform: translateX(-50%);
-    }
-    .nav-logo {
-        position: relative;
-    }
-    .nav-logo {
-        justify-content: space-between;
+        flex: 1;
+        justify-content: center;
     }
 }
