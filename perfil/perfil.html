@@ -225,11 +225,12 @@
                     <button onclick="sair()" class="btn-nav">Sair</button>
                 `;
             }
-            function sair() {
+            
+        }
+        function sair() {
                 localStorage.removeItem('usuarioLogado');
                 window.location.href = '../login/login.html';
             }
-        }
         /* ── separações divas menu mobile ── */
         document.getElementById('btnmenu').addEventListener('click', function() {
             var m = document.getElementById('menuMobile');
