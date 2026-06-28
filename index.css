@@ -796,85 +796,97 @@ body > footer {
 
 /* ── separações divas para a gnt se achar - responsividade ── */
 @media (max-width: 1024px) {
-  .cards-grid    { 
-    grid-template-columns: 1fr 1fr; 
-  }
-  .carteira-grid { 
-    grid-template-columns: 1fr; 
-  }
-  .rodape-grid   { 
-    grid-template-columns: 1fr 1fr; 
-  }
+    .cards-grid    { 
+        grid-template-columns: 1fr 1fr; 
+    }
+    .carteira-grid { 
+        grid-template-columns: 1fr; 
+    }
+    .rodape-grid {
+        grid-template-columns: 1fr 1fr;
+    }
 }
  
 @media (max-width: 768px) {
-  #navmenu, .nav-direita { 
-    display: none; 
-  }
-  #btnmenu { 
-    display: block; 
-  }
- 
-  #hero { 
-  padding: 7rem 1.25rem 3.5rem; 
-  }
-  #hero h1 { 
-  font-size: clamp(1.6rem, 7vw, 2.5rem); 
-  }
-  .subtitulo { 
-  font-size: 0.9375rem; 
-  }
- 
-  .botoes-hero { 
-  flex-direction: column; 
-  }
-  .btn-1, .btn-emergencia {
-    width: 100%; 
-    justify-content: center; 
-  }
- 
-  .rota-lista { 
-    gap: 0.5rem; 
-  }
-  .rota-item  { 
-    font-size: 0.75rem; 
-    padding: 0.3rem 0.7rem; 
-  }
- 
-  #funcionalidades { 
-    padding: 3.5rem 1.25rem; 
-  }
-  .cards-grid { 
-    grid-template-columns: 1fr; 
-    gap: 1rem; 
-  }
- 
-  #carteira { 
-    padding: 3.5rem 1.25rem; 
-  }
-  .carteira-boxes { 
-    grid-template-columns: 1fr 1fr; 
-  }
- 
-  .rodape-grid { 
-    grid-template-columns: 1fr; 
-    gap: 1.5rem; 
-  }
-  .rodape-direito { 
+    #navmenu, .nav-direita { 
+        display: none; 
+    }
+    #btnmenu { 
+        display: block; 
+    }
+    
+    #hero { 
+    padding: 7rem 1.25rem 3.5rem; 
+    }
+    #hero h1 { 
+    font-size: clamp(1.6rem, 7vw, 2.5rem); 
+    }
+    .subtitulo { 
+    font-size: 0.9375rem; 
+    }
+    
+    .botoes-hero { 
     flex-direction: column; 
-    text-align: center; 
-  }
+    }
+    .btn-1, .btn-emergencia {
+        width: 100%; 
+        justify-content: center; 
+    }
+    
+    .rota-lista { 
+        gap: 0.5rem; 
+    }
+    .rota-item  { 
+        font-size: 0.75rem; 
+        padding: 0.3rem 0.7rem; 
+    }
+    
+    #funcionalidades { 
+        padding: 3.5rem 1.25rem; 
+    }
+    .cards-grid { 
+        grid-template-columns: 1fr; 
+        gap: 1rem; 
+    }
+    
+    #carteira { 
+        padding: 3.5rem 1.25rem; 
+    }
+    .carteira-boxes { 
+        grid-template-columns: 1fr 1fr; 
+    }
+    
+    .rodape-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .rodape-direito { 
+        flex-direction: column; 
+        text-align: center; 
+    }
+    .nav-logo {
+        justify-content: space-between;
+    }
+    .logo {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    .nav-logo {
+        position: relative;
+    }
 }
  
 @media (max-width: 480px) {
-  .carteira-boxes { 
-    grid-template-columns: 1fr 1fr; 
-  }
-  .carteira-box   { 
-    padding: 1rem; 
-    font-size: 0.8rem; 
-  }
-  #hero h1        { 
-    font-size: clamp(1.4rem, 8vw, 2rem); 
-  }
+    .carteira-boxes { 
+        grid-template-columns: 1fr 1fr; 
+    }
+    .carteira-box   { 
+        padding: 1rem; 
+        font-size: 0.8rem; 
+    }
+    #hero h1        { 
+        font-size: clamp(1.4rem, 8vw, 2rem); 
+    }
 }

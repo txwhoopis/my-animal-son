@@ -723,10 +723,12 @@ body.dark .erro {
         grid-template-columns: 1fr;
     }
     .rodape-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr 1fr;
     }
 
 }
+
+
 @media (max-width: 768px) {
     #navmenu, .nav-direita {
         display: none;
@@ -742,6 +744,21 @@ body.dark .erro {
     }
     .caixaform { 
         padding: 1.5rem; 
+    }
+    .nav-logo {
+        justify-content: space-between;
+    }
+    .logo {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    .nav-logo {
+        position: relative;
+    }
+    .rodape-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
     }
 }
 @media (max-width: 600px) {

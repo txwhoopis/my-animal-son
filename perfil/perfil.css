@@ -914,21 +914,17 @@ body > footer {
 
 /* separações divas ---------- responsivo ----------------------- */
 @media (max-width: 768px) {
-    #navmenu, .nav-direita { 
-        display: none; 
+    #navmenu, .nav-direita {
+        display: none;
     }
-    #btnmenu { 
-        display: block; 
-        
+    #btnmenu {
+        display: block;
     }
-
-    #sidebar { 
-        width: 100%; 
-        height: 46vh; 
-        border-right: none; 
-        border-bottom: 1px solid #e8e2f0; 
+    .nav-logo {
+        justify-content: space-between;
     }
-    body.dark #sidebar { 
-        border-bottom-color: #3a2d4a; 
+    .logo {
+        flex: 1;
+        justify-content: center;
     }
 }

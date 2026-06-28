@@ -1093,4 +1093,18 @@ body > footer {
         padding-left: 1.25rem;
         padding-top: 1.75rem;
     }
+    .nav-logo {
+        justify-content: space-between;
+    }
+    .logo {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    .nav-logo {
+        position: relative;
+    }
+    .nav-logo {
+        justify-content: space-between;
+    }
 }

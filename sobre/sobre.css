@@ -529,11 +529,11 @@ body.dark .cargo {
     padding: 3rem 1.5rem 2rem; 
 }
  
-.rodape-grid { 
-    display: grid; 
-    grid-template-columns: 2fr 1fr 1fr;
-    gap: 2rem; 
-    margin-bottom: 2.5rem; 
+.rodape-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr; 
+    gap: 2rem;
+    margin-bottom: 2.5rem;
 }
  
 .logo-rodape { 
@@ -619,8 +619,8 @@ body.dark .cargo {
     .equipe-grid { 
         grid-template-columns: repeat(2,1fr); 
     }
-    .rodape-grid { 
-        grid-template-columns: 1fr 1fr; 
+    .rodape-grid {
+        grid-template-columns: 1fr 1fr;
     }
 }
  
@@ -633,6 +633,21 @@ body.dark .cargo {
     }
     #cimaroxo { 
         padding: 7rem 1.25rem 3rem; 
+    }
+    .nav-logo {
+        justify-content: space-between;
+    }
+    .logo {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    .nav-logo {
+        position: relative;
+    }
+    .rodape-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
     }
 }
  
