@@ -187,7 +187,9 @@
     </footer>
 
     <script>
+        const areaUsuario       = document.getElementById('areaUsuario');
         const usuarioLogado = JSON.parse(localStorage.getItem('usuarioLogado'));
+        const areaUsuarioMobile = document.getElementById('areaUsuarioMobile');
 
         if (!usuarioLogado) {
             window.location.href = '../login/login.html';
@@ -209,7 +211,26 @@
             if (usuarioLogado.estado) {
                 document.getElementById('inputEstado').value = usuarioLogado.estado;
             }
+
+            if (areaUsuario) {
+                areaUsuario.innerHTML = `
+                    <a href="./perfil/perfil.html" class="btn-login">Perfil</a>
+                    <button onclick="sair()" class="btn-criar">Sair</button>
+                `;
+            }
+
+            if (areaUsuarioMobile) {
+                areaUsuarioMobile.innerHTML = `
+                    <a href="./perfil/perfil.html">Perfil</a>
+                    <button onclick="sair()" class="btn-nav">Sair</button>
+                `;
+            }
         }
+        /* ── separações divas menu mobile ── */
+        document.getElementById('btnmenu').addEventListener('click', function() {
+            var m = document.getElementById('menuMobile');
+            m.style.display = m.style.display === 'flex' ? 'none' : 'flex';
+        });
 
         var contadorPet = 3;
 
