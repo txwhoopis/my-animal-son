@@ -454,6 +454,12 @@ body.dark #menuMobile hr {
     cursor: pointer;
 }
 
+body.dark .alert {
+    background: #2e2410;
+    border-color: #5c4a1a;
+    color: #fcd34d;
+}
+
 .alert #button:hover{
     background: #f3780d;
     color: #fff;
