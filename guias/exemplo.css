@@ -386,7 +386,12 @@ body.dark .tag-cuidado {
     transition: transform 0.2s;
 
 }
-
+body.dark .voltar{
+    color: #f0e8f8;
+}
+body.dark .voltar:hover{
+    color: #fca5a5;
+}
 .voltar:hover{
     color: #af659a;
     transition: all 0.15s;
