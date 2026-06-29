@@ -427,6 +427,9 @@ body.dark .tag-cuidado {
     margin-bottom: 0.312rem;
 
 }
+body.dark .card-guia p { 
+    color: #d8cce5; 
+}
 
 /* ── ------------------------------separações divas para a gnt se achar - button -----------------------------── */
 
