@@ -1,4 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
 
 @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&display=swap');
 
@@ -6,6 +5,10 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
 }
 
 body {
@@ -24,18 +27,19 @@ body.dark {
 .container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 0.125rem;
-}
-
-a {
-    text-decoration: none;
+    padding: 0 1.5rem;
 }
 
 html {
     scroll-behavior: smooth;
+    min-height: 100vh;
 }
 
-/* ──--------------------------------- separações divas para a gnt se achar - nav -------------------------------------------------── */
+a { 
+    text-decoration: none; 
+}
+
+    /* ──--------------------------------- separações divas para a gnt se achar - nav -------------------------------------------------── */
 
 #navbar {       
     justify-content: space-between;   
@@ -48,11 +52,13 @@ html {
     width: 100%;
     z-index: 9999;
     transition: background 0.3s;
+    border: none;
 }
 
 body.dark #navbar {
     background-color: rgba(24, 20, 31, 0.97);
     box-shadow: 0 1px 0 #3a2d4a;
+    
 }
 
 .nav-logo {
@@ -93,6 +99,7 @@ body.dark .logo {
     list-style: none;
     flex: 1;
     justify-content: center;
+    
 }
 
 #navmenu a {
@@ -105,8 +112,9 @@ body.dark .logo {
 
 }
 
-body.dark #navmenu a { 
+body.dark #navmenu a, #navmenu{ 
     color: #af659a; 
+    list-style: none;
 }
 
 #navmenu a:hover, #navmenu a.ativo {
@@ -114,6 +122,7 @@ body.dark #navmenu a {
     background-color: rgba(169, 116, 190, 0.12);
 }
 
+/* -------------------Agrupamento direito (botões + toggle) ----------------------------*/
 .nav-direita {
     display: flex;
     align-items: center;
@@ -159,7 +168,7 @@ body.dark .btn-login {
     background: #af659a; 
 }
 
-/* ── seaparaões dvas toogle tema ── */
+/* ── ----------------------------- separaçoes divas --- toogle tema ------------------── */
 .toggle-track {
     position: relative;
     width: 110px; 
@@ -183,7 +192,7 @@ body.dark .btn-login {
         inset 0 -1px 2px rgba(255,255,255,0.25);
 }
 
-.toggle-text-light,.toggle-text-dark {
+.toggle-text-light, .toggle-text-dark {
     position: absolute;
     top: 50%; 
     transform: translateY(-50%);
@@ -199,12 +208,12 @@ body.dark .btn-login {
     color: #92400e; 
     opacity: 1; 
 }
-.toggle-text-dark{ 
+.toggle-text-dark  { 
     left: 8px;  
     color: #3730a3; 
     opacity: 0; 
 }
-.toggle-track.on .toggle-text-light { 
+.toggle-track.on .toggle-text-light {
     opacity: 0; 
 }
 .toggle-track.on .toggle-text-dark  { 
@@ -247,17 +256,12 @@ body.dark .btn-login {
     color: #807f7f;
 }
 
-#menuMobile a, #menuMobile button, #logonav, #btnmenu {
-    text-align: center;
-    align-items: center;
-}
-
 #menuMobile {
-    display: none; 
-    flex-direction: column; 
+    display: none;
+    flex-direction: column;
     gap: 0.25rem;
     padding: 0.75rem 1.5rem 1rem;
-    border-top: 1px solid #e8e2f0; 
+    border-top: 1px solid #e8e2f0;
     background: #fff;
     transition: background 0.3s, border-color 0.3s;
 }
@@ -268,29 +272,28 @@ body.dark #menuMobile {
 }
 
 #menuMobile a, #menuMobile button {
-    display: block; 
-    padding: 0.625rem 0.75rem; 
+    display: block;
+    padding: 0.625rem 0.75rem;
     border-radius: 8px;
-    font-size: 0.875rem; 
-    font-weight: 500; 
-    color: rgba(43,43,43,0.65);
-    background: none; 
-    border: none; 
-    text-align: left; 
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: rgba(43, 43, 43, 0.65);
+    background: none;
+    border: none;
+    text-align: center;
     cursor: pointer;
     font-family: inherit;
     width: 100%;
 }
 
 body.dark #menuMobile a, body.dark #menuMobile button {
-    color: rgba(240,232,248,0.65);
+    color: rgba(240, 232, 248, 0.65);
 }
 
 #menuMobile a:hover { 
     background: #f3eef9; 
     color: #2b2b2b; 
 }
-
 body.dark #menuMobile a:hover {
     background: rgba(169,116,190,0.15);
     color: #f0e8f8;
@@ -301,21 +304,17 @@ body.dark #menuMobile a:hover {
     border-top: 1px solid #e8e2f0; 
     margin: 0.25rem 0; 
 }
-
 body.dark #menuMobile hr { 
     border-top-color: #3a2d4a; 
-    border: none;
 }
 
 #menuMobile .btn-nav { 
     color: #fff; 
     background: #985986; 
-    text-align: center; 
     display: block; 
-    border-radius: 8px; 
+    text-align: center; 
 }
 
-  
 /* ── separações divas para a gnt se achar - parte de cima ----------------── */
 
 
