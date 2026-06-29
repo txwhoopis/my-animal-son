@@ -359,6 +359,16 @@ body.dark #menuMobile hr {
     color: #1d4ed8;
     border-color: #bfdbfe;
 }
+body.dark .tag-socorro { 
+    background: #3a1620; 
+    color: #fca5a5; 
+    border-color: #7c2d3d; 
+}
+body.dark .tag-cuidado { 
+    background: #14233f; 
+    color: #93c5fd; 
+    border-color: #2c4a7c; 
+}
 
 .tempo{
     font-size: 0.75rem;
