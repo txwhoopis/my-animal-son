@@ -132,19 +132,6 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
     <!--------------------------separações divas para a gnt se achar - o rodape--------------------->
 
     <footer id="rodape">
@@ -191,19 +178,28 @@
     </footer>
 
     <script>
-        const areaUsuario = document.getElementById('areaUsuario');
-        const usuarioLogado = JSON.parse(localStorage.getItem('usuarioLogado'));
+        const areaUsuario       = document.getElementById('areaUsuario');
+        const areaUsuarioMobile = document.getElementById('areaUsuarioMobile');
+        const usuarioLogado     = JSON.parse(localStorage.getItem('usuarioLogado') || 'null');
 
-        if (usuarioLogado && areaUsuario) {
-            areaUsuario.innerHTML = `
-                <a href="../perfil/perfil.html" class="btn-login">Perfil</a>
-                <button onclick="sair()" class="btn-criar">Sair</button>
-            `;
+        if (usuarioLogado) {
+            if (areaUsuario) {
+                areaUsuario.innerHTML = `
+                    <a href="../perfil/perfil.html" class="btn-login">Perfil</a>
+                    <button onclick="sair()" class="btn-criar">Sair</button>
+                `;
+            }
+            if (areaUsuarioMobile) {
+                areaUsuarioMobile.innerHTML = `
+                    <a href="../perfil/perfil.html">Perfil</a>
+                    <button onclick="sair()" class="btn-nav" style="font-family:inherit;font-size:0.875rem;font-weight:600;">Sair</button>
+                `;
+            }
         }
 
         function sair() {
             localStorage.removeItem('usuarioLogado');
-            window.location.href = '../guias/exemplo.html';
+            window.location.href = '../mapaclinica/mapaclinica.html';
         }
         /* ── separações divas modo escuro ── */
         function aplicarTema(tema) {
