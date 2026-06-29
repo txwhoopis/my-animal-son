@@ -408,6 +408,12 @@ body.dark .voltar:hover{
     margin-right: 0.312rem;
 }
 
+body.dark #tags{
+    color: #f0e8f8;
+    background: #231a2e;
+    border-color: #3a2d4a;
+}
+
 /* ── -------------------------------------separações divas para a gnt se achar - card -----------------------------── */
 
 
