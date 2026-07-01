@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
     
     const petsDados = [
         { nome: 'Virgínia', especie: 'Cachorro (Pitbull)', idade: '1 ano', tutor: 'Vinicius Jr' },
-        { nome: 'Hakimi', especie: 'Cachorro (Poodle)', idade: '5 anos', tutor: 'Vinicius Jr' }
+        { nome: 'Elias', especie: 'Gato (Siamês)', idade: '5 anos', tutor: 'Samuel' }
     ];
 
     const tabelaPets = document.getElementById('lista-pets-dinamica');
